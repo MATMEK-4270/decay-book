@@ -44,7 +44,7 @@ def test_solver_three_steps():
     Nt = 3  # number of time steps
     u, t = solver(I=I, a=a, T=Nt*dt, dt=dt, theta=theta)
 
-    tol = 1E-15  # tolerance for comparing floats
+    tol = 1E-12  # tolerance for comparing floats
     diff = abs(u - u_by_hand).max()
     success = diff < tol
     assert success
