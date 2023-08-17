@@ -1,7 +1,45 @@
 
 !split
-======= Analysis of finite difference equations =======
-label{decay:analysis}
+===== Recap - Finite differencing of exponential decay =====
+
+!bnotice The ordinary differential equation
+$$u'(t) = -au(t),\quad u(0)=I, \quad y \in (0, T],$$
+where $a>0$ is a constant.
+!enotice
+
+Solve the ODE by finite difference methods:
+
+  * Discretize in time:
+
+    $$0 = t_0 < t_1 < t_2 < \cdots < t_{N_t-1} < t_{N_t} = T$$
+
+  * Satisfy the ODE at $N_t$ discrete time steps:
+
+    $$u'(t_n) = -a u(t_n), \quad n\in [1, \ldots, N_t]$$
+
+!split
+===== Finite difference algorithms =====
+
+  * Discretization by a generic $\theta$-rule
+
+$$\frac{u^n-u^{n-1}}{\triangle t} = -(1-\theta)au^{n-1} - \theta u^n$$
+
+!bt
+\[\begin{cases}
+  \theta = 0 \quad &\text{Forward Euler} \\
+  \theta = 1 \quad &\text{Backward Euler} \\
+  \theta = 1/2 \quad &\text{Crank-Nicolson}
+  \end{cases}\]
+!et
+
+Note $u^n = u(t_n)$
+
+  * Solve recursively: Set $u^0 = I$ and then
+
+  $$u^n = \frac{1-(1-\theta)a \triangle t}{1+\theta a \triangle t}u^{n-1} \quad \text{for } n>0$$
+
+!split
+===== Analysis of finite difference equations =====
 
 Model:
 !bt
@@ -27,17 +65,17 @@ How good is this method? Is it safe to use it?
 
 $I=1$, $a=2$, $\theta =1,0.5, 0$, $\Delta t=1.25, 0.75, 0.5, 0.1$.
 
-FIGURE: [fig-analysis/BE4c, width=600 frac=1.1]
+FIGURE: [fig-analysis/BE4c, width=600 frac=1.0]
 
 !split
 ===== Discouraging numerical solutions; Crank-Nicolson =====
 
-FIGURE: [fig-analysis/CN4c, width=600 frac=1.1]
+FIGURE: [fig-analysis/CN4c, width=600 frac=1.0]
 
 !split
 ===== Discouraging numerical solutions; Forward Euler =====
 
-FIGURE: [fig-analysis/FE4c, width=600 frac=1.1]
+FIGURE: [fig-analysis/FE4c, width=600 frac=1.0]
 
 !split
 ===== Summary of observations =====
@@ -83,10 +121,9 @@ The solution is oscillatory if
 !bt
 \[ u^{n} > u^{n-1}\]
 !et
-("Safe choices" of $\Delta t$ lie
-under the following curve as a function of $a$.)
+("Safe choices" of $\Delta t$ lie under following curve as a function of $a$.)
 
-FIGURE: [fig-analysis/osc_region_FE.png, width=400]
+FIGURE: [fig-analysis/osc_region.png, frac=1]
 
 Seems that $a\Delta t < 1$ for FE and 2 for CN.
 
@@ -173,7 +210,7 @@ $-1$ is the critical limit (because $A\le 1$ is always satisfied):
 !split
 ===== Explanation of problems with Forward Euler =====
 
-FIGURE: [fig-analysis/FE4c, width=500 frac=1.1]
+FIGURE: [fig-analysis/FE4c, width=500 frac=0.7]
 
  * $a\Delta t= 2\cdot 1.25=2.5$ and $A=-1.5$: oscillations and growth
  * $a\Delta t = 2\cdot 0.75=1.5$ and $A=-0.5$: oscillations and decay
@@ -184,7 +221,7 @@ FIGURE: [fig-analysis/FE4c, width=500 frac=1.1]
 !split
 ===== Explanation of problems with Crank-Nicolson =====
 
-FIGURE: [fig-analysis/CN4c, width=500 frac=1.1]
+FIGURE: [fig-analysis/CN4c, width=500 frac=0.7]
 
  * $\Delta t=1.25$ and $A=-0.25$: oscillatory solution
  * Never any growing solution
@@ -347,23 +384,19 @@ convergence rate is of order $r$.
 ===== Integrated errors =====
 
 Focus: norm of the numerical error
-
 !bt
 \[ ||e^n||_{\ell^2} = \sqrt{\Delta t\sum_{n=0}^{N_t} ({\uex}(t_n) - u^n)^2}\]
 !et
 
 Forward and Backward Euler:
-
 !bt
 \[ ||e^n||_{\ell^2} = \frac{1}{4}\sqrt{\frac{T^3}{3}} a^2\Delta t\]
 !et
 
 Crank-Nicolson:
-
 !bt
 \[ ||e^n||_{\ell^2} = \frac{1}{12}\sqrt{\frac{T^3}{3}}a^3\Delta t^2\]
 !et
-
 
 !bsummary Summary of errors
 Analysis of both the pointwise and the time-integrated true errors:

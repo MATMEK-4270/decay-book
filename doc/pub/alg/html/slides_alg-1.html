@@ -1,36 +1,105 @@
 <!--
-Automatically generated HTML file from DocOnce source
-(https://github.com/hplgit/doconce/)
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format html slides_alg.do.txt --html_style=bloodish --html_output=slides_alg-1 -DWITH_TOC
 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Study guide: Algorithms and implementations for exponential decay models">
 <meta name="keywords" content="decay (problem),exponential decay,mesh,grid,mesh function,finite differences,difference equation,discrete equation,algebraic equation,finite difference scheme,Forward Euler scheme,backward scheme, 1-step,Backward Euler scheme,Crank-Nicolson scheme,weighted average,theta-rule,$\theta$-rule,finite difference operator notation,operator notation, finite differences">
-
 <title>Study guide: Algorithms and implementations for exponential decay models</title>
-
-
 <style type="text/css">
 /* bloodish style */
-
 body {
   font-family: Helvetica, Verdana, Arial, Sans-serif;
   color: #404040;
   background: #ffffff;
 }
-h1 { font-size: 1.8em;  color: #8A0808; }
-h2 { font-size: 1.6em;  color: #8A0808; }
-h3 { font-size: 1.4em;  color: #8A0808; }
-h4 { color: #8A0808; }
+h1 { font-size: 1.8em; color: #8A0808; }
+h2 { font-size: 1.6em; color: #8A0808; }
+h3 { font-size: 1.4em; color: #8A0808; }
+h4 { font-size: 1.2em; color: #8A0808; }
 a { color: #8A0808; text-decoration:none; }
 tt { font-family: "Courier New", Courier; }
-/* pre style removed because it will interfer with pygments */
 p { text-indent: 0px; }
 hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
 p.caption { width: 80%; font-style: normal; text-align: left; }
-hr.figure { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+hr.figure { border: 0; width: 80%; border-bottom: 1px solid #aaa; }div.highlight {
+    border: 1px solid #cfcfcf;
+    border-radius: 2px;
+    line-height: 1.21429em;
+}
+div.cell {
+    width: 100%;
+    padding: 5px 5px 5px 0;
+    margin: 0;
+    outline: none;
+}
+div.input {
+    page-break-inside: avoid;
+    box-orient: horizontal;
+    box-align: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+div.inner_cell {
+    box-orient: vertical;
+    box-align: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    box-flex: 1;
+    flex: 1;
+}
+div.input_area {
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+    background: #f7f7f7;
+    line-height: 1.21429em;
+}
+div.input_area > div.highlight {
+    margin: .4em;
+    border: none;
+    padding: 0;
+    background-color: transparent;
+}
+div.output_wrapper {
+    position: relative;
+    box-orient: vertical;
+    box-align: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+.output {
+    box-orient: vertical;
+    box-align: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+div.output_area {
+    padding: 0;
+    page-break-inside: avoid;
+    box-orient: horizontal;
+    box-align: stretch;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+div.output_subarea {
+    padding: .4em .4em 0 .4em;
+    box-flex: 1;
+    flex: 1;
+}
+div.output_text {
+    text-align: left;
+    color: #000;
+    line-height: 1.21429em;
+}
 .alert-text-small   { font-size: 80%;  }
 .alert-text-large   { font-size: 130%; }
 .alert-text-normal  { font-size: 90%;  }
@@ -53,65 +122,69 @@ hr.figure { border: 0; width: 80%; border-bottom: 1px solid #aaa}
 .alert-block > p, .alert-block > ul {margin-bottom:1em}
 .alert li {margin-top: 1em}
 .alert-block p+p {margin-top:5px}
-.alert-notice { background-image: url(https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_images/small_gray_notice.png); }
-.alert-summary  { background-image:url(https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_images/small_gray_summary.png); }
-.alert-warning { background-image: url(https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_images/small_gray_warning.png); }
-.alert-question {background-image:url(https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_images/small_gray_question.png); }
-
+.alert-notice { background-image: url(https://raw.githubusercontent.com/doconce/doconce/bundled/html_images/small_gray_notice.png); }
+.alert-summary  { background-image:url(https://raw.githubusercontent.com/doconce/doconce/main/bundled/html_images/small_gray_summary.png); }
+.alert-warning { background-image: url(https://raw.githubusercontent.com/doconce/doconce/main/bundled/html_images/small_gray_warning.png); }
+.alert-question {background-image:url(https://raw.githubusercontent.com/doconce/doconce/main/bundled/html_images/small_gray_question.png); }
 div { text-align: justify; text-justify: inter-word; }
+.tab {
+  padding-left: 1.5em;
+}
+div.toc p,a {
+  line-height: 1.3;
+  margin-top: 1.1;
+  margin-bottom: 1.1;
+}
 </style>
-
-
 </head>
 
 <!-- tocinfo
 {'highest level': 1,
- 'sections': [('INF5620 in a nutshell', 1, '5620:about', '5620:about'),
+ 'sections': [('Table of contents',
+               1,
+               'table_of_contents',
+               'table_of_contents'),
+              ('MAT-MEK4270 in a nutshell', 1, '42700:about', '42700:about'),
               ('The new official six-point course description',
                2,
                None,
-               '___sec1'),
+               'the-new-official-six-point-course-description'),
               ('More specific contents: finite difference methods',
                2,
                None,
-               '___sec2'),
-              ('More specific contents: finite element methods',
+               'more-specific-contents-finite-difference-methods'),
+              ('More specific contents: Variational methods (Galerkin)',
                2,
                None,
-               '___sec3'),
-              ('More specific contents: nonlinear and advanced problems',
-               2,
-               None,
-               '___sec4'),
+               'more-specific-contents-variational-methods-galerkin'),
               ('Philosophy: simplify, understand, generalize',
                2,
                None,
-               '___sec5'),
-              ('Required software', 2, None, '___sec6'),
-              ('Assumed/ideal background', 2, None, '___sec7'),
-              ('Start-up example for the course', 2, None, '___sec8'),
-              ('Start-up example', 2, None, '___sec9'),
+               'philosophy-simplify-understand-generalize'),
+              ('Required software', 2, None, 'required-software'),
+              ('Assumed/ideal background', 2, None, 'assumed-ideal-background'),
+              ('Start-up example for the course',
+               2,
+               None,
+               'start-up-example-for-the-course'),
+              ('Start-up example', 2, None, 'start-up-example'),
               ('What to learn in the start-up example; standard topics',
                2,
                None,
-               '___sec10'),
+               'what-to-learn-in-the-start-up-example-standard-topics'),
               ('What to learn in the start-up example; programming topics',
                2,
                None,
-               '___sec11'),
+               'what-to-learn-in-the-start-up-example-programming-topics'),
               ('What to learn in the start-up example; mathematical analysis',
                2,
                None,
-               '___sec12'),
-              ('What to learn in the start-up example; generalizations',
-               2,
-               None,
-               '___sec13'),
+               'what-to-learn-in-the-start-up-example-mathematical-analysis'),
               ('Finite difference methods', 1, 'decay:fdm', 'decay:fdm'),
               ('Topics in the first intro to the finite difference method',
                2,
                None,
-               '___sec15'),
+               'topics-in-the-first-intro-to-the-finite-difference-method'),
               ('A basic model for exponential decay',
                2,
                'decay:model',
@@ -119,54 +192,69 @@ div { text-align: justify; text-justify: inter-word; }
               ('The ODE model has a range of applications in many fields',
                2,
                None,
-               '___sec17'),
+               'the-ode-model-has-a-range-of-applications-in-many-fields'),
               ('The ODE problem has a continuous and discrete version',
                2,
                None,
-               '___sec18'),
-              ('Continuous problem', 3, None, '___sec19'),
-              ('Discrete problem', 3, None, '___sec20'),
+               'the-ode-problem-has-a-continuous-and-discrete-version'),
+              ('Continuous problem', 3, None, 'continuous-problem'),
+              ('Discrete problem', 3, None, 'discrete-problem'),
               ('The steps in the finite difference method',
                2,
                'decay:schemes:keysteps',
                'decay:schemes:keysteps'),
-              ('Step 1: Discretizing the domain', 2, None, '___sec22'),
-              ('Step 1: Discretizing the domain', 2, None, '___sec23'),
+              ('Step 1: Discretizing the domain',
+               2,
+               None,
+               'step-1-discretizing-the-domain'),
+              ('Step 1: Discretizing the domain',
+               2,
+               None,
+               'step-1-discretizing-the-domain'),
               ('What about a mesh function between the mesh points?',
                2,
                None,
-               '___sec24'),
+               'what-about-a-mesh-function-between-the-mesh-points'),
               ('Step 2: Fulfilling the equation at discrete time points',
                2,
                None,
-               '___sec25'),
+               'step-2-fulfilling-the-equation-at-discrete-time-points'),
               ('Step 3: Replacing derivatives by finite differences',
                2,
                None,
-               '___sec26'),
+               'step-3-replacing-derivatives-by-finite-differences'),
               ('Step 3: Replacing derivatives by finite differences',
                2,
                None,
-               '___sec27'),
+               'step-3-replacing-derivatives-by-finite-differences'),
               ('Step 4: Formulating a recursive algorithm',
                2,
                None,
-               '___sec28'),
-              ('Let us apply the scheme by hand', 2, None, '___sec29'),
-              ('A backward difference', 2, None, '___sec30'),
-              ('The Backward Euler scheme', 2, None, '___sec31'),
-              ('A centered difference', 2, None, '___sec32'),
+               'step-4-formulating-a-recursive-algorithm'),
+              ('Let us apply the scheme by hand',
+               2,
+               None,
+               'let-us-apply-the-scheme-by-hand'),
+              ('A backward difference', 2, None, 'a-backward-difference'),
+              ('The Backward Euler scheme',
+               2,
+               None,
+               'the-backward-euler-scheme'),
+              ('A centered difference', 2, None, 'a-centered-difference'),
               ('The Crank-Nicolson scheme; ideas',
                2,
                'decay:schemes:CN',
                'decay:schemes:CN'),
-              ('The Crank-Nicolson scheme; result', 2, None, '___sec34'),
+              ('The Crank-Nicolson scheme; result',
+               2,
+               None,
+               'the-crank-nicolson-scheme-result'),
               ('The unifying $\\theta$-rule',
                2,
                'decay:schemes:theta',
                'decay:schemes:theta'),
-              ('Constant time step', 2, None, '___sec36'),
-              ('Test the understanding!', 2, None, '___sec37'),
+              ('Constant time step', 2, None, 'constant-time-step'),
+              ('Test the understanding!', 2, None, 'test-the-understanding'),
               ('Compact operator notation for finite differences',
                2,
                'decay:fd:op',
@@ -174,37 +262,45 @@ div { text-align: justify; text-justify: inter-word; }
               ('Specific notation for difference operators',
                2,
                None,
-               '___sec39'),
+               'specific-notation-for-difference-operators'),
               ('The Backward Euler scheme with operator notation',
                2,
                None,
-               '___sec40'),
+               'the-backward-euler-scheme-with-operator-notation'),
               ('The Forward Euler scheme with operator notation',
                2,
                None,
-               '___sec41'),
+               'the-forward-euler-scheme-with-operator-notation'),
               ('The Crank-Nicolson scheme with operator notation',
                2,
                None,
-               '___sec42'),
+               'the-crank-nicolson-scheme-with-operator-notation'),
               ('Implementation', 1, 'decay:impl1', 'decay:impl1'),
-              ('Requirements of a program', 2, None, '___sec44'),
-              ('Tools to learn', 2, None, '___sec45'),
-              ('Why implement in Python?', 2, None, '___sec46'),
-              ('Why implement in Python?', 2, None, '___sec47'),
+              ('Requirements of a program',
+               2,
+               None,
+               'requirements-of-a-program'),
+              ('Tools to learn', 2, None, 'tools-to-learn'),
+              ('Why implement in Python?', 2, None, 'why-implement-in-python'),
+              ('Why implement in Python?', 2, None, 'why-implement-in-python'),
               ('Algorithm', 2, 'decay:py1', 'decay:py1'),
-              ('Translation to Python function', 2, None, '___sec49'),
-              ('Integer division', 2, None, '___sec50'),
-              ('Doc strings', 2, None, '___sec51'),
-              ('Formatting of numbers', 2, None, '___sec52'),
-              ('Running the program', 2, None, '___sec53'),
-              ('Plotting the solution', 2, None, '___sec54'),
-              ('Comparing with the exact solution', 2, None, '___sec55'),
+              ('Translation to Python function',
+               2,
+               None,
+               'translation-to-python-function'),
+              ('Integer division', 2, None, 'integer-division'),
+              ('Doc strings', 2, None, 'doc-strings'),
+              ('Formatting of numbers', 2, None, 'formatting-of-numbers'),
+              ('Running the program', 2, None, 'running-the-program'),
+              ('Plotting the solution', 2, None, 'plotting-the-solution'),
+              ('Comparing with the exact solution',
+               2,
+               None,
+               'comparing-with-the-exact-solution'),
               ('Add legends, axes labels, title, and wrap in a function',
                2,
                None,
-               '___sec56'),
-              ('Plotting with SciTools', 2, None, '___sec57'),
+               'add-legends-axes-labels-title-and-wrap-in-a-function'),
               ('Verifying the implementation',
                1,
                'decay:verification',
@@ -212,16 +308,15 @@ div { text-align: justify; text-justify: inter-word; }
               ('Simplest method: run a few algorithmic steps by hand',
                2,
                None,
-               '___sec59'),
+               'simplest-method-run-a-few-algorithmic-steps-by-hand'),
               ('Comparison with an exact discrete solution',
                2,
                None,
-               '___sec60'),
+               'comparison-with-an-exact-discrete-solution'),
               ('Making a test based on an exact discrete solution',
                2,
                None,
-               '___sec61'),
-              ('Test the understanding!', 2, None, '___sec62'),
+               'making-a-test-based-on-an-exact-discrete-solution'),
               ('Computing the numerical error as a mesh function',
                2,
                'decay:computing:error',
@@ -230,16 +325,16 @@ div { text-align: justify; text-justify: inter-word; }
                2,
                'decay:computing:error:norm',
                'decay:computing:error:norm'),
-              ('Norms of mesh functions', 2, None, '___sec65'),
+              ('Norms of mesh functions', 2, None, 'norms-of-mesh-functions'),
+              ('Norms - notice!', 2, None, 'norms-notice'),
               ('Implementation of the norm of the error',
                2,
                None,
-               '___sec66'),
-              ('Comment on array vs scalar computation', 2, None, '___sec67'),
-              ('Memory-saving implementation', 2, None, '___sec68'),
-              ('Memory-saving solver function', 2, None, '___sec69'),
-              ('Reading computed data from file', 2, None, '___sec70'),
-              ('Usage of memory-saving code', 2, None, '___sec71')]}
+               'implementation-of-the-norm-of-the-error'),
+              ('Comment on array vs scalar computation',
+               2,
+               None,
+               'comment-on-array-vs-scalar-computation')]}
 end of tocinfo -->
 
 <body>
@@ -254,8 +349,8 @@ MathJax.Hub.Config({
   }
 });
 </script>
-<script type="text/javascript"
- src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 <!-- newcommands_keep.tex -->
@@ -266,224 +361,173 @@ $$
 
 
 
-
-    
 <!-- ------------------- main content ---------------------- -->
+<center>
+<h1>Study guide: Algorithms and implementations for exponential decay models</h1>
+</center>  <!-- document title -->
 
-
-
-<center><h1>Study guide: Algorithms and implementations for exponential decay models</h1></center>  <!-- document title -->
-
-<p>
 <!-- author(s): Hans Petter Langtangen -->
-
 <center>
 <b>Hans Petter Langtangen</b> [1, 2]
 </center>
-
-<p>
 <!-- institution(s) -->
-
-<center>[1] <b>Center for Biomedical Computing, Simula Research Laboratory</b></center>
-<center>[2] <b>Department of Informatics, University of Oslo</b></center>
+<center>
+[1] <b>Center for Biomedical Computing, Simula Research Laboratory</b>
+</center>
+<center>
+[2] <b>Department of Informatics, University of Oslo</b>
+</center>
 <br>
-<p>
-<center><h4>Sep 13, 2016</h4></center> <!-- date -->
+<center>
+<h4>Aug 16, 2023</h4>
+</center> <!-- date -->
 <br>
-<p>
+
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 1</p>
+</center>
+<p><img src="mik.png" ></p>
+</center>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h1 id="table_of_contents">Table of contents</h1>
 
-<h2>Table of contents</h2>
+<div class='toc'>
+<p><a href="#42700:about"> MAT-MEK4270 in a nutshell </a></p>
+<p><span class="tab"> <a href="#the-new-official-six-point-course-description"> The new official six-point course description </a></p>
+<p><span class="tab"> <a href="#more-specific-contents-finite-difference-methods"> More specific contents: finite difference methods </a></p>
+<p><span class="tab"> <a href="#more-specific-contents-variational-methods-galerkin"> More specific contents: Variational methods (Galerkin) </a></p>
+<p><span class="tab"> <a href="#philosophy-simplify-understand-generalize"> Philosophy: simplify, understand, generalize </a></p>
+<p><span class="tab"> <a href="#required-software"> Required software </a></p>
+<p><span class="tab"> <a href="#assumed-ideal-background"> Assumed/ideal background </a></p>
+<p><span class="tab"> <a href="#start-up-example-for-the-course"> Start-up example for the course </a></p>
+<p><span class="tab"> <a href="#start-up-example"> Start-up example </a></p>
+<p><span class="tab"> <a href="#what-to-learn-in-the-start-up-example-standard-topics"> What to learn in the start-up example; standard topics </a></p>
+<p><span class="tab"> <a href="#what-to-learn-in-the-start-up-example-programming-topics"> What to learn in the start-up example; programming topics </a></p>
+<p><span class="tab"> <a href="#what-to-learn-in-the-start-up-example-mathematical-analysis"> What to learn in the start-up example; mathematical analysis </a></p>
+<p><a href="#decay:fdm"> Finite difference methods  </a></p>
+<p><span class="tab"> <a href="#topics-in-the-first-intro-to-the-finite-difference-method"> Topics in the first intro to the finite difference method </a></p>
+<p><span class="tab"> <a href="#decay:model"> A basic model for exponential decay </a></p>
+<p><span class="tab"> <a href="#the-ode-model-has-a-range-of-applications-in-many-fields"> The ODE model has a range of applications in many fields </a></p>
+<p><span class="tab"> <a href="#the-ode-problem-has-a-continuous-and-discrete-version"> The ODE problem has a continuous and discrete version </a></p>
+<p><span class="tab"> <a href="#decay:schemes:keysteps"> The steps in the finite difference method </a></p>
+<p><span class="tab"> <a href="#step-1-discretizing-the-domain"> Step 1: Discretizing the domain </a></p>
+<p><span class="tab"> <a href="#step-1-discretizing-the-domain"> Step 1: Discretizing the domain </a></p>
+<p><span class="tab"> <a href="#what-about-a-mesh-function-between-the-mesh-points"> What about a mesh function between the mesh points? </a></p>
+<p><span class="tab"> <a href="#step-2-fulfilling-the-equation-at-discrete-time-points"> Step 2: Fulfilling the equation at discrete time points </a></p>
+<p><span class="tab"> <a href="#step-3-replacing-derivatives-by-finite-differences"> Step 3: Replacing derivatives by finite differences </a></p>
+<p><span class="tab"> <a href="#step-3-replacing-derivatives-by-finite-differences"> Step 3: Replacing derivatives by finite differences </a></p>
+<p><span class="tab"> <a href="#step-4-formulating-a-recursive-algorithm"> Step 4: Formulating a recursive algorithm </a></p>
+<p><span class="tab"> <a href="#let-us-apply-the-scheme-by-hand"> Let us apply the scheme by hand </a></p>
+<p><span class="tab"> <a href="#a-backward-difference"> A backward difference </a></p>
+<p><span class="tab"> <a href="#the-backward-euler-scheme"> The Backward Euler scheme </a></p>
+<p><span class="tab"> <a href="#a-centered-difference"> A centered difference </a></p>
+<p><span class="tab"> <a href="#decay:schemes:CN"> The Crank-Nicolson scheme; ideas </a></p>
+<p><span class="tab"> <a href="#the-crank-nicolson-scheme-result"> The Crank-Nicolson scheme; result </a></p>
+<p><span class="tab"> <a href="#decay:schemes:theta"> The unifying \( \theta \)-rule </a></p>
+<p><span class="tab"> <a href="#constant-time-step"> Constant time step </a></p>
+<p><span class="tab"> <a href="#test-the-understanding"> Test the understanding! </a></p>
+<p><span class="tab"> <a href="#decay:fd:op"> Compact operator notation for finite differences </a></p>
+<p><span class="tab"> <a href="#specific-notation-for-difference-operators"> Specific notation for difference operators </a></p>
+<p><span class="tab"> <a href="#the-backward-euler-scheme-with-operator-notation"> The Backward Euler scheme with operator notation </a></p>
+<p><span class="tab"> <a href="#the-forward-euler-scheme-with-operator-notation"> The Forward Euler scheme with operator notation </a></p>
+<p><span class="tab"> <a href="#the-crank-nicolson-scheme-with-operator-notation"> The Crank-Nicolson scheme with operator notation </a></p>
+<p><a href="#decay:impl1"> Implementation </a></p>
+<p><span class="tab"> <a href="#requirements-of-a-program"> Requirements of a program </a></p>
+<p><span class="tab"> <a href="#tools-to-learn"> Tools to learn </a></p>
+<p><span class="tab"> <a href="#why-implement-in-python"> Why implement in Python? </a></p>
+<p><span class="tab"> <a href="#why-implement-in-python"> Why implement in Python? </a></p>
+<p><span class="tab"> <a href="#decay:py1"> Algorithm </a></p>
+<p><span class="tab"> <a href="#translation-to-python-function"> Translation to Python function </a></p>
+<p><span class="tab"> <a href="#integer-division"> Integer division </a></p>
+<p><span class="tab"> <a href="#doc-strings"> Doc strings </a></p>
+<p><span class="tab"> <a href="#formatting-of-numbers"> Formatting of numbers </a></p>
+<p><span class="tab"> <a href="#running-the-program"> Running the program </a></p>
+<p><span class="tab"> <a href="#plotting-the-solution"> Plotting the solution </a></p>
+<p><span class="tab"> <a href="#comparing-with-the-exact-solution"> Comparing with the exact solution </a></p>
+<p><span class="tab"> <a href="#add-legends-axes-labels-title-and-wrap-in-a-function"> Add legends, axes labels, title, and wrap in a function </a></p>
+<p><a href="#decay:verification"> Verifying the implementation </a></p>
+<p><span class="tab"> <a href="#simplest-method-run-a-few-algorithmic-steps-by-hand"> Simplest method: run a few algorithmic steps by hand </a></p>
+<p><span class="tab"> <a href="#comparison-with-an-exact-discrete-solution"> Comparison with an exact discrete solution </a></p>
+<p><span class="tab"> <a href="#making-a-test-based-on-an-exact-discrete-solution"> Making a test based on an exact discrete solution </a></p>
+<p><span class="tab"> <a href="#decay:computing:error"> Computing the numerical error as a mesh function </a></p>
+<p><span class="tab"> <a href="#decay:computing:error:norm"> Computing the norm of the error </a></p>
+<p><span class="tab"> <a href="#norms-of-mesh-functions"> Norms of mesh functions </a></p>
+<p><span class="tab"> <a href="#norms-notice"> Norms - notice! </a></p>
+<p><span class="tab"> <a href="#implementation-of-the-norm-of-the-error"> Implementation of the norm of the error </a></p>
+<p><span class="tab"> <a href="#comment-on-array-vs-scalar-computation"> Comment on array vs scalar computation </a></p>
+</div>
+<br>
 
-<p>
-<a href="#5620:about"> INF5620 in a nutshell </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec1"> The new official six-point course description </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec2"> More specific contents: finite difference methods </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec3"> More specific contents: finite element methods </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec4"> More specific contents: nonlinear and advanced problems </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec5"> Philosophy: simplify, understand, generalize </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec6"> Required software </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec7"> Assumed/ideal background </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec8"> Start-up example for the course </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec9"> Start-up example </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec10"> What to learn in the start-up example; standard topics </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec11"> What to learn in the start-up example; programming topics </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec12"> What to learn in the start-up example; mathematical analysis </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec13"> What to learn in the start-up example; generalizations </a><br>
-<a href="#decay:fdm"> Finite difference methods  </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec15"> Topics in the first intro to the finite difference method </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#decay:model"> A basic model for exponential decay </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec17"> The ODE model has a range of applications in many fields </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec18"> The ODE problem has a continuous and discrete version </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#decay:schemes:keysteps"> The steps in the finite difference method </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec22"> Step 1: Discretizing the domain </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec23"> Step 1: Discretizing the domain </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec24"> What about a mesh function between the mesh points? </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec25"> Step 2: Fulfilling the equation at discrete time points </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec26"> Step 3: Replacing derivatives by finite differences </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec27"> Step 3: Replacing derivatives by finite differences </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec28"> Step 4: Formulating a recursive algorithm </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec29"> Let us apply the scheme by hand </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec30"> A backward difference </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec31"> The Backward Euler scheme </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec32"> A centered difference </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#decay:schemes:CN"> The Crank-Nicolson scheme; ideas </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec34"> The Crank-Nicolson scheme; result </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#decay:schemes:theta"> The unifying \( \theta \)-rule </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec36"> Constant time step </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec37"> Test the understanding! </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#decay:fd:op"> Compact operator notation for finite differences </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec39"> Specific notation for difference operators </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec40"> The Backward Euler scheme with operator notation </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec41"> The Forward Euler scheme with operator notation </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec42"> The Crank-Nicolson scheme with operator notation </a><br>
-<a href="#decay:impl1"> Implementation </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec44"> Requirements of a program </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec45"> Tools to learn </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec46"> Why implement in Python? </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec47"> Why implement in Python? </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#decay:py1"> Algorithm </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec49"> Translation to Python function </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec50"> Integer division </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec51"> Doc strings </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec52"> Formatting of numbers </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec53"> Running the program </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec54"> Plotting the solution </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec55"> Comparing with the exact solution </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec56"> Add legends, axes labels, title, and wrap in a function </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec57"> Plotting with SciTools </a><br>
-<a href="#decay:verification"> Verifying the implementation </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec59"> Simplest method: run a few algorithmic steps by hand </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec60"> Comparison with an exact discrete solution </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec61"> Making a test based on an exact discrete solution </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec62"> Test the understanding! </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#decay:computing:error"> Computing the numerical error as a mesh function </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#decay:computing:error:norm"> Computing the norm of the error </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec65"> Norms of mesh functions </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec66"> Implementation of the norm of the error </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec67"> Comment on array vs scalar computation </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec68"> Memory-saving implementation </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec69"> Memory-saving solver function </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec70"> Reading computed data from file </a><br>
-&nbsp; &nbsp; &nbsp; <a href="#___sec71"> Usage of memory-saving code </a><br>
-</p>
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h1 id="5620:about">INF5620 in a nutshell</h1>
+<h1 id="42700:about">MAT-MEK4270 in a nutshell</h1>
 
 <ul>
  <p><li> Numerical methods for partial differential equations (PDEs)</li>
  <p><li> How do we solve a PDE in practice and produce numbers?</li>
  <p><li> How do we trust the answer?</li>
  <p><li> Approach: <em>simplify, understand, generalize</em></li>
+ <p><li> IN5670 -> IN5270 -> MAT-MEK4270 - Lots of old material</li>
 </ul>
-
 <div class="alert alert-block alert-summary alert-text-normal">
-<b>After the course.</b>
+<b>After the course</b>
 <p>
-You see a PDE and can't wait to program a method
+<p>You see a PDE and can't wait to program a method
 and visualize a solution! Somebody asks if the solution is right
 and you can give a convincing answer.
+</p>
 </div>
 
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="the-new-official-six-point-course-description">The new official six-point course description </h2>
 
-<h2 id="___sec1">The new official six-point course description </h2>
-
-<p>
-After having completed INF5620 you
-
-<p>
-<!-- !bpop -->
+<p>After having completed MAT-MEK4270 you</p>
 
 <ul>
- <p><li> can derive methods and implement them to solve frequently
-   arising partial differential equations (PDEs) from physics and mechanics.</li>
- <p><li> have a good understanding of finite difference and finite element
-   methods and how they are applied in linear and nonlinear PDE problems.</li>
- <p><li> can identify numerical artifacts and perform mathematical analysis
-   to understand and cure non-physical effects.</li>
- <p><li> can apply sophisticated programming techniques in Python, combined
-   with Cython, C, C++, and Fortran code, to create modern,
-   flexible simulation programs.</li>
+ <p><li> can derive methods and implement them to solve frequently arising partial differential equations (PDEs) from physics and mechanics.</li>
+ <p><li> have a good understanding of finite difference and finite element methods and how they are applied in linear and nonlinear PDE problems.</li>
+ <p><li> can identify numerical artifacts and perform mathematical analysis to understand and cure non-physical effects.</li>
+ <p><li> can apply sophisticated programming techniques in Python, combined with Cython, C, C++, and Fortran code, to create modern, flexible simulation programs.</li>
  <p><li> can construct verification tests and automate them.</li>
- <p><li> have experience with project hosting sites (GitHub),
-   version control systems (Git), report writing (LaTeX),
-   and Python scripting for performing reproducible computational science.</li>
+ <p><li> have experience with project hosting sites (GitHub), version control systems (Git), report writing (LaTeX), and Python scripting for performing reproducible computational science.</li>
 </ul>
-
-<!-- !epop -->
-
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="more-specific-contents-finite-difference-methods">More specific contents: finite difference methods </h2>
 
-<h2 id="___sec2">More specific contents: finite difference methods </h2>
-
-<p>
 <div class="alert alert-block alert-block alert-text-normal">
 <b></b>
 <p>
-
 <ul>
-   <p><li> ODEs</li>
-   <p><li> the wave equation \( u_{tt}=u_{xx} \) in 1D, 2D, 3D</li>
-   <p><li> the diffusion equation \( u_t=u_{xx} \) in 1D, 2D, 3D</li>
+   <p><li> Simple ODEs</li>
+   <p><li> Exponential decay \( u_t = -a u(t) \) in time</li>
+   <p><li> the wave equation \( u_{tt}=\nabla^2 u \) in 1D, 2D, 3D</li>
    <p><li> write your own software from scratch</li>
    <p><li> understand how the methods work and why they fail</li>
 </ul>
 </div>
 
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="more-specific-contents-variational-methods-galerkin">More specific contents: Variational methods (Galerkin) </h2>
 
-<h2 id="___sec3">More specific contents: finite element methods </h2>
-
-<p>
 <div class="alert alert-block alert-block alert-text-normal">
 <b></b>
 <p>
-
 <ul>
    <p><li> stationary diffusion equations \( u_{xx}=f \) in 1D</li>
    <p><li> time-dependent diffusion and wave equations in 1D</li>
-   <p><li> PDEs in 2D and 3D by use of the FEniCS software</li>
+   <p><li> PDEs in 2D and 3D by use of the FEniCS and Shenfun softwares</li>
    <p><li> perform hand-calculations, write your own software (1D)</li>
    <p><li> understand how the methods work and why they fail</li>
 </ul>
 </div>
 
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec4">More specific contents: nonlinear and advanced problems </h2>
-
-<p>
-<div class="alert alert-block alert-block alert-text-normal">
-<b></b>
-<p>
-
-<ul>
- <p><li> Nonlinear PDEs</li>
-
-<ul>
-   <p><li> Newton and Picard iteration methods, finite differences and elements</li>
-</ul>
-
- <p><li> More advanced PDEs for fluid flow and elasticity</li>
- <p><li> Parallel computing</li>
-</ul>
-</div>
-
-
-<p>
-<!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec5">Philosophy: simplify, understand, generalize </h2>
+<h2 id="philosophy-simplify-understand-generalize">Philosophy: simplify, understand, generalize </h2>
 
 <ul>
  <p><li> Start with simplified ODE/PDE problems</li>
@@ -492,174 +536,118 @@ After having completed INF5620 you
  <p><li> Understand the method, program, and results</li>
  <p><li> Generalize the problem, method, and program</li>
 </ul>
+<p>This is the power of applied mathematics!</p>
 
-This is the power of applied mathematics!
-
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec6">Required software </h2>
+<h2 id="required-software">Required software </h2>
 
 <ul>
- <p><li> Our software platform: Python (sometimes combined with Cython,
-   Fortran, C, C++)</li>
- <p><li> Important Python packages: <code>numpy</code>, <code>scipy</code>, <code>matplotlib</code>,
-   <code>sympy</code>, <code>fenics</code>, <code>scitools</code>, ...</li>
- <p><li> Suggested installation: Run <a href="http://hplgit.github.io/edu/accesspy/._accesspy_uio005.html" target="_self">Ubuntu in a virtual machine</a></li>
- <p><li> Alternative: run a <a href="http://hplgit.github.io/edu/accesspy/._accesspy_uio007.html" target="_self">Vagrant machine</a></li>
+ <p><li> Our software platform: Python (sometimes combined with Cython, Fortran, C, C++)</li>
+ <p><li> Important Python packages: <code>numpy</code>, <code>scipy</code>, <code>matplotlib</code>, <code>sympy</code>, <code>fenics</code>, <code>shenfun</code>, ...</li>
+ <p><li> Anaconda Python</li>
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec7">Assumed/ideal background </h2>
+<h2 id="assumed-ideal-background">Assumed/ideal background </h2>
 
 <ul>
- <p><li> INF1100: Python programming, solution of ODEs</li>
+ <p><li> IN1900: Python programming, solution of ODEs</li>
  <p><li> Some experience with finite difference methods</li>
  <p><li> Some analytical and numerical knowledge of PDEs</li>
  <p><li> Much experience with calculus and linear algebra</li>
  <p><li> Much experience with programming of mathematical problems</li>
- <p><li> Experience with mathematical modeling with PDEs
-   (from physics, mechanics, geophysics, or ...)</li>
+ <p><li> Experience with mathematical modeling with PDEs (from physics, mechanics, geophysics, or ...)</li>
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="start-up-example-for-the-course">Start-up example for the course </h2>
 
-<h2 id="___sec8">Start-up example for the course </h2>
-
-<p>
-What if you don't have this ideal background?
+<p>What if you don't have this ideal background?</p>
 
 <ul>
  <p><li> Students come to this course with very different backgrounds</li>
- <p><li> First task: summarize assumed background knowledge by going through
-   a simple example</li>
+ <p><li> First task: summarize assumed background knowledge by going through a simple example</li>
  <p><li> Also in this example:</li>
-
 <ul>
-   <p><li> Some fundamental material on software implementation
-     and software testing</li>
-   <p><li> Material on analyzing numerical methods to understand
-     why they can fail</li>
+   <p><li> Some fundamental material on software implementation and software testing</li>
+   <p><li> Material on analyzing numerical methods to understand why they can fail</li>
    <p><li> Applications to real-world problems</li>
 </ul>
-
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="start-up-example">Start-up example </h2>
 
-<h2 id="___sec9">Start-up example </h2>
-
-<p>
 <div class="alert alert-block alert-notice alert-text-normal">
-<b>ODE problem.</b>
+<b>ODE problem</b>
 <p>
 $$ u'=-au,\quad u(0)=I,\ t\in (0,T],$$
 
-where \( a>0 \) is a constant.
+<p>where \( a>0 \) is a constant.</p>
 </div>
 
 
-<p>
-Everything we do is motivated by what we need as building blocks for
-solving PDEs!
+<p>Everything we do is motivated by what we need as building blocks for
+solving Partial Differential Equations (PDEs)!
+</p>
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec10">What to learn in the start-up example; standard topics </h2>
+<h2 id="what-to-learn-in-the-start-up-example-standard-topics">What to learn in the start-up example; standard topics </h2>
 
 <ul>
- <p><li> How to think when constructing finite difference methods, with special focus
-   on the Forward Euler, Backward Euler, and Crank-Nicolson (midpoint)
-   schemes</li>
- <p><li> How to formulate a computational algorithm and translate it into
-   Python code</li>
+ <p><li> How to think when constructing finite difference methods, with special focus on the Forward Euler, Backward Euler, and Crank-Nicolson (midpoint) schemes</li>
+ <p><li> How to formulate a computational algorithm and translate it into Python code</li>
  <p><li> How to make curve plots of the solutions</li>
  <p><li> How to compute numerical errors</li>
  <p><li> How to compute convergence rates</li>
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec11">What to learn in the start-up example; programming topics </h2>
+<h2 id="what-to-learn-in-the-start-up-example-programming-topics">What to learn in the start-up example; programming topics </h2>
 
 <ul>
- <p><li> How to verify an implementation and automate verification
-   through nose tests in Python</li>
+ <p><li> How to verify an implementation and automate verification through nose tests in Python</li>
  <p><li> How to structure code in terms of functions, classes, and modules</li>
- <p><li> How to work with Python concepts such as arrays, lists, dictionaries,
-   lambda functions, functions in functions (closures), doctests,
-   unit tests, command-line interfaces, graphical user interfaces</li>
- <p><li> How to perform array computing and understand the difference from
-   scalar computing</li>
+ <p><li> How to work with Python concepts such as arrays, lists, dictionaries, lambda functions, functions in functions (closures), doctests, unit tests, command-line interfaces, graphical user interfaces</li>
+ <p><li> How to perform array computing and understand the difference from scalar computing</li>
  <p><li> How to conduct and automate large-scale numerical experiments</li>
  <p><li> How to generate scientific reports</li>
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec12">What to learn in the start-up example; mathematical analysis </h2>
+<h2 id="what-to-learn-in-the-start-up-example-mathematical-analysis">What to learn in the start-up example; mathematical analysis </h2>
 
 <ul>
  <p><li> How to uncover numerical artifacts in the computed solution</li>
- <p><li> How to analyze the numerical schemes mathematically to understand
-   why artifacts occur</li>
- <p><li> How to derive mathematical expressions for various measures of
-   the error in numerical methods, frequently by using the <code>sympy</code> software
-   for symbolic computation</li>
- <p><li> Introduce concepts such as finite difference operators,
-   mesh (grid), mesh functions,
-   stability, truncation error, consistency, and convergence</li>
+ <p><li> How to analyze the numerical schemes mathematically to understand why artifacts occur</li>
+ <p><li> How to derive mathematical expressions for various measures of the error in numerical methods, frequently by using the <code>sympy</code> software for symbolic computation</li>
+ <p><li> Introduce concepts such as finite difference operators, mesh (grid), mesh functions, stability, truncation error, consistency, and convergence</li>
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec13">What to learn in the start-up example; generalizations </h2>
-
-<ul>
- <p><li> Generalize the example to \( u'(t)=-a(t)u(t) + b(t) \)</li>
- <p><li> Present additional methods for the general nonlinear ODE \( u'=f(u,t) \),
-   which is either a scalar ODE or a system of ODEs</li>
- <p><li> How to access professional packages for solving ODEs</li>
- <p><li> How our model equations like \( u'=-au \) arises in a wide range
-   of phenomena in physics, biology, and finance</li>
-</ul>
-
-<!-- !split --><br><br><br><br><br><br><br><br>
-
 <h1 id="decay:fdm">Finite difference methods</h1>
 
 <ul>
- <p><li> The finite difference method is the simplest method
-   for solving differential equations</li>
+ <p><li> The finite difference method is the simplest method for solving differential equations</li>
  <p><li> Fast to learn, derive, and implement</li>
- <p><li> A very useful tool to know, even if you aim at using the finite element
-   or the finite volume method</li>
+ <p><li> A very useful tool to know, even if you aim at using the finite element or the finite volume method</li>
 </ul>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 2</p>
+</center>
+<p><img src="fig-alg/fdm_u_uei.png" width="400" align="bottom"></p>
+</center>
 
-<center><p><img src="fig-alg/fdm_u_uei.png" align="bottom" width=400></p></center>
-
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="topics-in-the-first-intro-to-the-finite-difference-method">Topics in the first intro to the finite difference method </h2>
 
-<h2 id="___sec15">Topics in the first intro to the finite difference method </h2>
-
-<p>
 <div class="alert alert-block alert-notice alert-text-normal">
-<b>Contents.</b>
+<b>Contents</b>
 <p>
-
 <ul>
  <p><li> How to think about finite difference discretization</li>
  <p><li> Key concepts:</li>
-
 <ul>
    <p><li> mesh</li>
    <p><li> mesh function</li>
    <p><li> finite difference approximations</li>
 </ul>
-
  <p><li> The Forward Euler, Backward Euler, and Crank-Nicolson methods</li>
  <p><li> Finite difference operator notation</li>
  <p><li> How to derive an algorithm and implement it in Python</li>
@@ -668,13 +656,10 @@ solving PDEs!
 </div>
 
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
 <h2 id="decay:model">A basic model for exponential decay</h2>
 
-<p>
-The world's simplest (?) ODE:
+<p>The world's simplest (?) ODE:</p>
 
 $$
 \begin{equation*}
@@ -682,24 +667,28 @@ u'(t) = -au(t),\quad u(0)=I,\ t\in (0,T]
 \end{equation*}
 $$
 
-<p>
+
 <div class="alert alert-block alert-notice alert-text-normal">
-<b>Observation.</b>
+<b>Observation</b>
 <p>
-We can learn a lot about numerical methods, computer implementation,
+<p>We can learn a lot about numerical methods, computer implementation,
 program testing, and real applications of these tools by using
 this very simple ODE as example. The teaching principle is to keep the math as
 simple as possible while learning computer tools.
+</p>
 </div>
 
 
-<p>
-<center><p><img src="fig-alg/FE1.png" align="bottom" width=600></p></center>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 3</p>
+</center>
+<p><img src="fig-alg/FE1.png" width="600" align="bottom"></p>
+</center>
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec17">The ODE model has a range of applications in many fields </h2>
+<h2 id="the-ode-model-has-a-range-of-applications-in-many-fields">The ODE model has a range of applications in many fields </h2>
 
 <ul>
  <p><li> Growth and decay of populations (cells, animals, human)</li>
@@ -710,15 +699,11 @@ simple as possible while learning computer tools.
  <p><li> Vertical motion of a body in water/air</li>
  <p><li> Time-discretization of diffusion PDEs by Fourier techniques</li>
 </ul>
+<p>See the <a href="https://link.springer.com/chapter/10.1007/978-3-319-29439-1_1" target="_self">text</a> for details.</p>
 
-See the <a href="http://tinyurl.com/nclmcng/pub/sphinx-decay/._main_decay008.html" target="_self">text</a> for details.
-
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec18">The ODE problem has a continuous and discrete version </h2>
-
-<h3 id="___sec19">Continuous problem </h3>
+<h2 id="the-ode-problem-has-a-continuous-and-discrete-version">The ODE problem has a continuous and discrete version </h2>
+<h3 id="continuous-problem">Continuous problem </h3>
 
 $$
 \begin{equation}
@@ -727,13 +712,12 @@ u' = -au,\ t\in (0,T], \quad u(0)=I
 \end{equation}
 $$
 
-(varies with a continuous \( t \))
+<p>(varies with a continuous \( t \))</p>
+<h3 id="discrete-problem">Discrete problem </h3>
 
-<h3 id="___sec20">Discrete problem </h3>
-
-<p>
-Numerical methods applied to the continuous problem turns it into
+<p>Numerical methods applied to the continuous problem turns it into
 a discrete problem
+</p>
 
 $$
 \begin{equation}
@@ -742,31 +726,27 @@ u^{n+1} = \mbox{const} \cdot u^n, \quad n=0,1,\ldots N_t-1, \quad u^n=I
 \end{equation}
 $$
 
-(varies with discrete mesh points \( t_n \))
+<p>(varies with discrete mesh points \( t_n \))</p>
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
 <h2 id="decay:schemes:keysteps">The steps in the finite difference method</h2>
 
-<p>
-Solving a differential equation by a finite difference method
+<p>Solving a differential equation by a finite difference method
 consists of four steps:
+</p>
 
 <ol>
 <p><li> discretizing the domain,</li>
 <p><li> fulfilling the equation at discrete time points,</li>
 <p><li> replacing derivatives by finite differences,</li>
-<p><li> formulating a recursive algorithm.</li>
+<p><li> solve the discretized problem. (Often with a recursive algorithm in 1D)</li>
 </ol>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="step-1-discretizing-the-domain">Step 1: Discretizing the domain </h2>
 
-<h2 id="___sec22">Step 1: Discretizing the domain </h2>
-
-<p>
-The time domain \( [0,T] \) is represented by a <em>mesh</em>: a finite number of
+<p>The time domain \( [0,T] \) is represented by a <em>mesh</em>: a finite number of
 \( N_t+1 \) points
+</p>
 
 $$0 = t_0 < t_1 < t_2 < \cdots < t_{N_t-1} < t_{N_t} = T$$
 
@@ -776,29 +756,29 @@ $$0 = t_0 < t_1 < t_2 < \cdots < t_{N_t-1} < t_{N_t} = T$$
  <p><li> Note: \( u^0 \) is known as \( I \).</li>
  <p><li> Notational short-form for the numerical approximation to \( u(t_n) \): \( u^n \)</li>
  <p><li> In the differential equation: \( u \) is the exact solution</li>
- <p><li> In the numerical method and implementation: \( u^n \) is the numerical
-   approximation, \( \uex(t) \) is the exact solution</li>
+ <p><li> In the numerical method and implementation: \( u^n \) is the numerical approximation, \( \uex(t) \) is the exact solution</li>
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="step-1-discretizing-the-domain">Step 1: Discretizing the domain </h2>
 
-<h2 id="___sec23">Step 1: Discretizing the domain </h2>
-
-<p>
-\( u^n \) is a mesh function, defined at the mesh points \( t_n \), \( n=0,\ldots,N_t \)
+<p>\( u^n \) is a mesh function, defined at the mesh points \( t_n \), \( n=0,\ldots,N_t \)
 only.
+</p>
 
-<p>
-<center><p><img src="fig-alg/fdm_u_ue.png" align="bottom" width=600></p></center>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 4</p>
+</center>
+<p><img src="fig-alg/fdm_u_ue.png" width="600" align="bottom"></p>
+</center>
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="what-about-a-mesh-function-between-the-mesh-points">What about a mesh function between the mesh points? </h2>
 
-<h2 id="___sec24">What about a mesh function between the mesh points? </h2>
-
-<p>
-Can extend the mesh function to yield values between mesh points
+<p>Can extend the mesh function to yield values between mesh points
 by <em>linear interpolation</em>:
+</p>
 
 $$
 \begin{equation}
@@ -807,19 +787,22 @@ u(t) \approx u^n + \frac{u^{n+1}-u^n}{t_{n+1}-t_n}(t - t_n)
 \end{equation}
 $$
 
-<p>
-<center><p><img src="fig-alg/fdm_u_uei.png" align="bottom" width=500></p></center>
 
-<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 5</p>
+</center>
+<p><img src="fig-alg/fdm_u_uei.png" width="500" align="bottom"></p>
+</center>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec25">Step 2: Fulfilling the equation at discrete time points </h2>
+<h2 id="step-2-fulfilling-the-equation-at-discrete-time-points">Step 2: Fulfilling the equation at discrete time points </h2>
 
 <ul>
  <p><li> The ODE holds for all \( t\in (0,T] \) (infinite no of points)</li>
  <p><li> Idea: let the ODE be valid at the mesh points only (finite no of points)</li>
 </ul>
-
 $$
 \begin{equation}
 u'(t_n) = -au(t_n),\quad n=1,\ldots,N_t
@@ -827,14 +810,13 @@ u'(t_n) = -au(t_n),\quad n=1,\ldots,N_t
 \end{equation}
 $$
 
-<p>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="step-3-replacing-derivatives-by-finite-differences">Step 3: Replacing derivatives by finite differences </h2>
 
-<h2 id="___sec26">Step 3: Replacing derivatives by finite differences </h2>
-
-<p>
-Now it is time for the <em>finite difference</em> approximations of
+<p>Now it is time for the <em>finite difference</em> approximations of
 derivatives:
+</p>
 
 $$
 \begin{equation}
@@ -843,20 +825,23 @@ u'(t_n) \approx \frac{u^{n+1}-u^{n}}{t_{n+1}-t_n}
 \end{equation}
 $$
 
-<p>
-<center><p><img src="fig-alg/fd_forward.png" align="bottom" width=400></p></center>
 
-<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 6</p>
+</center>
+<p><img src="fig-alg/fd_forward.png" width="400" align="bottom"></p>
+</center>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="step-3-replacing-derivatives-by-finite-differences">Step 3: Replacing derivatives by finite differences </h2>
 
-<h2 id="___sec27">Step 3: Replacing derivatives by finite differences </h2>
-
-<p>
-Inserting the finite difference approximation in
+<p>Inserting the finite difference approximation in</p>
 
 $$ u'(t_n) = -au(t_n)$$
 
-gives
+<p>gives</p>
 
 $$
 \begin{equation}
@@ -865,17 +850,14 @@ $$
 \end{equation}
 $$
 
-<p>
-(Known as <em>discrete equation</em>, or <em>discrete problem</em>,
+<p>(Known as <em>discrete equation</em>, or <em>discrete problem</em>,
 or <em>finite difference method/scheme</em>)
+</p>
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="step-4-formulating-a-recursive-algorithm">Step 4: Formulating a recursive algorithm </h2>
 
-<h2 id="___sec28">Step 4: Formulating a recursive algorithm </h2>
-
-<p>
-How can we actually compute the \( u^n \) values?
+<p>How can we actually compute the \( u^n \) values?</p>
 
 <ul>
   <p><li> given \( u^0=I \)</li>
@@ -883,14 +865,12 @@ How can we actually compute the \( u^n \) values?
   <p><li> compute \( u^2 \) from \( u^1 \)</li>
   <p><li> compute \( u^3 \) from \( u^2 \) (and so forth)</li>
 </ul>
+<p>In general: we have \( u^n \) and seek \( u^{n+1} \)</p>
 
-In general: we have \( u^n \) and seek \( u^{n+1} \)
-
-<p>
 <div class="alert alert-block alert-notice alert-text-normal">
-<b>The Forward Euler scheme.</b>
+<b>The Forward Euler scheme</b>
 <p>
-Solve wrt \( u^{n+1} \) to get the computational formula:
+<p>Solve wrt \( u^{n+1} \) to get the computational formula:</p>
 
 $$
 \begin{equation}
@@ -901,13 +881,10 @@ $$
 </div>
 
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="let-us-apply-the-scheme-by-hand">Let us apply the scheme by hand </h2>
 
-<h2 id="___sec29">Let us apply the scheme by hand </h2>
-
-<p>
-Assume constant time spacing: \( \Delta t = t_{n+1}-t_n=\mbox{const} \)
+<p>Assume constant time spacing: \( \Delta t = t_{n+1}-t_n=\mbox{const} \)</p>
 
 $$
 \begin{align*}
@@ -920,18 +897,16 @@ u^{N_t} &= I(1-a\Delta t)^{N_t}
 \end{align*}
 $$
 
-<p>
-Ooops - we can find the numerical solution by hand (in this simple
+<p>Ooops - we can find the numerical solution by hand (in this simple
 example)! No need for a computer (yet)...
+</p>
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="a-backward-difference">A backward difference </h2>
 
-<h2 id="___sec30">A backward difference </h2>
-
-<p>
-Here is another finite difference approximation to the
+<p>Here is another finite difference approximation to the
 derivative (backward difference):
+</p>
 
 $$
 \begin{equation}
@@ -940,17 +915,21 @@ u'(t_n) \approx \frac{u^{n}-u^{n-1}}{t_{n}-t_{n-1}}
 \end{equation}
 $$
 
-<p>
-<center><p><img src="fig-alg/fd_backward.png" align="bottom" width=400></p></center>
 
-<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 7</p>
+</center>
+<p><img src="fig-alg/fd_backward.png" width="400" align="bottom"></p>
+</center>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="the-backward-euler-scheme">The Backward Euler scheme </h2>
 
-<h2 id="___sec31">The Backward Euler scheme </h2>
-
-<p>
-Inserting the finite difference approximation in \( u'(t_n)=-au(t_n) \) yields
+<p>Inserting the finite difference approximation in \( u'(t_n)=-au(t_n) \) yields
 the Backward Euler (BE) scheme:
+</p>
 
 $$
 \begin{equation}
@@ -959,7 +938,7 @@ $$
 \end{equation}
 $$
 
-Solve with respect to the unknown \( u^{n+1} \):
+<p>Solve with respect to the unknown \( u^{n+1} \):</p>
 
 $$
 \begin{equation}
@@ -968,30 +947,30 @@ u^{n+1} = \frac{1}{1+ a(t_{n+1}-t_n)} u^n
 \end{equation}
 $$
 
-<p>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="a-centered-difference">A centered difference </h2>
 
-<h2 id="___sec32">A centered difference </h2>
-
-<p>
-Centered differences are better approximations than forward or
+<p>Centered differences are better approximations than forward or
 backward differences.
+</p>
 
-<p>
-<center><p><img src="fig-alg/fd_centered_CN.png" align="bottom" width=400></p></center>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 8</p>
+</center>
+<p><img src="fig-alg/fd_centered_CN.png" width="400" align="bottom"></p>
+</center>
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
 <h2 id="decay:schemes:CN">The Crank-Nicolson scheme; ideas</h2>
 
-<p>
-Idea 1: let the ODE hold at \( t_{n+\half} \)
+<p>Idea 1: let the ODE hold at \( t_{n+\half} \)</p>
 
 $$ u'(t_{n+\half}) = -au(t_{n+\half})$$
 
-<p>
-Idea 2: approximate \( u'(t_{n+\half}) \) by a centered difference
+<p>Idea 2: approximate \( u'(t_{n+\half}) \) by a centered difference</p>
 
 $$
 \begin{equation}
@@ -1000,21 +979,17 @@ u'(t_{n+\half}) \approx \frac{u^{n+1}-u^n}{t_{n+1}-t_n}
 \end{equation}
 $$
 
-<p>
-Problem: \( u(t_{n+\half}) \) is not defined, only \( u^n=u(t_n) \) and \( u^{n+1}=u(t_{n+1}) \)
+<p>Problem: \( u(t_{n+\half}) \) is not defined, only \( u^n=u(t_n) \) and \( u^{n+1}=u(t_{n+1}) \)</p>
 
-<p>
-Solution:
+<p>Solution:</p>
 
 $$ u(t_{n+\half}) \approx \half(u^n + u^{n+1}) $$
 
-<p>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="the-crank-nicolson-scheme-result">The Crank-Nicolson scheme; result </h2>
 
-<h2 id="___sec34">The Crank-Nicolson scheme; result </h2>
-
-<p>
-Result:
+<p>Result:</p>
 
 $$
 \begin{equation}
@@ -1023,8 +998,7 @@ $$
 \end{equation}
 $$
 
-<p>
-Solve wrt to \( u^{n+1} \):
+<p>Solve wrt to \( u^{n+1} \):</p>
 
 $$
 \begin{equation}
@@ -1033,16 +1007,14 @@ u^{n+1} = \frac{1-\half a(t_{n+1}-t_n)}{1 + \half a(t_{n+1}-t_n)}u^n
 \end{equation}
 $$
 
-This is a Crank-Nicolson (CN) scheme or a midpoint or centered scheme.
+<p>This is a Crank-Nicolson (CN) scheme or a midpoint or centered scheme.</p>
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
 <h2 id="decay:schemes:theta">The unifying \( \theta \)-rule</h2>
 
-<p>
-The Forward Euler, Backward Euler, and Crank-Nicolson schemes can be
+<p>The Forward Euler, Backward Euler, and Crank-Nicolson schemes can be
 formulated as one scheme with a varying parameter \( \theta \):
+</p>
 
 $$
 \begin{equation}
@@ -1058,8 +1030,7 @@ $$
  <p><li> \( \theta =1/2 \): Crank-Nicolson</li>
  <p><li> We may alternatively choose any \( \theta\in [0,1] \).</li>
 </ul>
-
-\( u^n \) is known, solve for \( u^{n+1} \):
+<p>\( u^n \) is known, solve for \( u^{n+1} \):</p>
 
 $$
 \begin{equation}
@@ -1068,18 +1039,16 @@ u^{n+1} = \frac{1 - (1-\theta) a(t_{n+1}-t_n)}{1 + \theta a(t_{n+1}-t_n)} u^n
 \end{equation}
 $$
 
-<p>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="constant-time-step">Constant time step </h2>
 
-<h2 id="___sec36">Constant time step </h2>
-
-<p>
-Very common assumption (not important, but exclusively used for
+<p>Very common assumption (not important, but exclusively used for
 simplicity hereafter): constant time step \( t_{n+1}-t_n\equiv\Delta t \)
+</p>
 
-<p>
 <div class="alert alert-block alert-summary alert-text-normal">
-<b>Summary of schemes for constant time step.</b>
+<b>Summary of schemes for constant time step</b>
 <p>
 $$
 \begin{align}
@@ -1096,19 +1065,16 @@ $$
 </div>
 
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="test-the-understanding">Test the understanding! </h2>
 
-<h2 id="___sec37">Test the understanding! </h2>
-
-<p>
-Derive Forward Euler, Backward Euler, and Crank-Nicolson schemes for
+<p>Derive Forward Euler, Backward Euler, and Crank-Nicolson schemes for
 Newton's law of cooling:
+</p>
 
 $$ T' = -k(T-T_s),\quad T(0)=T_0,\ t\in (0,t_{\mbox{end}}]$$
 
-<p>
-Physical quantities:
+<p>Physical quantities:</p>
 
 <ul>
  <p><li> \( T(t) \): temperature of an object at time \( t \)</li>
@@ -1116,9 +1082,7 @@ Physical quantities:
  <p><li> \( T_s \): temperature of the surroundings</li>
  <p><li> \( T_0 \): initial temperature</li>
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
-
 <h2 id="decay:fd:op">Compact operator notation for finite differences</h2>
 
 <ul>
@@ -1126,7 +1090,6 @@ Physical quantities:
  <p><li> Handy tool: finite difference operator notation</li>
  <p><li> Advantage: communicates the nature of the difference in a compact way</li>
 </ul>
-
 $$
 \begin{equation}
 [D_t^- u  = -au]^n
@@ -1134,13 +1097,11 @@ $$
 \end{equation}
 $$
 
-<p>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="specific-notation-for-difference-operators">Specific notation for difference operators </h2>
 
-<h2 id="___sec39">Specific notation for difference operators </h2>
-
-<p>
-Forward difference:
+<p>Forward difference:</p>
 
 $$
 \begin{equation}
@@ -1149,7 +1110,7 @@ $$
 \end{equation}
 $$
 
-Centered difference (around \( t_n \)):
+<p>Centered difference (around \( t_n \)):</p>
 
 $$
 \begin{equation}
@@ -1158,8 +1119,7 @@ $$
 \end{equation}
 $$
 
-<p>
-Backward difference:
+<p>Backward difference:</p>
 $$
 \begin{equation}
 [D_t^-u]^n = \frac{u^{n} - u^{n-1}}{\Delta t}
@@ -1167,10 +1127,9 @@ $$
 \end{equation}
 $$
 
-<p>
-<!-- !split --><br><br><br><br><br><br><br><br>
 
-<h2 id="___sec40">The Backward Euler scheme with operator notation </h2>
+<!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="the-backward-euler-scheme-with-operator-notation">The Backward Euler scheme with operator notation </h2>
 
 $$
 \begin{equation*}
@@ -1178,8 +1137,7 @@ $$
 \end{equation*}
 $$
 
-<p>
-Common to put the whole equation inside square brackets:
+<p>Common to put the whole equation inside square brackets:</p>
 
 $$
 \begin{equation}
@@ -1188,10 +1146,9 @@ $$
 \end{equation}
 $$
 
-<p>
-<!-- !split --><br><br><br><br><br><br><br><br>
 
-<h2 id="___sec41">The Forward Euler scheme with operator notation </h2>
+<!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="the-forward-euler-scheme-with-operator-notation">The Forward Euler scheme with operator notation </h2>
 
 $$
 \begin{equation}
@@ -1200,13 +1157,11 @@ $$
 \end{equation}
 $$
 
-<p>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="the-crank-nicolson-scheme-with-operator-notation">The Crank-Nicolson scheme with operator notation </h2>
 
-<h2 id="___sec42">The Crank-Nicolson scheme with operator notation </h2>
-
-<p>
-Introduce an averaging operator:
+<p>Introduce an averaging operator:</p>
 
 $$
 \begin{equation}
@@ -1215,8 +1170,7 @@ $$
 \end{equation}
 $$
 
-<p>
-The Crank-Nicolson scheme can then be written as
+<p>The Crank-Nicolson scheme can then be written as</p>
 
 $$
 \begin{equation}
@@ -1225,39 +1179,33 @@ $$
 \end{equation}
 $$
 
-<p>
-Test: use the definitions and write out the above formula to see that
+<p>Test: use the definitions and write out the above formula to see that
 it really is the Crank-Nicolson scheme!
+</p>
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
 <h1 id="decay:impl1">Implementation</h1>
 
-<p>
-Model:
+<p>Model:</p>
 $$
 u'(t) = -au(t),\quad t\in (0,T], \quad u(0)=I
 $$
 
-<p>
-Numerical method:
+<p>Numerical method:</p>
 
 $$
 u^{n+1} = \frac{1 - (1-\theta) a\Delta t}{1 + \theta a\Delta t}u^n
 $$
 
-for \( \theta\in [0,1] \). Note
+<p>for \( \theta\in [0,1] \). Note</p>
 
 <ul>
  <p><li> \( \theta=0 \) gives Forward Euler</li>
  <p><li> \( \theta=1 \) gives Backward Euler</li>
  <p><li> \( \theta=1/2 \) gives Crank-Nicolson</li>
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec44">Requirements of a program </h2>
+<h2 id="requirements-of-a-program">Requirements of a program </h2>
 
 <ul>
   <p><li> Compute the numerical solution \( u^n \), \( n=1,2,\ldots,N_t \)</li>
@@ -1265,144 +1213,160 @@ for \( \theta\in [0,1] \). Note
   <p><li> Bring evidence to a correct implementation (<em>verification</em>)</li>
   <p><li> Compare the numerical and the exact solution in a plot</li>
   <p><li> Compute the error \( \uex (t_n) - u^n \)</li>
-  <p><li> Read its input data from the command line</li>
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec45">Tools to learn </h2>
+<h2 id="tools-to-learn">Tools to learn </h2>
 
 <ul>
   <p><li> Basic <a href="http://python.org" target="_self">Python</a> programming</li>
   <p><li> Array computing with <a href="http://numpy.org/" target="_self"><tt>numpy</tt></a></li>
-  <p><li> Plotting with <a href="http://matplotlib.sourceforge.net/" target="_self"><tt>matplotlib.pyplot</tt></a> and <a href="https://github.com/hplgit/scitools/" target="_self"><tt>scitools</tt></a></li>
+  <p><li> Plotting with <a href="https://matplotlib.org" target="_self"><tt>matplotlib.pyplot</tt></a></li>
   <p><li> File writing and reading</li>
 </ul>
-
-<div class="alert alert-block alert-notice alert-text-normal">
-<b>Notice.</b>
-<p>
-All programs are in the directory
-<a href="http://tinyurl.com/ofkw6kc/alg" target="_self"><tt>src/alg</tt></a>.
-</div>
-
-
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec46">Why implement in Python? </h2>
+<h2 id="why-implement-in-python">Why implement in Python? </h2>
 
 <ul>
-  <p><li> Python has a very clean, readable syntax (often known as
-    "executable pseudo-code").</li>
-  <p><li> Python code is very similar to MATLAB code (and MATLAB has a
-    particularly widespread use for scientific computing).</li>
+  <p><li> Python has a very clean, readable syntax (often known as "executable pseudo-code").</li>
+  <p><li> Python code is very similar to MATLAB code (and MATLAB has a particularly widespread use for scientific computing).</li>
   <p><li> Python is a full-fledged, very powerful programming language.</li>
-  <p><li> Python is similar to, but much simpler to work with and
-    results in more reliable code than C++.</li>
+  <p><li> Python is similar to, but much simpler to work with and results in more reliable code than C++.</li>
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec47">Why implement in Python? </h2>
+<h2 id="why-implement-in-python">Why implement in Python? </h2>
 
 <ul>
-  <p><li> Python has a rich set of modules for scientific computing, and its
-    popularity in scientific computing is rapidly growing.</li>
-  <p><li> Python was made for being combined with compiled languages
-    (C, C++, Fortran) to reuse existing numerical software and to
-    reach high computational performance of new implementations.</li>
-  <p><li> Python has extensive support for administrative task
-    needed when doing large-scale computational investigations.</li>
-  <p><li> Python has extensive support for graphics (visualization,
-    user interfaces, web applications).</li>
-  <p><li> FEniCS, a very powerful tool for solving PDEs by
-    the finite element method, is most human-efficient to operate
-    from Python.</li>
+  <p><li> Python has a rich set of modules for scientific computing, and its popularity in scientific computing is rapidly growing.</li>
+  <p><li> Python was made for being combined with compiled languages (C, C++, Fortran) to reuse existing numerical software and to reach high computational performance of new implementations.</li>
+  <p><li> Python has extensive support for administrative task needed when doing large-scale computational investigations.</li>
+  <p><li> Python has extensive support for graphics (visualization, user interfaces, web applications).</li>
+  <p><li> FEniCS, a very powerful tool for solving PDEs by the finite element method, is most human-efficient to operate from Python.</li>
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
-
 <h2 id="decay:py1">Algorithm</h2>
 
 <ul>
  <p><li> Store \( u^n \), \( n=0,1,\ldots,N_t \) in an array <code>u</code>.</li>
  <p><li> Algorithm:
-
 <ol type="a"></li>
   <p><li> initialize \( u^0 \)</li>
-  <p><li> for \( t=t_n \), \( n=1,2,\ldots,N_t \): compute \( u_n \) using
-     the \( \theta \)-rule formula</li>
+  <p><li> for \( t=t_n \), \( n=1,2,\ldots,N_t \): compute \( u_n \) using the \( \theta \)-rule formula</li>
 </ol>
-
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="translation-to-python-function">Translation to Python function </h2>
 
-<h2 id="___sec49">Translation to Python function </h2>
-
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">solver</span>(I, a, T, dt, theta):
     <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Solve u&#39;=-a*u, u(0)=I, for t in (0,T] with steps of dt.&quot;&quot;&quot;</span>
-    Nt <span style="color: #666666">=</span> <span style="color: #008000">int</span>(T<span style="color: #666666">/</span>dt)            <span style="color: #408080; font-style: italic"># no of time intervals</span>
-    T <span style="color: #666666">=</span> Nt<span style="color: #666666">*</span>dt                 <span style="color: #408080; font-style: italic"># adjust T to fit time step dt</span>
-    u <span style="color: #666666">=</span> zeros(Nt<span style="color: #666666">+1</span>)           <span style="color: #408080; font-style: italic"># array of u[n] values</span>
-    t <span style="color: #666666">=</span> linspace(<span style="color: #666666">0</span>, T, Nt<span style="color: #666666">+1</span>)  <span style="color: #408080; font-style: italic"># time mesh</span>
+    Nt <span style="color: #666666">=</span> <span style="color: #008000">int</span>(T<span style="color: #666666">/</span>dt)            <span style="color: #3D7B7B; font-style: italic"># no of time intervals</span>
+    T <span style="color: #666666">=</span> Nt<span style="color: #666666">*</span>dt                 <span style="color: #3D7B7B; font-style: italic"># adjust T to fit time step dt</span>
+    u <span style="color: #666666">=</span> zeros(Nt<span style="color: #666666">+1</span>)           <span style="color: #3D7B7B; font-style: italic"># array of u[n] values</span>
+    t <span style="color: #666666">=</span> linspace(<span style="color: #666666">0</span>, T, Nt<span style="color: #666666">+1</span>)  <span style="color: #3D7B7B; font-style: italic"># time mesh</span>
 
-    u[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> I                  <span style="color: #408080; font-style: italic"># assign initial condition</span>
-    <span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, Nt):    <span style="color: #408080; font-style: italic"># n=0,1,...,Nt-1</span>
+    u[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> I                  <span style="color: #3D7B7B; font-style: italic"># assign initial condition</span>
+    <span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, Nt):    <span style="color: #3D7B7B; font-style: italic"># n=0,1,...,Nt-1</span>
         u[n<span style="color: #666666">+1</span>] <span style="color: #666666">=</span> (<span style="color: #666666">1</span> <span style="color: #666666">-</span> (<span style="color: #666666">1-</span>theta)<span style="color: #666666">*</span>a<span style="color: #666666">*</span>dt)<span style="color: #666666">/</span>(<span style="color: #666666">1</span> <span style="color: #666666">+</span> theta<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>a)<span style="color: #666666">*</span>u[n]
     <span style="color: #008000; font-weight: bold">return</span> u, t
-</pre></div>
-<p>
-Note about the <code>for</code> loop: <code>range(0, Nt, s)</code> generates all integers
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Note about the <code>for</code> loop: <code>range(0, Nt, s)</code> generates all integers
 from <code>0</code> to <code>Nt</code> in steps of <code>s</code> (default 1), <em>but not including</em> <code>Nt</code> (!).
+</p>
 
-<p>
-Sample call:
-<p>
+<p>Sample call:</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">u, t <span style="color: #666666">=</span> solver(I<span style="color: #666666">=1</span>, a<span style="color: #666666">=2</span>, T<span style="color: #666666">=8</span>, dt<span style="color: #666666">=0.8</span>, theta<span style="color: #666666">=1</span>)
-</pre></div>
-<p>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">u, t <span style="color: #666666">=</span> solver(I<span style="color: #666666">=1</span>, a<span style="color: #666666">=2</span>, T<span style="color: #666666">=8</span>, dt<span style="color: #666666">=0.8</span>, theta<span style="color: #666666">=1</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="integer-division">Integer division </h2>
 
-<h2 id="___sec50">Integer division </h2>
-
-<p>
-Python applies integer division: <code>1/2</code> is 0, while <code>1./2</code> or <code>1.0/2</code> or
+<p>Python applies integer division: <code>1/2</code> is 0, while <code>1./2</code> or <code>1.0/2</code> or
 <code>1/2.</code> or <code>1/2.0</code> or <code>1.0/2.0</code> all give 0.5.
+</p>
 
-<p>
-A safer <code>solver</code> function (<code>dt = float(dt)</code> - guarantee float):
+<p>A safer <code>solver</code> function (<code>dt = float(dt)</code> - guarantee float):</p>
 
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">solver</span>(I, a, T, dt, theta):
     <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Solve u&#39;=-a*u, u(0)=I, for t in (0,T] with steps of dt.&quot;&quot;&quot;</span>
-    dt <span style="color: #666666">=</span> <span style="color: #008000">float</span>(dt)            <span style="color: #408080; font-style: italic"># avoid integer division</span>
-    Nt <span style="color: #666666">=</span> <span style="color: #008000">int</span>(<span style="color: #008000">round</span>(T<span style="color: #666666">/</span>dt))     <span style="color: #408080; font-style: italic"># no of time intervals</span>
-    T <span style="color: #666666">=</span> Nt<span style="color: #666666">*</span>dt                 <span style="color: #408080; font-style: italic"># adjust T to fit time step dt</span>
-    u <span style="color: #666666">=</span> zeros(Nt<span style="color: #666666">+1</span>)           <span style="color: #408080; font-style: italic"># array of u[n] values</span>
-    t <span style="color: #666666">=</span> linspace(<span style="color: #666666">0</span>, T, Nt<span style="color: #666666">+1</span>)  <span style="color: #408080; font-style: italic"># time mesh</span>
-
-    u[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> I                  <span style="color: #408080; font-style: italic"># assign initial condition</span>
-    <span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, Nt):    <span style="color: #408080; font-style: italic"># n=0,1,...,Nt-1</span>
+    dt <span style="color: #666666">=</span> <span style="color: #008000">float</span>(dt)            <span style="color: #3D7B7B; font-style: italic"># avoid integer division</span>
+    Nt <span style="color: #666666">=</span> <span style="color: #008000">int</span>(<span style="color: #008000">round</span>(T<span style="color: #666666">/</span>dt))     <span style="color: #3D7B7B; font-style: italic"># no of time intervals</span>
+    T <span style="color: #666666">=</span> Nt<span style="color: #666666">*</span>dt                 <span style="color: #3D7B7B; font-style: italic"># adjust T to fit time step dt</span>
+    u <span style="color: #666666">=</span> zeros(Nt<span style="color: #666666">+1</span>)           <span style="color: #3D7B7B; font-style: italic"># array of u[n] values</span>
+    t <span style="color: #666666">=</span> linspace(<span style="color: #666666">0</span>, T, Nt<span style="color: #666666">+1</span>)  <span style="color: #3D7B7B; font-style: italic"># time mesh</span>
+    u[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> I                  <span style="color: #3D7B7B; font-style: italic"># assign initial condition</span>
+    <span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, Nt):    <span style="color: #3D7B7B; font-style: italic"># n=0,1,...,Nt-1</span>
         u[n<span style="color: #666666">+1</span>] <span style="color: #666666">=</span> (<span style="color: #666666">1</span> <span style="color: #666666">-</span> (<span style="color: #666666">1-</span>theta)<span style="color: #666666">*</span>a<span style="color: #666666">*</span>dt)<span style="color: #666666">/</span>(<span style="color: #666666">1</span> <span style="color: #666666">+</span> theta<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>a)<span style="color: #666666">*</span>u[n]
     <span style="color: #008000; font-weight: bold">return</span> u, t
-</pre></div>
-<p>
-<!-- !split --><br><br><br><br><br><br><br><br>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<h2 id="___sec51">Doc strings </h2>
+
+<!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="doc-strings">Doc strings </h2>
 
 <ul>
  <p><li> First string after the function heading</li>
@@ -1411,10 +1375,13 @@ A safer <code>solver</code> function (<code>dt = float(dt)</code> - guarantee fl
  <p><li> Can be used for automatic testing</li>
 </ul>
 
-<p>
-
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">solver</span>(I, a, T, dt, theta):
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">solver</span>(I, a, T, dt, theta):
     <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
 <span style="color: #BA2121; font-style: italic">    Solve</span>
 
@@ -1429,187 +1396,347 @@ A safer <code>solver</code> function (<code>dt = float(dt)</code> - guarantee fl
 <span style="color: #BA2121; font-style: italic">    Nicolson method.</span>
 <span style="color: #BA2121; font-style: italic">    &quot;&quot;&quot;</span>
     <span style="color: #666666">...</span>
-</pre></div>
-<p>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="formatting-of-numbers">Formatting of numbers </h2>
 
-<h2 id="___sec52">Formatting of numbers </h2>
+<p>Can control formatting of reals and integers through the <em>printf</em> format:</p>
 
-<p>
-Can control formatting of reals and integers through the <em>printf</em> format:
-
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39;t=</span><span style="color: #BB6688; font-weight: bold">%6.3f</span><span style="color: #BA2121"> u=</span><span style="color: #BB6688; font-weight: bold">%g</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> (t[i], u[i])
-</pre></div>
-<p>
-Or the alternative <em>format string syntax</em>:
-<p>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;t=</span><span style="color: #A45A77; font-weight: bold">%6.3f</span><span style="color: #BA2121"> u=</span><span style="color: #A45A77; font-weight: bold">%g</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> (t[i], u[i]))
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Or the alternative <em>format string syntax</em>:</p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39;t={t:6.3f} u={u:g}&#39;</span><span style="color: #666666">.</span>format(t<span style="color: #666666">=</span>t[i], u<span style="color: #666666">=</span>u[i])
-</pre></div>
-<p>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(<span style="color: #BA2121">&#39;t=</span><span style="color: #A45A77; font-weight: bold">{t:6.3f}</span><span style="color: #BA2121"> u=</span><span style="color: #A45A77; font-weight: bold">{u:g}</span><span style="color: #BA2121">&#39;</span><span style="color: #666666">.</span>format(t<span style="color: #666666">=</span>t[i], u<span style="color: #666666">=</span>u[i]))
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Or even better through the alternative <em>f-string syntax</em>:</p>
+
+<!-- code=python (!bc pycod) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000">print</span>(<span style="color: #BA2121">f&#39;t=</span><span style="color: #A45A77; font-weight: bold">{</span>t[i]<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">6.3f</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121"> u=</span><span style="color: #A45A77; font-weight: bold">{</span>u[i]<span style="color: #A45A77; font-weight: bold">:</span><span style="color: #BA2121">g</span><span style="color: #A45A77; font-weight: bold">}</span><span style="color: #BA2121">&#39;</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="running-the-program">Running the program </h2>
 
-<h2 id="___sec53">Running the program </h2>
+<p>How to run the program <a href="http://tinyurl.com/ofkw6kc/alg/decay_v1.py" target="_self"><tt>decay_v1.py</tt></a>.</p>
 
-<p>
-How to run the program <a href="http://tinyurl.com/ofkw6kc/alg/decay_v1.py" target="_self"><tt>decay_v1.py</tt></a>.
-
-<p>
 
 <!-- code=text (!bc sys) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Terminal&gt; python decay_v1.py
-</pre></div>
-<p>
-Can also run it as "normal" Unix programs: <code>./decay_v1.py</code> if the
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">Terminal&gt; python decay_v1.py
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Can also run it as "normal" Unix programs: <code>./decay_v1.py</code> if the
 first line is
+</p>
 
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #BA2121">`#!/usr/bin/env python`</span>
-</pre></div>
-<p>
-Then
-<p>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">`<span style="color: #3D7B7B; font-style: italic">#!/usr/bin/env python`</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Then</p>
 
 <!-- code=text (!bc sys) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Terminal&gt; chmod a+rx decay_v1.py
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">Terminal&gt; chmod a+rx decay_v1.py
 Terminal&gt; ./decay_v1.py
-</pre></div>
-<p>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="plotting-the-solution">Plotting the solution </h2>
 
-<h2 id="___sec54">Plotting the solution </h2>
+<p>Basic syntax:</p>
 
-<p>
-Basic syntax:
-
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
 
 plot(t, u)
 show()
-</pre></div>
-<p>
-Can (and should!) add labels on axes, title, legends.
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
+<p>Can (and should!) add labels on axes, title, legends.</p>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="comparing-with-the-exact-solution">Comparing with the exact solution </h2>
 
-<h2 id="___sec55">Comparing with the exact solution </h2>
+<p>Python function for the exact solution \( \uex(t)=Ie^{-at} \):</p>
 
-<p>
-Python function for the exact solution \( \uex(t)=Ie^{-at} \):
-
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">u_exact</span>(t, I, a):
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">u_exact</span>(t, I, a):
     <span style="color: #008000; font-weight: bold">return</span> I<span style="color: #666666">*</span>exp(<span style="color: #666666">-</span>a<span style="color: #666666">*</span>t)
-</pre></div>
-<p>
-Quick plotting:
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
+<p>Quick plotting:</p>
+
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">u_e <span style="color: #666666">=</span> u_exact(t, I, a)
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">u_e <span style="color: #666666">=</span> u_exact(t, I, a)
 plot(t, u, t, u_e)
-</pre></div>
-<p>
-Problem: \( \uex(t) \) applies the same mesh as \( u^n \) and
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Problem: \( \uex(t) \) applies the same mesh as \( u^n \) and
 looks as a piecewise linear function.
+</p>
 
-<p>
-Remedy: Introduce a very fine mesh for \( \uex \).
+<p>Remedy: Introduce a very fine mesh for \( \uex \).</p>
 
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">t_e <span style="color: #666666">=</span> linspace(<span style="color: #666666">0</span>, T, <span style="color: #666666">1001</span>)      <span style="color: #408080; font-style: italic"># fine mesh</span>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">t_e <span style="color: #666666">=</span> linspace(<span style="color: #666666">0</span>, T, <span style="color: #666666">1001</span>)      <span style="color: #3D7B7B; font-style: italic"># fine mesh</span>
 u_e <span style="color: #666666">=</span> u_exact(t_e, I, a)
 
-plot(t_e, u_e, <span style="color: #BA2121">&#39;b-&#39;</span>,            <span style="color: #408080; font-style: italic"># blue line for u_e</span>
-     t,   u,   <span style="color: #BA2121">&#39;r--o&#39;</span>)          <span style="color: #408080; font-style: italic"># red dashes w/circles</span>
-</pre></div>
-<p>
+plot(t_e, u_e, <span style="color: #BA2121">&#39;b-&#39;</span>,            <span style="color: #3D7B7B; font-style: italic"># blue line for u_e</span>
+     t,   u,   <span style="color: #BA2121">&#39;r--o&#39;</span>)          <span style="color: #3D7B7B; font-style: italic"># red dashes w/circles</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="add-legends-axes-labels-title-and-wrap-in-a-function">Add legends, axes labels, title, and wrap in a function </h2>
 
-<h2 id="___sec56">Add legends, axes labels, title, and wrap in a function </h2>
-
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
-
-<span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">plot_numerical_and_exact</span>(theta, I, a, T, dt):
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">plot_numerical_and_exact</span>(theta, I, a, T, dt):
     <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Compare the numerical and exact solution in a plot.&quot;&quot;&quot;</span>
     u, t <span style="color: #666666">=</span> solver(I<span style="color: #666666">=</span>I, a<span style="color: #666666">=</span>a, T<span style="color: #666666">=</span>T, dt<span style="color: #666666">=</span>dt, theta<span style="color: #666666">=</span>theta)
-
-    t_e <span style="color: #666666">=</span> linspace(<span style="color: #666666">0</span>, T, <span style="color: #666666">1001</span>)        <span style="color: #408080; font-style: italic"># fine mesh for u_e</span>
+    t_e <span style="color: #666666">=</span> linspace(<span style="color: #666666">0</span>, T, <span style="color: #666666">1001</span>)        <span style="color: #3D7B7B; font-style: italic"># fine mesh for u_e</span>
     u_e <span style="color: #666666">=</span> u_exact(t_e, I, a)
-
-    plot(t,   u,   <span style="color: #BA2121">&#39;r--o&#39;</span>,            <span style="color: #408080; font-style: italic"># red dashes w/circles</span>
-         t_e, u_e, <span style="color: #BA2121">&#39;b-&#39;</span>)              <span style="color: #408080; font-style: italic"># blue line for exact sol.</span>
+    plot(t, u, <span style="color: #BA2121">&#39;r--o&#39;</span>, t_e, u_e, <span style="color: #BA2121">&#39;b-&#39;</span>)
     legend([<span style="color: #BA2121">&#39;numerical&#39;</span>, <span style="color: #BA2121">&#39;exact&#39;</span>])
-    xlabel(<span style="color: #BA2121">&#39;t&#39;</span>)
-    ylabel(<span style="color: #BA2121">&#39;u&#39;</span>)
-    title(<span style="color: #BA2121">&#39;theta=</span><span style="color: #BB6688; font-weight: bold">%g</span><span style="color: #BA2121">, dt=</span><span style="color: #BB6688; font-weight: bold">%g</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> (theta, dt))
-    savefig(<span style="color: #BA2121">&#39;plot_</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">_</span><span style="color: #BB6688; font-weight: bold">%g</span><span style="color: #BA2121">.png&#39;</span> <span style="color: #666666">%</span> (theta, dt))
-</pre></div>
-<p>
-Complete code in
-<a href="http://tinyurl.com/ofkw6kc/alg/decay_v2.py" target="_self"><tt>decay_v2.py</tt></a>
+    xlabel(<span style="color: #BA2121">&#39;t&#39;</span>); ylabel(<span style="color: #BA2121">&#39;u&#39;</span>)
+    title(<span style="color: #BA2121">&#39;theta=</span><span style="color: #A45A77; font-weight: bold">%g</span><span style="color: #BA2121">, dt=</span><span style="color: #A45A77; font-weight: bold">%g</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> (theta, dt))
+    savefig(<span style="color: #BA2121">&#39;plot_</span><span style="color: #A45A77; font-weight: bold">%s</span><span style="color: #BA2121">_</span><span style="color: #A45A77; font-weight: bold">%g</span><span style="color: #BA2121">.png&#39;</span> <span style="color: #666666">%</span> (theta, dt))
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-<center><p><img src="fig-alg/decay_v2.png" align="bottom" width=500></p></center>
 
-<p>
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 9</p>
+</center>
+<p><img src="fig-alg/decay_v2.png" width="400" align="bottom"></p>
+</center>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec57">Plotting with SciTools </h2>
-
-<p>
-<a href="https://github.com/hplgit/scitools" target="_self">SciTools</a> provides a
-unified plotting interface (Easyviz) to many different plotting
-packages: Matplotlib, Gnuplot, Grace, VTK, OpenDX, ...
-
-<p>
-Can use Matplotlib (MATLAB-like) syntax,
-or a more compact <code>plot</code> function syntax:
-
-<p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">scitools.std</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
-
-plot(t,   u,   <span style="color: #BA2121">&#39;r--o&#39;</span>,           <span style="color: #408080; font-style: italic"># red dashes w/circles</span>
-     t_e, u_e, <span style="color: #BA2121">&#39;b-&#39;</span>,             <span style="color: #408080; font-style: italic"># blue line for exact sol.</span>
-     legend<span style="color: #666666">=</span>[<span style="color: #BA2121">&#39;numerical&#39;</span>, <span style="color: #BA2121">&#39;exact&#39;</span>],
-     xlabel<span style="color: #666666">=</span><span style="color: #BA2121">&#39;t&#39;</span>,
-     ylabel<span style="color: #666666">=</span><span style="color: #BA2121">&#39;u&#39;</span>,
-     title<span style="color: #666666">=</span><span style="color: #BA2121">&#39;theta=</span><span style="color: #BB6688; font-weight: bold">%g</span><span style="color: #BA2121">, dt=</span><span style="color: #BB6688; font-weight: bold">%g</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> (theta, dt),
-     savefig<span style="color: #666666">=</span><span style="color: #BA2121">&#39;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">_</span><span style="color: #BB6688; font-weight: bold">%g</span><span style="color: #BA2121">.png&#39;</span> <span style="color: #666666">%</span> (theta2name[theta], dt),
-     show<span style="color: #666666">=</span><span style="color: #008000">True</span>)
-</pre></div>
-<p>
-Change backend (plotting engine, Matplotlib by default):
-
-<p>
-
-<!-- code=text (!bc sys) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Terminal&gt; python decay_plot_st.py --SCITOOLS_easyviz_backend gnuplot
-Terminal&gt; python decay_plot_st.py --SCITOOLS_easyviz_backend grace
-</pre></div>
-<p>
-<!-- !split --><br><br><br><br><br><br><br><br>
-
 <h1 id="decay:verification">Verifying the implementation</h1>
 
 <ul>
@@ -1618,13 +1745,10 @@ Terminal&gt; python decay_plot_st.py --SCITOOLS_easyviz_backend grace
  <p><li> Make function for each test problem</li>
  <p><li> Later: put the verification tests in a professional testing framework</li>
 </ul>
-
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="simplest-method-run-a-few-algorithmic-steps-by-hand">Simplest method: run a few algorithmic steps by hand </h2>
 
-<h2 id="___sec59">Simplest method: run a few algorithmic steps by hand </h2>
-
-<p>
-Use a calculator (\( I=0.1 \), \( \theta=0.8 \), \( \Delta t =0.8 \)):
+<p>Use a calculator (\( I=0.1 \), \( \theta=0.8 \), \( \Delta t =0.8 \)):</p>
 
 $$ A\equiv \frac{1 - (1-\theta) a\Delta t}{1 + \theta a \Delta t} = 0.298245614035$$
 
@@ -1637,28 +1761,24 @@ u^3 &=Au^2= 0.00265290804728
 \end{align*}
 $$
 
-<p>
-See the function <code>test_solver_three_steps</code> in <a href="http://tinyurl.com/ofkw6kc/alg/decay_v3.py" target="_self"><tt>decay_v3.py</tt></a>.
+<p>See the function <code>test_solver_three_steps</code> in <a href="https://github.com/hplgit/decay-book/blob/master/src/alg/decay_v3.py" target="_self"><tt>decay_v3.py</tt></a>.</p>
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="comparison-with-an-exact-discrete-solution">Comparison with an exact discrete solution </h2>
 
-<h2 id="___sec60">Comparison with an exact discrete solution </h2>
-
-<p>
 <div class="alert alert-block alert-notice alert-text-normal">
-<b>Best verification.</b>
+<b>Best verification</b>
 <p>
-Compare computed numerical solution
+<p>Compare computed numerical solution
 with a closed-form <em>exact discrete solution</em> (if possible).
+</p>
 </div>
 
 
-<p>
-Define
+<p>Define</p>
 $$ A = \frac{1 - (1-\theta) a\Delta t}{1 + \theta a \Delta t}$$
 
-Repeated use of the \( \theta \)-rule:
+<p>Repeated use of the \( \theta \)-rule:</p>
 $$
 \begin{align*}
 u^0 &= I,\\ 
@@ -1667,13 +1787,11 @@ u^n &= A^nu^{n-1} = A^nI
 \end{align*}
 $$
 
-<p>
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="making-a-test-based-on-an-exact-discrete-solution">Making a test based on an exact discrete solution </h2>
 
-<h2 id="___sec61">Making a test based on an exact discrete solution </h2>
-
-<p>
-The exact discrete solution is
+<p>The exact discrete solution is</p>
 
 $$
 \begin{equation}
@@ -1682,63 +1800,79 @@ u^n = IA^n
 \end{equation}
 $$
 
-<p>
+
 <div class="alert alert-block alert-question alert-text-normal">
-<b>Question.</b>
+<b>Question</b>
 <p>
-Understand what \( n \) in \( u^n \) and in \( A^n \) means!
+<p>Understand what \( n \) in \( u^n \) and in \( A^n \) means!</p>
 </div>
 
 
-<p>
-Test if
+<p>Test if</p>
 
 $$ \max_n |u^n - \uex(t_n)| < \epsilon\sim 10^{-15}$$
 
-<p>
-Implementation in <a href="http://tinyurl.com/ofkw6kc/alg/decay_verf2.py" target="_self"><tt>decay_verf2.py</tt></a>.
+<p>Implementation in <a href="http://tinyurl.com/ofkw6kc/alg/decay_verf2.py" target="_self"><tt>decay_verf2.py</tt></a>.</p>
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec62">Test the understanding! </h2>
-
-<p>
-Make a program for solving Newton's law of cooling
-
-$$ T' = -k(T-T_s),\quad T(0)=T_0,\ t\in (0,t_{\mbox{end}}]$$
-
-with the Forward Euler, Backward Euler, and Crank-Nicolson schemes
-(or a \( \theta \) scheme). Verify the implementation.
-
-<p>
-<!-- !split --><br><br><br><br><br><br><br><br>
-
 <h2 id="decay:computing:error">Computing the numerical error as a mesh function</h2>
 
-<p>
-Task: compute the numerical error \( e^n = \uex(t_n) - u^n \)
+<p>Task: compute the numerical error \( e^n = \uex(t_n) - u^n \)</p>
 
-<p>
-Exact solution: \( \uex(t)=Ie^{-at} \), implemented as
+<p>Exact solution: \( \uex(t)=Ie^{-at} \), implemented as</p>
 
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">u_exact</span>(t, I, a):
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">u_exact</span>(t, I, a):
     <span style="color: #008000; font-weight: bold">return</span> I<span style="color: #666666">*</span>exp(<span style="color: #666666">-</span>a<span style="color: #666666">*</span>t)
-</pre></div>
-<p>
-Compute \( e^n \) by
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
+<p>Compute \( e^n \) by</p>
+
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">u, t <span style="color: #666666">=</span> solver(I, a, T, dt, theta)  <span style="color: #408080; font-style: italic"># Numerical solution</span>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">u, t <span style="color: #666666">=</span> solver(I, a, T, dt, theta)  <span style="color: #3D7B7B; font-style: italic"># Numerical solution</span>
 u_e <span style="color: #666666">=</span> u_exact(t, I, a)
 e <span style="color: #666666">=</span> u_e <span style="color: #666666">-</span> u
-</pre></div>
-<p>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <div class="alert alert-block alert-notice alert-text-normal">
 <b>Array arithmetics - we compute on entire arrays!</b>
 <p>
@@ -1752,9 +1886,7 @@ e <span style="color: #666666">=</span> u_e <span style="color: #666666">-</span
 </div>
 
 
-<p>
 <!-- !split --><br><br><br><br><br><br><br><br>
-
 <h2 id="decay:computing:error:norm">Computing the norm of the error</h2>
 
 <ul>
@@ -1762,8 +1894,7 @@ e <span style="color: #666666">=</span> u_e <span style="color: #666666">-</span
  <p><li> Usually we want one number for the error</li>
  <p><li> Use a norm of \( e^n \)</li>
 </ul>
-
-Norms of a function \( f(t) \):
+<p>Norms of a function \( f(t) \):</p>
 
 $$
 \begin{align}
@@ -1776,56 +1907,81 @@ $$
 \end{align}
 $$
 
-<p>
-<!-- !split --><br><br><br><br><br><br><br><br>
 
-<h2 id="___sec65">Norms of mesh functions </h2>
+<!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="norms-of-mesh-functions">Norms of mesh functions </h2>
 
 <ul>
- <p><li> Problem: \( f^n =f(t_n) \) is a mesh function and hence not defined for all \( t \).
-   How to integrate \( f^n \)?</li>
- <p><li> Idea: Apply a numerical integration rule, using only
-   the mesh points of the mesh function.</li>
+ <p><li> Problem: \( f^n =f(t_n) \) is a mesh function and hence not defined for all \( t \). How to integrate \( f^n \)?</li>
+ <p><li> Idea: Apply a numerical integration rule, using only the mesh points of the mesh function.</li>
 </ul>
-
-The Trapezoidal rule:
+<p>The Trapezoidal rule:</p>
 
 $$ ||f^n|| = \left(\Delta t\left(\half(f^0)^2 + \half(f^{N_t})^2
 + \sum_{n=1}^{N_t-1} (f^n)^2\right)\right)^{1/2} $$
 
-<p>
-Common simplification yields the \( L^2 \) norm of a mesh function:
+<p>Common simplification yields the \( L^2 \) norm of a mesh function:</p>
 
 $$ ||f^n||_{\ell^2} = \left(\Delta t\sum_{n=0}^{N_t} (f^n)^2\right)^{1/2}$$
 
-<p>
-<!-- !split --><br><br><br><br><br><br><br><br>
 
-<h2 id="___sec66">Implementation of the norm of the error </h2>
+<!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="norms-notice">Norms - notice! </h2>
+<div class="alert alert-block alert-notice alert-text-normal">
+<b>Notice</b>
+<p>
+<ul>
+ <p><li> The <em>continuous</em> norms use capital \( L^2, L^1, L^\infty{} \)</li>
+ <p><li> The <em>discrete</em> norm uses lowercase \( \ell^2 \)</li>
+</ul>
+</div>
+
+
+<!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="implementation-of-the-norm-of-the-error">Implementation of the norm of the error </h2>
 
 $$ E = ||e^n||_{\ell^2}  = \sqrt{\Delta t\sum_{n=0}^{N_t} (e^n)^2}$$
 
-<p>
-Python w/array arithmetics:
+<p>Python w/array arithmetics:</p>
 
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">e <span style="color: #666666">=</span> u_exact(t) <span style="color: #666666">-</span> u
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">e <span style="color: #666666">=</span> u_exact(t) <span style="color: #666666">-</span> u
 E <span style="color: #666666">=</span> sqrt(dt<span style="color: #666666">*</span><span style="color: #008000">sum</span>(e<span style="color: #666666">**2</span>))
-</pre></div>
-<p>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- !split --><br><br><br><br><br><br><br><br>
+<h2 id="comment-on-array-vs-scalar-computation">Comment on array vs scalar computation </h2>
 
-<h2 id="___sec67">Comment on array vs scalar computation </h2>
+<p>Scalar computing of <code>E = sqrt(dt*sum(e**2))</code>:</p>
 
-<p>
-Scalar computing of <code>E = sqrt(dt*sum(e**2))</code>:
-
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">m <span style="color: #666666">=</span> <span style="color: #008000">len</span>(u)     <span style="color: #408080; font-style: italic"># length of u array (alt: u.size)</span>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">m <span style="color: #666666">=</span> <span style="color: #008000">len</span>(u)     <span style="color: #3D7B7B; font-style: italic"># length of u array (alt: u.size)</span>
 u_e <span style="color: #666666">=</span> zeros(m)
 t <span style="color: #666666">=</span> <span style="color: #666666">0</span>
 <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(m):
@@ -1834,135 +1990,40 @@ t <span style="color: #666666">=</span> <span style="color: #666666">0</span>
 e <span style="color: #666666">=</span> zeros(m)
 <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(m):
     e[i] <span style="color: #666666">=</span> u_e[i] <span style="color: #666666">-</span> u[i]
-s <span style="color: #666666">=</span> <span style="color: #666666">0</span>  <span style="color: #408080; font-style: italic"># summation variable</span>
+s <span style="color: #666666">=</span> <span style="color: #666666">0</span>  <span style="color: #3D7B7B; font-style: italic"># summation variable</span>
 <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(m):
     s <span style="color: #666666">=</span> s <span style="color: #666666">+</span> e[i]<span style="color: #666666">**2</span>
 error <span style="color: #666666">=</span> sqrt(dt<span style="color: #666666">*</span>s)
-</pre></div>
-<p>
-Obviously, scalar computing
-
-<ul>
- <p><li> takes more code</li>
- <p><li> is less readable</li>
- <p><li> runs much slower</li>
-</ul>
-
-<div class="alert alert-block alert-notice alert-text-normal">
-<b>Rule.</b>
-<p>
-Compute on entire arrays (when possible)!
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
+<div class="alert alert-block alert-notice alert-text-normal">
+<b>Scalar computing</b>
 <p>
-<!-- !split --><br><br><br><br><br><br><br><br>
+<p>takes more code, is less readable and runs much slower</p>
+</div>
 
-<h2 id="___sec68">Memory-saving implementation </h2>
 
-<ul>
- <p><li> Note 1: we store the entire array <code>u</code>, i.e., \( u^n \) for \( n=0,1,\ldots,N_t \)</li>
- <p><li> Note 2: the formula for \( u^{n+1} \) needs \( u^n \) only, not \( u^{n-1} \), \( u^{n-2} \), ...</li>
- <p><li> No need to store more than \( u^{n+1} \) and \( u^{n} \)</li>
- <p><li> Extremely important when solving PDEs</li>
- <p><li> No practical importance here (much memory available)</li>
- <p><li> But let's illustrate how to do save memory!</li>
- <p><li> Idea 1: store \( u^{n+1} \) in <code>u</code>, \( u^n \) in <code>u_1</code> (<code>float</code>)</li>
- <p><li> Idea 2: store <code>u</code> in a file, read file later for plotting</li>
-</ul>
-
-<!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec69">Memory-saving solver function </h2>
-
+<div class="alert alert-block alert-notice alert-text-normal">
+<b>Rule</b>
 <p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">solver_memsave</span>(I, a, T, dt, theta, filename<span style="color: #666666">=</span><span style="color: #BA2121">&#39;sol.dat&#39;</span>):
-    <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
-<span style="color: #BA2121; font-style: italic">    Solve u&#39;=-a*u, u(0)=I, for t in (0,T] with steps of dt.</span>
-<span style="color: #BA2121; font-style: italic">    Minimum use of memory. The solution is stored in a file</span>
-<span style="color: #BA2121; font-style: italic">    (with name filename) for later plotting.</span>
-<span style="color: #BA2121; font-style: italic">    &quot;&quot;&quot;</span>
-    dt <span style="color: #666666">=</span> <span style="color: #008000">float</span>(dt)         <span style="color: #408080; font-style: italic"># avoid integer division</span>
-    Nt <span style="color: #666666">=</span> <span style="color: #008000">int</span>(<span style="color: #008000">round</span>(T<span style="color: #666666">/</span>dt))  <span style="color: #408080; font-style: italic"># no of intervals</span>
-
-    outfile <span style="color: #666666">=</span> <span style="color: #008000">open</span>(filename, <span style="color: #BA2121">&#39;w&#39;</span>)
-    <span style="color: #408080; font-style: italic"># u: time level n+1, u_1: time level n</span>
-    t <span style="color: #666666">=</span> <span style="color: #666666">0</span>
-    u_1 <span style="color: #666666">=</span> I
-    outfile<span style="color: #666666">.</span>write(<span style="color: #BA2121">&#39;</span><span style="color: #BB6688; font-weight: bold">%.16E</span><span style="color: #BA2121">  </span><span style="color: #BB6688; font-weight: bold">%.16E</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> (t, u_1))
-    <span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">1</span>, Nt<span style="color: #666666">+1</span>):
-        u <span style="color: #666666">=</span> (<span style="color: #666666">1</span> <span style="color: #666666">-</span> (<span style="color: #666666">1-</span>theta)<span style="color: #666666">*</span>a<span style="color: #666666">*</span>dt)<span style="color: #666666">/</span>(<span style="color: #666666">1</span> <span style="color: #666666">+</span> theta<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>a)<span style="color: #666666">*</span>u_1
-        u_1 <span style="color: #666666">=</span> u
-        t <span style="color: #666666">+=</span> dt
-        outfile<span style="color: #666666">.</span>write(<span style="color: #BA2121">&#39;</span><span style="color: #BB6688; font-weight: bold">%.16E</span><span style="color: #BA2121">  </span><span style="color: #BB6688; font-weight: bold">%.16E</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> (t, u))
-    outfile<span style="color: #666666">.</span>close()
-    <span style="color: #008000; font-weight: bold">return</span> u, t
-</pre></div>
-<p>
-<!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec70">Reading computed data from file </h2>
-
-<p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">read_file</span>(filename<span style="color: #666666">=</span><span style="color: #BA2121">&#39;sol.dat&#39;</span>):
-    infile <span style="color: #666666">=</span> <span style="color: #008000">open</span>(filename, <span style="color: #BA2121">&#39;r&#39;</span>)
-    u <span style="color: #666666">=</span> [];  t <span style="color: #666666">=</span> []
-    <span style="color: #008000; font-weight: bold">for</span> line <span style="color: #AA22FF; font-weight: bold">in</span> infile:
-        words <span style="color: #666666">=</span> line<span style="color: #666666">.</span>split()
-        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #008000">len</span>(words) <span style="color: #666666">!=</span> <span style="color: #666666">2</span>:
-            <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39;Found more than two numbers on a line!&#39;</span>, words
-            sys<span style="color: #666666">.</span>exit(<span style="color: #666666">1</span>)  <span style="color: #408080; font-style: italic"># abort</span>
-        t<span style="color: #666666">.</span>append(<span style="color: #008000">float</span>(words[<span style="color: #666666">0</span>]))
-        u<span style="color: #666666">.</span>append(<span style="color: #008000">float</span>(words[<span style="color: #666666">1</span>]))
-    <span style="color: #008000; font-weight: bold">return</span> np<span style="color: #666666">.</span>array(t), np<span style="color: #666666">.</span>array(u)
-</pre></div>
-<p>
-Simpler code with <code>numpy</code> functionality for reading/writing tabular data:
-
-<p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">read_file_numpy</span>(filename<span style="color: #666666">=</span><span style="color: #BA2121">&#39;sol.dat&#39;</span>):
-    data <span style="color: #666666">=</span> np<span style="color: #666666">.</span>loadtxt(filename)
-    t <span style="color: #666666">=</span> data[:,<span style="color: #666666">0</span>]
-    u <span style="color: #666666">=</span> data[:,<span style="color: #666666">1</span>]
-    <span style="color: #008000; font-weight: bold">return</span> t, u
-</pre></div>
-<p>
-Similar function <code>np.savetxt</code>, but then we need all \( u^n \) and \( t^n \) values
-in a two-dimensional array (which we try to prevent now!).
-
-<p>
-<!-- !split --><br><br><br><br><br><br><br><br>
-
-<h2 id="___sec71">Usage of memory-saving code </h2>
-
-<p>
-
-<!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">explore</span>(I, a, T, dt, theta<span style="color: #666666">=0.5</span>, makeplot<span style="color: #666666">=</span><span style="color: #008000">True</span>):
-    filename <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;u.dat&#39;</span>
-    u, t <span style="color: #666666">=</span> solver_memsave(I, a, T, dt, theta, filename)
-
-    t, u <span style="color: #666666">=</span> read_file(filename)
-    u_e <span style="color: #666666">=</span> u_exact(t, I, a)
-    e <span style="color: #666666">=</span> u_e <span style="color: #666666">-</span> u
-    E <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sqrt(dt<span style="color: #666666">*</span>np<span style="color: #666666">.</span>sum(e<span style="color: #666666">**2</span>))
-    <span style="color: #008000; font-weight: bold">if</span> makeplot:
-        plt<span style="color: #666666">.</span>figure()
-        <span style="color: #666666">...</span>
-</pre></div>
-<p>
-Complete program: <a href="http://tinyurl.com/ofkw6kc/alg/decay_memsave.py" target="_self"><tt>decay_memsave.py</tt></a>.
+<p>Compute on entire arrays (when possible)! Vectorization!</p>
+</div>
 
 <!-- ------------------- end of main content --------------- -->
-
-
 </body>
 </html>
-    
 

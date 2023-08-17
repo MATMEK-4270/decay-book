@@ -15,11 +15,11 @@ def has_slides(ch):
 # Error check (if chapters above is appropriately defined)
 for name in published:
     if name not in chapters:
-        print """
+        print("""
 *** error: 'chapters' dictionary in index_html_files_do.txt does not
     contain the key "%s". Fill in that chapter nickname and the
     corresponding chapter title!
-""" % name
+""" % name)
         import sys; sys.exit(1)
 
 pub_url = '.'

@@ -33,7 +33,7 @@ else
   spellcheck=spell
 fi
 
-system doconce spellcheck -d .dict4spell.txt book.do.txt preface.do.txt
+#system doconce spellcheck -d .dict4spell.txt book.do.txt preface.do.txt
 # No spellchecking of local files here since book.do.txt just includes files.
 # Spellcheck all *.do.txt files in each chapter.
 if [ "$spellcheck" != 'nospell' ]; then

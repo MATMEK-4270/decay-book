@@ -59,7 +59,7 @@ FIGURE: [fig-alg/FE1, width=600 frac=0.7]
  * Vertical motion of a body in water/air
  * Time-discretization of diffusion PDEs by Fourier techniques
 
-See the "text": "${doc_notes}/sphinx-decay/._main_decay008.html" for details.
+See the "text": "https://link.springer.com/chapter/10.1007/978-3-319-29439-1_1" for details.
 
 !split
 ===== The ODE problem has a continuous and discrete version =====
@@ -67,10 +67,9 @@ See the "text": "${doc_notes}/sphinx-decay/._main_decay008.html" for details.
 === Continuous problem ===
 
 !bt
-\begin{equation}
+\[
 u' = -au,\ t\in (0,T], \quad u(0)=I
-label{decay:problem}
-\end{equation}
+\]
 !et
 (varies with a continuous $t$)
 
@@ -80,10 +79,9 @@ Numerical methods applied to the continuous problem turns it into
 a discrete problem
 
 !bt
-\begin{equation}
+\[
 u^{n+1} = \mbox{const} \cdot u^n, \quad n=0,1,\ldots N_t-1, \quad u^n=I
-label{decay:problem:discrete}
-\end{equation}
+\]
 !et
 (varies with discrete mesh points $t_n$)
 
@@ -99,7 +97,7 @@ consists of four steps:
  o discretizing the domain,
  o fulfilling the equation at discrete time points,
  o replacing derivatives by finite differences,
- o formulating a recursive algorithm.
+ o solve the discretized problem. (Often with a recursive algorithm in 1D)
 
 !split
 ===== Step 1: Discretizing the domain =====

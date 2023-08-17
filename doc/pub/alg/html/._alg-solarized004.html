@@ -1,22 +1,19 @@
 <!--
-Automatically generated HTML file from DocOnce source
-(https://github.com/hplgit/doconce/)
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format html main_alg.do.txt DOCUMENT=document APPENDIX=document BOOK=standalone --without_solutions --without_answers --html_style=solarized3 --html_output=alg-solarized --pygments_html_style=perldoc --allow_refs_to_external_docs
 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Algorithms and implementations for exponential decay models">
 <meta name="keywords" content="decay ODE,exponential decay,mesh,grid,mesh function,finite differences,forward difference,finite differences forward,difference equation,discrete equation,algebraic equation,finite difference scheme,Forward Euler scheme,backward difference,finite differences backward,backward scheme, 1-step,Backward Euler scheme,Crank-Nicolson scheme,centered difference,finite differences centered,averaging arithmetic,weighted average,theta-rule,$\theta$-rule,time step,finite difference operator notation,operator notation, finite differences,directory,folder,doc strings,printf format,format string syntax (Python),plotting curves,visualizing curves,test function,unit testing,representative (mesh function),array arithmetics,array computing,vectorization,continuous function norms,norm continuous,discrete function norms,mesh function norms,norm discrete (mesh function),error norms,scalar computing,PNG plot,PDF plot,EPS plot,viewing graphics files,cropping images,array arithmetics,array computing,vectorization">
-
 <title>Algorithms and implementations for exponential decay models</title>
-
-
-<link href="https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_styles/style_solarized_box/css/solarized_light_code.css" rel="stylesheet" type="text/css" title="light"/>
-<script src="https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_styles/style_solarized_box/js/highlight.pack.js"></script>
+<link href="https://raw.githubusercontent.com/doconce/doconce/main/bundled/html_styles/style_solarized_box/css/solarized_light_code.css" rel="stylesheet" type="text/css" title="light"/>
+<script src="https://raw.githubusercontent.com/doconce/doconce/main/bundled/html_styles/style_solarized_box/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-
-<link href="http://thomasf.github.io/solarized-css/solarized-light.min.css" rel="stylesheet">
+<link href="https://thomasf.github.io/solarized-css/solarized-light.min.css" rel="stylesheet">
 <style type="text/css">
 h1 {color: #b58900;}  /* yellow */
 /* h1 {color: #cb4b16;}  orange */
@@ -48,48 +45,63 @@ pre {
 .alert-block > p, .alert-block > ul {margin-bottom:1em}
 .alert li {margin-top: 1em}
 .alert-block p+p {margin-top:5px}
-.alert-notice { background-image: url(https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_images/small_yellow_notice.png); }
-.alert-summary  { background-image:url(https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_images/small_yellow_summary.png); }
-.alert-warning { background-image: url(https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_images/small_yellow_warning.png); }
-.alert-question {background-image:url(https://cdn.rawgit.com/hplgit/doconce/master/bundled/html_images/small_yellow_question.png); }
-
+.alert-notice { background-image: url(https://raw.githubusercontent.com/doconce/doconce/bundled/html_images/small_yellow_notice.png); }
+.alert-summary  { background-image:url(https://raw.githubusercontent.com/doconce/doconce/main/bundled/html_images/small_yellow_summary.png); }
+.alert-warning { background-image: url(https://raw.githubusercontent.com/doconce/doconce/main/bundled/html_images/small_yellow_warning.png); }
+.alert-question {background-image:url(https://raw.githubusercontent.com/doconce/doconce/main/bundled/html_images/small_yellow_question.png); }
 div { text-align: justify; text-justify: inter-word; }
+.tab {
+  padding-left: 1.5em;
+}
+div.toc p,a {
+  line-height: 1.3;
+  margin-top: 1.1;
+  margin-bottom: 1.1;
+}
 </style>
-
-
 </head>
 
 <!-- tocinfo
 {'highest level': 1,
- 'sections': [('Finite difference methods',
+ 'sections': [('Table of contents',
                1,
-               'decay:basics',
-               'decay:basics'),
+               'table_of_contents',
+               'table_of_contents'),
+              ('Finite difference methods', 1, 'decay:basics', 'decay:basics'),
               ('A basic model for exponential decay',
                2,
                'decay:model',
                'decay:model'),
-              ('The exact solution', 3, None, '___sec2'),
-              ('A complete problem formulation', 3, None, '___sec3'),
+              ('The exact solution', 3, None, 'the-exact-solution'),
+              ('A complete problem formulation',
+               3,
+               None,
+               'a-complete-problem-formulation'),
               ('The Forward Euler scheme',
                2,
                'decay:schemes:FE',
                'decay:schemes:FE'),
-              ('Step 1: Discretizing the domain', 3, None, '___sec5'),
+              ('Step 1: Discretizing the domain',
+               3,
+               None,
+               'step-1-discretizing-the-domain'),
               ('Step 2: Fulfilling the equation at discrete time points',
                3,
                None,
-               '___sec6'),
+               'step-2-fulfilling-the-equation-at-discrete-time-points'),
               ('Step 3: Replacing derivatives by finite differences',
                3,
                None,
-               '___sec7'),
+               'step-3-replacing-derivatives-by-finite-differences'),
               ('Step 4: Formulating a recursive algorithm',
                3,
                None,
-               '___sec8'),
-              ('Interpretation', 3, None, '___sec9'),
-              ('Computing with the recursive formula', 3, None, '___sec10'),
+               'step-4-formulating-a-recursive-algorithm'),
+              ('Interpretation', 3, None, 'interpretation'),
+              ('Computing with the recursive formula',
+               3,
+               None,
+               'computing-with-the-recursive-formula'),
               ('The Backward Euler scheme',
                2,
                'decay:schemes:BE',
@@ -102,31 +114,37 @@ div { text-align: justify; text-justify: inter-word; }
                2,
                'decay:schemes:theta',
                'decay:schemes:theta'),
-              ('Constant time step', 2, None, '___sec14'),
+              ('Constant time step', 2, None, 'constant-time-step'),
               ('Mathematical derivation of finite difference formulas',
                2,
                'decay:fd:taylor',
                'decay:fd:taylor'),
-              ('The forward difference', 3, None, '___sec16'),
-              ('The backward difference', 3, None, '___sec17'),
-              ('The centered difference', 3, None, '___sec18'),
+              ('The forward difference', 3, None, 'the-forward-difference'),
+              ('The backward difference', 3, None, 'the-backward-difference'),
+              ('The centered difference', 3, None, 'the-centered-difference'),
               ('Compact operator notation for finite differences',
                2,
                'decay:fd:op',
                'decay:fd:op'),
-              ('Implementation', 1, 'decay:impl1', 'decay:impl1'),
-              ('Computer language: Python', 2, None, '___sec21'),
+              ('Implementations', 1, 'decay:impl1', 'decay:impl1'),
+              ('Computer language: Python',
+               2,
+               None,
+               'computer-language-python'),
               ('Making a solver function', 2, 'decay:py1', 'decay:py1'),
               ('Integer division', 2, 'decay:py2', 'decay:py2'),
-              ('Doc strings', 2, None, '___sec24'),
-              ('Formatting numbers', 2, None, '___sec25'),
-              ('Running the program', 2, None, '___sec26'),
-              ('Plotting the solution', 2, None, '___sec27'),
-              ('Verifying the implementation', 2, None, '___sec28'),
+              ('Doc strings', 2, None, 'doc-strings'),
+              ('Formatting numbers', 2, None, 'formatting-numbers'),
+              ('Running the program', 2, None, 'running-the-program'),
+              ('Plotting the solution', 2, None, 'plotting-the-solution'),
+              ('Verifying the implementation',
+               2,
+               None,
+               'verifying-the-implementation'),
               ('Running a few algorithmic steps by hand',
                3,
                None,
-               '___sec29'),
+               'running-a-few-algorithmic-steps-by-hand'),
               ('Computing the numerical error as a mesh function',
                2,
                'decay:computing:error',
@@ -135,20 +153,23 @@ div { text-align: justify; text-justify: inter-word; }
                2,
                'decay:computing:error:norm',
                'decay:computing:error:norm'),
-              ('Scalar computing', 3, None, '___sec32'),
+              ('Scalar computing', 3, None, 'scalar-computing'),
               ('Experiments with computing and plotting',
                2,
                None,
-               '___sec33'),
-              ('Combining plot files', 3, None, '___sec34'),
-              ('Plotting with SciTools', 3, None, '___sec35'),
-              ('Memory-saving implementation', 2, None, '___sec36'),
-              ('Exercises', 1, None, '___sec37'),
+               'experiments-with-computing-and-plotting'),
+              ('Combining plot files', 3, None, 'combining-plot-files'),
+              ('Plotting with SciTools', 3, None, 'plotting-with-scitools'),
+              ('Memory-saving implementation',
+               2,
+               None,
+               'memory-saving-implementation'),
+              ('Exercises', 1, None, 'exercises'),
               ('Exercise 1: Define a mesh function and visualize it',
                2,
                'decay:exer:meshfunc',
                'decay:exer:meshfunc'),
-              ('Remarks', 3, None, '___sec39'),
+              ('Remarks', 3, None, 'remarks'),
               ('Problem 2: Differentiate a function',
                2,
                'decay:exer:dudt',
@@ -169,7 +190,7 @@ div { text-align: justify; text-justify: inter-word; }
                2,
                'decay:exer:inexact:output',
                'decay:exer:inexact:output'),
-              ('Bibliography', 1, None, '___sec45')]}
+              ('Bibliography', 1, None, 'bibliography')]}
 end of tocinfo -->
 
 <body>
@@ -184,8 +205,8 @@ MathJax.Hub.Config({
   }
 });
 </script>
-<script type="text/javascript"
- src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 <!-- newcommands_keep.tex -->
@@ -197,8 +218,6 @@ $$
 
 
 
-
-    
 <a name="part0004"></a>
 <p>
 <!-- begin top navigation -->
@@ -211,45 +230,24 @@ $$
 
 <p>
 <!-- !split -->
+<h1 id="bibliography">Bibliography </h1>
 
-<h1 id="___sec45">Bibliography </h1>
-
-<p>
 <!-- begin bibliography -->
-
 <ol>
- <li> <div id="Langtangen_2012"></div> <b>H. P. Langtangen</b>. 
-    <em>A Primer on Scientific Programming with Python</em>,
-    fourth edition,
-    <em>Texts in Computational Science and Engineering</em>,
-    Springer,
-    2014.</li>
- <li> <div id="Matplotlib:doc"></div> <b>J. D. Hunter, D. Dale, E. Firing and M. Droettboom</b>. 
-    Matplotlib documentation,
-    2012,
-    \urlhttp://matplotlib.org/users/,
-    <a href="http://matplotlib.org/users/" target="_self"><tt>http://matplotlib.org/users/</tt></a>.</li>
- <li> <div id="SciTools:doc"></div> <b>H. P. Langtangen</b>. 
-    SciTools documentation,
-    \urlhttp://hplgit.github.io/scitools/doc/web/index.html,
-    <a href="http://hplgit.github.io/scitools/doc/web/index.html" target="_self"><tt>http://hplgit.github.io/scitools/doc/web/index.html</tt></a>.</li>
+ <li> <div id="Langtangen_2012"></div> <b>H. P. Langtangen</b>.  <em>A Primer on Scientific Programming with Python</em>, fifth edition, <em>Texts in Computational Science and Engineering</em>, Springer, 2016.</li>
+ <li> <div id="Matplotlib:doc"></div> <b>J. D. Hunter, D. Dale, E. Firing and M. Droettboom</b>.  Matplotlib documentation, 2012, <a href="http://matplotlib.org/users/" target="_self"><tt>http://matplotlib.org/users/</tt></a>.</li>
+ <li> <div id="SciTools:doc"></div> <b>H. P. Langtangen</b>.  SciTools documentation, <a href="http://hplgit.github.io/scitools/doc/web/index.html" target="_self"><tt>http://hplgit.github.io/scitools/doc/web/index.html</tt></a>.</li>
 </ol>
-
 <!-- end bibliography -->
-
 <p>
 <!-- begin bottom navigation -->
 <table style="width: 100%"><tr><td>
-<div style="text-align: left;"><a href="._alg-solarized003.html">&laquo; Previous</a></div>
-</td><td>
+<div style="text-align: left;"><a href="._alg-solarized003.html">&laquo; Previous</a></div>\n</td><td>
 </td></tr></table>
 <!-- end bottom navigation -->
 </p>
 
 <!-- ------------------- end of main content --------------- -->
-
-
 </body>
 </html>
-    
 

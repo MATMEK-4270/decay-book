@@ -2,10 +2,7 @@ TITLE: Study guide: Analysis of exponential decay models
 # #include "../AUTHOR.txt"
 DATE: today
 
-# #ifdef WITH_TOC
-!split
-TOC: on
-# #endif
+FIGURE: [../../mik.png, frac=0.6]
 
 # #include "../mako_code.txt"
 

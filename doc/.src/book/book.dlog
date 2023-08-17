@@ -1,0 +1,711 @@
+running preprocess -DFORMAT=pdflatex -DDEVICE=screen -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'screen', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+Translating doconce text in tmp_mako__book.do.txt to pdflatex
+copying from regex "from numpy import" until "u, t ="
+     file: src-alg/decay_v1.py,lines 1-15 (format: pycod)
+copying from regex "from numpy import" until "def u_exact"
+     file: src-alg/decay_v2.py,lines 1-16 (format: pycod)
+copying from regex "def u_exact" until "from matplotlib.pyplot import"
+     file: src-alg/decay_v2.py,lines 16-19 (format: pycod)
+copying from regex "from matplotlib.pyplot import" until end of file
+     file: src-alg/decay_v2.py,lines 19-37 (format: pycod)
+copying from regex "def test_solver_three" until "^test_solver_three_steps"
+     file: src-alg/decay_v3.py,lines 36-52 (format: pycod)
+copying from regex "def explore" until "def main"
+     file: src-alg/decay_plot_mpl.py,lines 20-45 (format: pycod)
+copying from regex "def main" until end of file
+     file: src-alg/decay_plot_mpl.py,lines 45-52 (format: pycod)
+copying from regex "def solver_mem" until "def read_file\("
+     file: src-alg/decay_memsave.py,lines 4-26 (format: pycod)
+copying from regex "def read_file\(" until "def read_file_numpy"
+     file: src-alg/decay_memsave.py,lines 26-38 (format: pycod)
+copying from regex "def read_file_numpy" until "def u_exact"
+     file: src-alg/decay_memsave.py,lines 38-44 (format: pycod)
+copying from regex "def mesh_function" until "def demo"
+     file: exer-alg/mesh_function.py,lines 3-9 (format: pycod)
+copying from regex "def demo" until end of file
+     file: exer-alg/mesh_function.py,lines 9-26 (format: pycod)
+copying from regex "import numpy" until "def differentiate_vec"
+     file: exer-alg/differentiate.py,lines 1-23 (format: pycod)
+copying from regex "def differentiate_vec" until "^test_differ"
+     file: exer-alg/differentiate.py,lines 23-87 (format: pycod)
+copy complete file exer-alg/decay_v1_err.py (format: pypro)
+copying from regex "def explore" until end of file
+     file: exer-alg/decay_plot_error.py,lines 20-49 (format: pycod)
+copy complete file src-analysis/decay_osc_regions.py (format: pypro)
+copying from regex "from numpy import" until "def data_errors"
+     file: src-analysis/errors.py,lines 51-81 (format: pycod)
+copying from regex "def derive_true_solution" until "from numpy import linspace"
+     file: src-analysis/errors.py,lines 9-51 (format: pycod)
+copying from regex "def data_errors" until "def solver"
+     file: src-analysis/errors.py,lines 81-152 (format: pycod)
+copying from regex "def discretization_errors" until "def solver_decimal"
+     file: src-analysis/errors.py,lines 126-152 (format: pycod)
+copying from regex "def solver_decimal" until "def rounding"
+     file: src-analysis/errors.py,lines 152-169 (format: pycod)
+copying from regex "def rounding" until "if __name"
+     file: src-analysis/errors.py,lines 169-184 (format: pycod)
+copy complete file exer-analysis/decay_plot_fd_error.py (format: pypro)
+copying from regex "from numpy import" until "# Exercise b"
+     file: exer-analysis/exponential_growth.py,lines 1-89 (format: pycod)
+copying from regex "# Exercise b" until "if __name"
+     file: exer-analysis/exponential_growth.py,lines 45-84 (format: pycod)
+copying from regex "def forward" until "def trapez"
+     file: exer-analysis/rounding.py,lines 1-29 (format: pycod)
+copying from regex "def trapez" until "differentiation\("
+     file: exer-analysis/rounding.py,lines 29-71 (format: pycod)
+copying from regex "def solver" until "def test_constant"
+     file: src-genz/decay_vc.py,lines 4-23 (format: pycod)
+copying from regex "def test_constant" until "def test_linear"
+     file: src-genz/decay_vc.py,lines 23-47 (format: pycod)
+copying from regex "def test_linear" until "def test_convergence"
+     file: src-genz/decay_vc.py,lines 47-71 (format: pycod)
+copy complete file src-genz/decay_odespy_adaptive.py (format: pypro)
+copy complete file exer-genz/test_precision.py (format: pypro)
+copying from regex "import numpy" until "half_life_min ="
+     file: exer-models/carbon14.py,lines 1-28 (format: pycod)
+copying from regex "half_life_min =" until end of file
+     file: exer-models/carbon14.py,lines 28-35 (format: pycod)
+copying from regex "import numpy" until "def test_asymp"
+     file: exer-models/cooling.py,lines 1-24 (format: pycod)
+copying from regex "def test_asymp" until "class Piece"
+     file: exer-models/cooling.py,lines 24-52 (format: pycod)
+copying from regex "class Piece" until "def simulate_piecewise_constant_Ts"
+     file: exer-models/cooling.py,lines 52-78 (format: pycod)
+copying from regex "def simulate_piecewise_constant_Ts" until "def T_exact_numint"
+     file: exer-models/cooling.py,lines 78-98 (format: pycod)
+copying from regex "def T_exact_symbolic" until "def compare_numerical_and_exact_solution"
+     file: exer-models/cooling.py,lines 133-166 (format: pycod)
+copying from regex "def evaluate_T_exact" until "def T_exact_symbolic"
+     file: exer-models/cooling.py,lines 114-133 (format: pycod)
+copying from regex "def compare_numerical_and_exact_solution" until "def test_discrete_solution"
+     file: exer-models/cooling.py,lines 166-202 (format: pycod)
+copying from regex "def test_discrete_solution" until "if __name"
+     file: exer-models/cooling.py,lines 202-225 (format: pycod)
+copying from regex "def estimate_k" until "k = estimate"
+     file: exer-models/detective.py,lines 1-4 (format: pycod)
+copying from regex "T = 37" until end of file
+     file: exer-models/detective.py,lines 12-23 (format: pycod)
+copying from regex "import numpy" until "def test_asymp"
+     file: exer-models/cooling.py,lines 1-24 (format: pycod)
+copy complete file exer-models/osc_cooling.py (format: pypro)
+copying from regex "import odespy" until "def demo"
+     file: exer-models/biochem.py,lines 1-28 (format: pycod)
+copying from regex "def demo" until end of file
+     file: exer-models/biochem.py,lines 28-44 (format: pycod)
+copying from regex "import odespy" until "def demo"
+     file: exer-models/SIR.py,lines 1-32 (format: pycod)
+copying from regex "def demo" until "if __"
+     file: exer-models/SIR.py,lines 32-44 (format: pycod)
+copying from regex "import odespy" until "def simulate2"
+     file: exer-models/predator_prey.py,lines 1-35 (format: pycod)
+copying from regex "def simulate2" until "if __name"
+     file: exer-models/predator_prey.py,lines 35-62 (format: pycod)
+copying from regex "# Scaled model" until end of file
+     file: exer-models/KelvinVoigt.py,lines 7-16 (format: pycod)
+copy complete file src-softeng/decay_flat0.py (format: pypro)
+copy complete file src-softeng/decay_flat.py (format: pypro)
+copying from regex "def solver" until "def u_exact"
+     file: src-softeng/decay.py,lines 4-341 (format: pycod)
+copying from regex "def experiment_compare_schemes" until "import logging"
+     file: src-softeng/decay.py,lines 49-65 (format: pycod)
+copying from regex "def solver" until "dt = float"
+     file: src-softeng/solver_docstring.py,lines 3-38 (format: pycod)
+copying from regex "def solver_with_logging" until "def configure_basic_logger"
+     file: src-softeng/decay.py,lines 69-91 (format: pycod)
+copying from regex "def define_command_line_options" until "def read_command_line_argparse"
+     file: src-softeng/decay.py,lines 121-144 (format: pycod)
+copying from regex "def read_command_line_argparse" until "def experiment_compare_dt"
+     file: src-softeng/decay.py,lines 144-152 (format: pycod)
+copying from regex "def experiment_compare_dt" until "def compute4web"
+     file: src-softeng/decay.py,lines 152-171 (format: pycod)
+copying from regex "def main_GUI" until "# Build HTML"
+     file: src-softeng/decay.py,lines 197-200 (format: pycod)
+copying from regex "def main_GUI" until "def solver_with_doctest"
+     file: src-softeng/decay.py,lines 197-218 (format: pycod)
+copying from regex "def compute4web" until "def main_GUI"
+     file: src-softeng/decay.py,lines 171-197 (format: pycod)
+copy complete file src-softeng/decay_GUI_generate.py (format: pypro)
+copy complete file src-softeng/tests/test_decay_doctest.py (format: pypro)
+copying from regex "def u_discrete_exact" until "def test_u_discrete_exact"
+     file: src-softeng/decay.py,lines 253-259 (format: pycod)
+copying from regex "def test_u_discrete_exact" until "def test_potential_integer_division"
+     file: src-softeng/decay.py,lines 259-275 (format: pycod)
+copying from regex "def test_potential_integer_division" until "def test_read_command_line_p"
+     file: src-softeng/decay.py,lines 275-285 (format: pycod)
+copying from regex "test_read_command_line_positional" until "def test_read_command_line_argparse"
+     file: src-softeng/decay.py,lines 285-298 (format: pycod)
+copying from regex "test_read_command_line_argparse" until "# Classes"
+     file: src-softeng/decay.py,lines 298-312 (format: pycod)
+copying from regex "class Problem" until "class Solver"
+     file: src-softeng/decay.py,lines 314-347 (format: pycod)
+copying from regex "class Solver" until "def experiment_classes\("
+     file: src-softeng/decay.py,lines 347-379 (format: pycod)
+copying from regex "def experiment_classes\(" until "if __name"
+     file: src-softeng/decay.py,lines 379-406 (format: pycod)
+found info about 46 exercises
+figure file fig-alg/CN1:
+    can use fig-alg/CN1.png for format pdflatex
+figure file fig-alg/FE_idea:
+    can use fig-alg/FE_idea.pdf for format pdflatex
+figure file fig-models/biochem:
+    can use fig-models/biochem.pdf for format pdflatex
+figure file fig-alg/decay_plot_error:
+    can use fig-alg/decay_plot_error.pdf for format pdflatex
+figure file fig-alg/fdm_u_uei:
+    can use fig-alg/fdm_u_uei.pdf for format pdflatex
+figure file fig-softeng/compare:
+    can use fig-softeng/compare.pdf for format pdflatex
+figure file fig-analysis/A_factors:
+    can use fig-analysis/A_factors.pdf for format pdflatex
+figure file fig-analysis/A_growth:
+    can use fig-analysis/A_growth.pdf for format pdflatex
+figure file fig-alg/FE1:
+    can use fig-alg/FE1.png for format pdflatex
+figure file fig-models/Compaction_of_Sediment:
+    can use fig-models/Compaction_of_Sediment.png for format pdflatex
+figure file fig-softeng/selfdoc_numpy:
+    can use fig-softeng/selfdoc_numpy.png for format pdflatex
+figure file fig-models/cooling_piecewise_bug2:
+    can use fig-models/cooling_piecewise_bug2.pdf for format pdflatex
+figure file fig-models/KelvinVoigt:
+    can use fig-models/KelvinVoigt.pdf for format pdflatex
+figure file fig-analysis/BE4c:
+    can use fig-analysis/BE4c.pdf for format pdflatex
+figure file fig-analysis/model_errors_u:
+    can use fig-analysis/model_errors_u.pdf for format pdflatex
+figure file fig-analysis/data_errors:
+    can use fig-analysis/data_errors.pdf for format pdflatex
+figure file fig-alg/BE1:
+    can use fig-alg/BE1.png for format pdflatex
+figure file fig-softeng/web_GUI:
+    can use fig-softeng/web_GUI.png for format pdflatex
+figure file fig-models/SIR1:
+    can use fig-models/SIR1.pdf for format pdflatex
+figure file fig-analysis/exponential_growth_demo:
+    can use fig-analysis/exponential_growth_demo.pdf for format pdflatex
+figure file fig-softeng/ipynb_flat:
+    can use fig-softeng/ipynb_flat.png for format pdflatex
+figure file fig-models/cooling_piecewise_bug5:
+    can use fig-models/cooling_piecewise_bug5.pdf for format pdflatex
+figure file fig-alg/fdm_u_ue:
+    can use fig-alg/fdm_u_ue.pdf for format pdflatex
+figure file fig-analysis/numerical_errors:
+    can use fig-analysis/numerical_errors.pdf for format pdflatex
+figure file fig-alg/fd_centered_CN:
+    can use fig-alg/fd_centered_CN.pdf for format pdflatex
+figure file fig-alg/decay_v2:
+    can use fig-alg/decay_v2.pdf for format pdflatex
+figure file fig-models/cooling_piecewise:
+    can use fig-models/cooling_piecewise.pdf for format pdflatex
+figure file fig-models/predator_prey:
+    can use fig-models/predator_prey.pdf for format pdflatex
+figure file fig-analysis/model_errors_e:
+    can use fig-analysis/model_errors_e.pdf for format pdflatex
+figure file fig-models/osc_cooling:
+    can use fig-models/osc_cooling.pdf for format pdflatex
+figure file fig-softeng/BE:
+    can use fig-softeng/BE.pdf for format pdflatex
+figure file fig-models/cooling_asymptotic:
+    can use fig-models/cooling_asymptotic.pdf for format pdflatex
+figure file fig-models/cooling_piecewise_bug1:
+    can use fig-models/cooling_piecewise_bug1.pdf for format pdflatex
+figure file fig-models/predator_prey2:
+    can use fig-models/predator_prey2.pdf for format pdflatex
+figure file fig-analysis/CN4c:
+    can use fig-analysis/CN4c.pdf for format pdflatex
+figure file fig-alg/fd_backward:
+    can use fig-alg/fd_backward.pdf for format pdflatex
+figure file fig-models/cooling_piecewise_bug3:
+    can use fig-models/cooling_piecewise_bug3.pdf for format pdflatex
+figure file fig-alg/fd_forward:
+    can use fig-alg/fd_forward.pdf for format pdflatex
+figure file fig-analysis/FE4c:
+    can use fig-analysis/FE4c.pdf for format pdflatex
+figure file fig-analysis/decay_plot_fd_error:
+    can use fig-analysis/decay_plot_fd_error.pdf for format pdflatex
+figure file fig-models/cooling_piecewise_compare:
+    can use fig-models/cooling_piecewise_compare.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+*** warning: !bc ipy used for IPython sessions, but
+    ipython is not supported for syntax highlighting!
+    install:
+    pip install pygments-ipython-console
+no lexer for alias 'ipy' found
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=screen -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'screen', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+Translating doconce text in tmp_mako__book.do.txt to pdflatex
+copying from regex "from numpy import" until "u, t ="
+     file: src-alg/decay_v1.py,lines 1-15 (format: pycod)
+copying from regex "from numpy import" until "def u_exact"
+     file: src-alg/decay_v2.py,lines 1-16 (format: pycod)
+copying from regex "def u_exact" until "from matplotlib.pyplot import"
+     file: src-alg/decay_v2.py,lines 16-19 (format: pycod)
+copying from regex "from matplotlib.pyplot import" until end of file
+     file: src-alg/decay_v2.py,lines 19-37 (format: pycod)
+copying from regex "def test_solver_three" until "^test_solver_three_steps"
+     file: src-alg/decay_v3.py,lines 36-52 (format: pycod)
+copying from regex "def explore" until "def main"
+     file: src-alg/decay_plot_mpl.py,lines 20-45 (format: pycod)
+copying from regex "def main" until end of file
+     file: src-alg/decay_plot_mpl.py,lines 45-52 (format: pycod)
+copying from regex "def solver_mem" until "def read_file\("
+     file: src-alg/decay_memsave.py,lines 4-26 (format: pycod)
+copying from regex "def read_file\(" until "def read_file_numpy"
+     file: src-alg/decay_memsave.py,lines 26-38 (format: pycod)
+copying from regex "def read_file_numpy" until "def u_exact"
+     file: src-alg/decay_memsave.py,lines 38-44 (format: pycod)
+copying from regex "def mesh_function" until "def demo"
+     file: exer-alg/mesh_function.py,lines 3-9 (format: pycod)
+copying from regex "def demo" until end of file
+     file: exer-alg/mesh_function.py,lines 9-26 (format: pycod)
+copying from regex "import numpy" until "def differentiate_vec"
+     file: exer-alg/differentiate.py,lines 1-23 (format: pycod)
+copying from regex "def differentiate_vec" until "^test_differ"
+     file: exer-alg/differentiate.py,lines 23-87 (format: pycod)
+copy complete file exer-alg/decay_v1_err.py (format: pypro)
+copying from regex "def explore" until end of file
+     file: exer-alg/decay_plot_error.py,lines 20-49 (format: pycod)
+copy complete file src-analysis/decay_osc_regions.py (format: pypro)
+copying from regex "from numpy import" until "def data_errors"
+     file: src-analysis/errors.py,lines 51-81 (format: pycod)
+copying from regex "def derive_true_solution" until "from numpy import linspace"
+     file: src-analysis/errors.py,lines 9-51 (format: pycod)
+copying from regex "def data_errors" until "def solver"
+     file: src-analysis/errors.py,lines 81-152 (format: pycod)
+copying from regex "def discretization_errors" until "def solver_decimal"
+     file: src-analysis/errors.py,lines 126-152 (format: pycod)
+copying from regex "def solver_decimal" until "def rounding"
+     file: src-analysis/errors.py,lines 152-169 (format: pycod)
+copying from regex "def rounding" until "if __name"
+     file: src-analysis/errors.py,lines 169-184 (format: pycod)
+copy complete file exer-analysis/decay_plot_fd_error.py (format: pypro)
+copying from regex "from numpy import" until "# Exercise b"
+     file: exer-analysis/exponential_growth.py,lines 1-89 (format: pycod)
+copying from regex "# Exercise b" until "if __name"
+     file: exer-analysis/exponential_growth.py,lines 45-84 (format: pycod)
+copying from regex "def forward" until "def trapez"
+     file: exer-analysis/rounding.py,lines 1-29 (format: pycod)
+copying from regex "def trapez" until "differentiation\("
+     file: exer-analysis/rounding.py,lines 29-71 (format: pycod)
+copying from regex "def solver" until "def test_constant"
+     file: src-genz/decay_vc.py,lines 4-23 (format: pycod)
+copying from regex "def test_constant" until "def test_linear"
+     file: src-genz/decay_vc.py,lines 23-47 (format: pycod)
+copying from regex "def test_linear" until "def test_convergence"
+     file: src-genz/decay_vc.py,lines 47-71 (format: pycod)
+copy complete file src-genz/decay_odespy_adaptive.py (format: pypro)
+copy complete file exer-genz/test_precision.py (format: pypro)
+copying from regex "import numpy" until "half_life_min ="
+     file: exer-models/carbon14.py,lines 1-28 (format: pycod)
+copying from regex "half_life_min =" until end of file
+     file: exer-models/carbon14.py,lines 28-35 (format: pycod)
+copying from regex "import numpy" until "def test_asymp"
+     file: exer-models/cooling.py,lines 1-24 (format: pycod)
+copying from regex "def test_asymp" until "class Piece"
+     file: exer-models/cooling.py,lines 24-52 (format: pycod)
+copying from regex "class Piece" until "def simulate_piecewise_constant_Ts"
+     file: exer-models/cooling.py,lines 52-78 (format: pycod)
+copying from regex "def simulate_piecewise_constant_Ts" until "def T_exact_numint"
+     file: exer-models/cooling.py,lines 78-98 (format: pycod)
+copying from regex "def T_exact_symbolic" until "def compare_numerical_and_exact_solution"
+     file: exer-models/cooling.py,lines 133-166 (format: pycod)
+copying from regex "def evaluate_T_exact" until "def T_exact_symbolic"
+     file: exer-models/cooling.py,lines 114-133 (format: pycod)
+copying from regex "def compare_numerical_and_exact_solution" until "def test_discrete_solution"
+     file: exer-models/cooling.py,lines 166-202 (format: pycod)
+copying from regex "def test_discrete_solution" until "if __name"
+     file: exer-models/cooling.py,lines 202-225 (format: pycod)
+copying from regex "def estimate_k" until "k = estimate"
+     file: exer-models/detective.py,lines 1-4 (format: pycod)
+copying from regex "T = 37" until end of file
+     file: exer-models/detective.py,lines 12-23 (format: pycod)
+copying from regex "import numpy" until "def test_asymp"
+     file: exer-models/cooling.py,lines 1-24 (format: pycod)
+copy complete file exer-models/osc_cooling.py (format: pypro)
+copying from regex "import odespy" until "def demo"
+     file: exer-models/biochem.py,lines 1-28 (format: pycod)
+copying from regex "def demo" until end of file
+     file: exer-models/biochem.py,lines 28-44 (format: pycod)
+copying from regex "import odespy" until "def demo"
+     file: exer-models/SIR.py,lines 1-32 (format: pycod)
+copying from regex "def demo" until "if __"
+     file: exer-models/SIR.py,lines 32-44 (format: pycod)
+copying from regex "import odespy" until "def simulate2"
+     file: exer-models/predator_prey.py,lines 1-35 (format: pycod)
+copying from regex "def simulate2" until "if __name"
+     file: exer-models/predator_prey.py,lines 35-62 (format: pycod)
+copying from regex "# Scaled model" until end of file
+     file: exer-models/KelvinVoigt.py,lines 7-16 (format: pycod)
+copy complete file src-softeng/decay_flat0.py (format: pypro)
+copy complete file src-softeng/decay_flat.py (format: pypro)
+copying from regex "def solver" until "def u_exact"
+     file: src-softeng/decay.py,lines 4-341 (format: pycod)
+copying from regex "def experiment_compare_schemes" until "import logging"
+     file: src-softeng/decay.py,lines 49-65 (format: pycod)
+copying from regex "def solver" until "dt = float"
+     file: src-softeng/solver_docstring.py,lines 3-38 (format: pycod)
+copying from regex "def solver_with_logging" until "def configure_basic_logger"
+     file: src-softeng/decay.py,lines 69-91 (format: pycod)
+copying from regex "def define_command_line_options" until "def read_command_line_argparse"
+     file: src-softeng/decay.py,lines 121-144 (format: pycod)
+copying from regex "def read_command_line_argparse" until "def experiment_compare_dt"
+     file: src-softeng/decay.py,lines 144-152 (format: pycod)
+copying from regex "def experiment_compare_dt" until "def compute4web"
+     file: src-softeng/decay.py,lines 152-171 (format: pycod)
+copying from regex "def main_GUI" until "# Build HTML"
+     file: src-softeng/decay.py,lines 197-200 (format: pycod)
+copying from regex "def main_GUI" until "def solver_with_doctest"
+     file: src-softeng/decay.py,lines 197-218 (format: pycod)
+copying from regex "def compute4web" until "def main_GUI"
+     file: src-softeng/decay.py,lines 171-197 (format: pycod)
+copy complete file src-softeng/decay_GUI_generate.py (format: pypro)
+copy complete file src-softeng/tests/test_decay_doctest.py (format: pypro)
+copying from regex "def u_discrete_exact" until "def test_u_discrete_exact"
+     file: src-softeng/decay.py,lines 253-259 (format: pycod)
+copying from regex "def test_u_discrete_exact" until "def test_potential_integer_division"
+     file: src-softeng/decay.py,lines 259-275 (format: pycod)
+copying from regex "def test_potential_integer_division" until "def test_read_command_line_p"
+     file: src-softeng/decay.py,lines 275-285 (format: pycod)
+copying from regex "test_read_command_line_positional" until "def test_read_command_line_argparse"
+     file: src-softeng/decay.py,lines 285-298 (format: pycod)
+copying from regex "test_read_command_line_argparse" until "# Classes"
+     file: src-softeng/decay.py,lines 298-312 (format: pycod)
+copying from regex "class Problem" until "class Solver"
+     file: src-softeng/decay.py,lines 314-347 (format: pycod)
+copying from regex "class Solver" until "def experiment_classes\("
+     file: src-softeng/decay.py,lines 347-379 (format: pycod)
+copying from regex "def experiment_classes\(" until "if __name"
+     file: src-softeng/decay.py,lines 379-406 (format: pycod)
+found info about 46 exercises
+figure file fig-models/Compaction_of_Sediment:
+    can use fig-models/Compaction_of_Sediment.png for format pdflatex
+figure file fig-analysis/FE4c:
+    can use fig-analysis/FE4c.pdf for format pdflatex
+figure file fig-analysis/exponential_growth_demo:
+    can use fig-analysis/exponential_growth_demo.pdf for format pdflatex
+figure file fig-softeng/web_GUI:
+    can use fig-softeng/web_GUI.png for format pdflatex
+figure file fig-analysis/model_errors_e:
+    can use fig-analysis/model_errors_e.pdf for format pdflatex
+figure file fig-alg/fd_centered_CN:
+    can use fig-alg/fd_centered_CN.pdf for format pdflatex
+figure file fig-models/cooling_piecewise_compare:
+    can use fig-models/cooling_piecewise_compare.pdf for format pdflatex
+figure file fig-analysis/data_errors:
+    can use fig-analysis/data_errors.pdf for format pdflatex
+figure file fig-models/cooling_piecewise_bug5:
+    can use fig-models/cooling_piecewise_bug5.pdf for format pdflatex
+figure file fig-alg/fd_forward:
+    can use fig-alg/fd_forward.pdf for format pdflatex
+figure file fig-alg/FE1:
+    can use fig-alg/FE1.png for format pdflatex
+figure file fig-analysis/A_growth:
+    can use fig-analysis/A_growth.pdf for format pdflatex
+figure file fig-alg/BE1:
+    can use fig-alg/BE1.png for format pdflatex
+figure file fig-models/predator_prey:
+    can use fig-models/predator_prey.pdf for format pdflatex
+figure file fig-models/cooling_piecewise_bug2:
+    can use fig-models/cooling_piecewise_bug2.pdf for format pdflatex
+figure file fig-softeng/compare:
+    can use fig-softeng/compare.pdf for format pdflatex
+figure file fig-models/predator_prey2:
+    can use fig-models/predator_prey2.pdf for format pdflatex
+figure file fig-models/cooling_piecewise:
+    can use fig-models/cooling_piecewise.pdf for format pdflatex
+figure file fig-alg/fd_backward:
+    can use fig-alg/fd_backward.pdf for format pdflatex
+figure file fig-models/cooling_piecewise_bug3:
+    can use fig-models/cooling_piecewise_bug3.pdf for format pdflatex
+figure file fig-models/biochem:
+    can use fig-models/biochem.pdf for format pdflatex
+figure file fig-models/SIR1:
+    can use fig-models/SIR1.pdf for format pdflatex
+figure file fig-alg/decay_plot_error:
+    can use fig-alg/decay_plot_error.pdf for format pdflatex
+figure file fig-analysis/BE4c:
+    can use fig-analysis/BE4c.pdf for format pdflatex
+figure file fig-analysis/A_factors:
+    can use fig-analysis/A_factors.pdf for format pdflatex
+figure file fig-alg/fdm_u_ue:
+    can use fig-alg/fdm_u_ue.pdf for format pdflatex
+figure file fig-analysis/model_errors_u:
+    can use fig-analysis/model_errors_u.pdf for format pdflatex
+figure file fig-softeng/BE:
+    can use fig-softeng/BE.pdf for format pdflatex
+figure file fig-models/cooling_asymptotic:
+    can use fig-models/cooling_asymptotic.pdf for format pdflatex
+figure file fig-analysis/decay_plot_fd_error:
+    can use fig-analysis/decay_plot_fd_error.pdf for format pdflatex
+figure file fig-models/KelvinVoigt:
+    can use fig-models/KelvinVoigt.pdf for format pdflatex
+figure file fig-alg/CN1:
+    can use fig-alg/CN1.png for format pdflatex
+figure file fig-models/cooling_piecewise_bug1:
+    can use fig-models/cooling_piecewise_bug1.pdf for format pdflatex
+figure file fig-softeng/selfdoc_numpy:
+    can use fig-softeng/selfdoc_numpy.png for format pdflatex
+figure file fig-models/osc_cooling:
+    can use fig-models/osc_cooling.pdf for format pdflatex
+figure file fig-softeng/ipynb_flat:
+    can use fig-softeng/ipynb_flat.png for format pdflatex
+figure file fig-alg/decay_v2:
+    can use fig-alg/decay_v2.pdf for format pdflatex
+figure file fig-alg/fdm_u_uei:
+    can use fig-alg/fdm_u_uei.pdf for format pdflatex
+figure file fig-alg/FE_idea:
+    can use fig-alg/FE_idea.pdf for format pdflatex
+figure file fig-analysis/CN4c:
+    can use fig-analysis/CN4c.pdf for format pdflatex
+figure file fig-analysis/numerical_errors:
+    can use fig-analysis/numerical_errors.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+*** warning: !bc ipy used for IPython sessions, but
+    ipython is not supported for syntax highlighting!
+    install:
+    pip install pygments-ipython-console
+no lexer for alias 'ipy' found
+output in book.tex
+running preprocess -DFORMAT=pdflatex -DDEVICE=paper -DCHAPTER="chapter" -DBOOK="book" -DAPPENDIX="appendix" book.do.txt > tmp_preprocess__book.do.txt
+running mako on tmp_preprocess__book.do.txt to make tmp_mako__book.do.txt
+mako variables: {'FORMAT': 'pdflatex', 'DEVICE': 'paper', 'CHAPTER': 'chapter', 'BOOK': 'book', 'APPENDIX': 'appendix'}
+Translating doconce text in tmp_mako__book.do.txt to pdflatex
+copying from regex "from numpy import" until "u, t ="
+     file: src-alg/decay_v1.py,lines 1-15 (format: pycod)
+copying from regex "from numpy import" until "def u_exact"
+     file: src-alg/decay_v2.py,lines 1-16 (format: pycod)
+copying from regex "def u_exact" until "from matplotlib.pyplot import"
+     file: src-alg/decay_v2.py,lines 16-19 (format: pycod)
+copying from regex "from matplotlib.pyplot import" until end of file
+     file: src-alg/decay_v2.py,lines 19-37 (format: pycod)
+copying from regex "def test_solver_three" until "^test_solver_three_steps"
+     file: src-alg/decay_v3.py,lines 36-52 (format: pycod)
+copying from regex "def explore" until "def main"
+     file: src-alg/decay_plot_mpl.py,lines 20-45 (format: pycod)
+copying from regex "def main" until end of file
+     file: src-alg/decay_plot_mpl.py,lines 45-52 (format: pycod)
+copying from regex "def solver_mem" until "def read_file\("
+     file: src-alg/decay_memsave.py,lines 4-26 (format: pycod)
+copying from regex "def read_file\(" until "def read_file_numpy"
+     file: src-alg/decay_memsave.py,lines 26-38 (format: pycod)
+copying from regex "def read_file_numpy" until "def u_exact"
+     file: src-alg/decay_memsave.py,lines 38-44 (format: pycod)
+copying from regex "def mesh_function" until "def demo"
+     file: exer-alg/mesh_function.py,lines 3-9 (format: pycod)
+copying from regex "def demo" until end of file
+     file: exer-alg/mesh_function.py,lines 9-26 (format: pycod)
+copying from regex "import numpy" until "def differentiate_vec"
+     file: exer-alg/differentiate.py,lines 1-23 (format: pycod)
+copying from regex "def differentiate_vec" until "^test_differ"
+     file: exer-alg/differentiate.py,lines 23-87 (format: pycod)
+copy complete file exer-alg/decay_v1_err.py (format: pypro)
+copying from regex "def explore" until end of file
+     file: exer-alg/decay_plot_error.py,lines 20-49 (format: pycod)
+copy complete file src-analysis/decay_osc_regions.py (format: pypro)
+copying from regex "from numpy import" until "def data_errors"
+     file: src-analysis/errors.py,lines 51-81 (format: pycod)
+copying from regex "def derive_true_solution" until "from numpy import linspace"
+     file: src-analysis/errors.py,lines 9-51 (format: pycod)
+copying from regex "def data_errors" until "def solver"
+     file: src-analysis/errors.py,lines 81-152 (format: pycod)
+copying from regex "def discretization_errors" until "def solver_decimal"
+     file: src-analysis/errors.py,lines 126-152 (format: pycod)
+copying from regex "def solver_decimal" until "def rounding"
+     file: src-analysis/errors.py,lines 152-169 (format: pycod)
+copying from regex "def rounding" until "if __name"
+     file: src-analysis/errors.py,lines 169-184 (format: pycod)
+copy complete file exer-analysis/decay_plot_fd_error.py (format: pypro)
+copying from regex "from numpy import" until "# Exercise b"
+     file: exer-analysis/exponential_growth.py,lines 1-89 (format: pycod)
+copying from regex "# Exercise b" until "if __name"
+     file: exer-analysis/exponential_growth.py,lines 45-84 (format: pycod)
+copying from regex "def forward" until "def trapez"
+     file: exer-analysis/rounding.py,lines 1-29 (format: pycod)
+copying from regex "def trapez" until "differentiation\("
+     file: exer-analysis/rounding.py,lines 29-71 (format: pycod)
+copying from regex "def solver" until "def test_constant"
+     file: src-genz/decay_vc.py,lines 4-23 (format: pycod)
+copying from regex "def test_constant" until "def test_linear"
+     file: src-genz/decay_vc.py,lines 23-47 (format: pycod)
+copying from regex "def test_linear" until "def test_convergence"
+     file: src-genz/decay_vc.py,lines 47-71 (format: pycod)
+copy complete file src-genz/decay_odespy_adaptive.py (format: pypro)
+copy complete file exer-genz/test_precision.py (format: pypro)
+copying from regex "import numpy" until "half_life_min ="
+     file: exer-models/carbon14.py,lines 1-28 (format: pycod)
+copying from regex "half_life_min =" until end of file
+     file: exer-models/carbon14.py,lines 28-35 (format: pycod)
+copying from regex "import numpy" until "def test_asymp"
+     file: exer-models/cooling.py,lines 1-24 (format: pycod)
+copying from regex "def test_asymp" until "class Piece"
+     file: exer-models/cooling.py,lines 24-52 (format: pycod)
+copying from regex "class Piece" until "def simulate_piecewise_constant_Ts"
+     file: exer-models/cooling.py,lines 52-78 (format: pycod)
+copying from regex "def simulate_piecewise_constant_Ts" until "def T_exact_numint"
+     file: exer-models/cooling.py,lines 78-98 (format: pycod)
+copying from regex "def T_exact_symbolic" until "def compare_numerical_and_exact_solution"
+     file: exer-models/cooling.py,lines 133-166 (format: pycod)
+copying from regex "def evaluate_T_exact" until "def T_exact_symbolic"
+     file: exer-models/cooling.py,lines 114-133 (format: pycod)
+copying from regex "def compare_numerical_and_exact_solution" until "def test_discrete_solution"
+     file: exer-models/cooling.py,lines 166-202 (format: pycod)
+copying from regex "def test_discrete_solution" until "if __name"
+     file: exer-models/cooling.py,lines 202-225 (format: pycod)
+copying from regex "def estimate_k" until "k = estimate"
+     file: exer-models/detective.py,lines 1-4 (format: pycod)
+copying from regex "T = 37" until end of file
+     file: exer-models/detective.py,lines 12-23 (format: pycod)
+copying from regex "import numpy" until "def test_asymp"
+     file: exer-models/cooling.py,lines 1-24 (format: pycod)
+copy complete file exer-models/osc_cooling.py (format: pypro)
+copying from regex "import odespy" until "def demo"
+     file: exer-models/biochem.py,lines 1-28 (format: pycod)
+copying from regex "def demo" until end of file
+     file: exer-models/biochem.py,lines 28-44 (format: pycod)
+copying from regex "import odespy" until "def demo"
+     file: exer-models/SIR.py,lines 1-32 (format: pycod)
+copying from regex "def demo" until "if __"
+     file: exer-models/SIR.py,lines 32-44 (format: pycod)
+copying from regex "import odespy" until "def simulate2"
+     file: exer-models/predator_prey.py,lines 1-35 (format: pycod)
+copying from regex "def simulate2" until "if __name"
+     file: exer-models/predator_prey.py,lines 35-62 (format: pycod)
+copying from regex "# Scaled model" until end of file
+     file: exer-models/KelvinVoigt.py,lines 7-16 (format: pycod)
+copy complete file src-softeng/decay_flat0.py (format: pypro)
+copy complete file src-softeng/decay_flat.py (format: pypro)
+copying from regex "def solver" until "def u_exact"
+     file: src-softeng/decay.py,lines 4-341 (format: pycod)
+copying from regex "def experiment_compare_schemes" until "import logging"
+     file: src-softeng/decay.py,lines 49-65 (format: pycod)
+copying from regex "def solver" until "dt = float"
+     file: src-softeng/solver_docstring.py,lines 3-38 (format: pycod)
+copying from regex "def solver_with_logging" until "def configure_basic_logger"
+     file: src-softeng/decay.py,lines 69-91 (format: pycod)
+copying from regex "def define_command_line_options" until "def read_command_line_argparse"
+     file: src-softeng/decay.py,lines 121-144 (format: pycod)
+copying from regex "def read_command_line_argparse" until "def experiment_compare_dt"
+     file: src-softeng/decay.py,lines 144-152 (format: pycod)
+copying from regex "def experiment_compare_dt" until "def compute4web"
+     file: src-softeng/decay.py,lines 152-171 (format: pycod)
+copying from regex "def main_GUI" until "# Build HTML"
+     file: src-softeng/decay.py,lines 197-200 (format: pycod)
+copying from regex "def main_GUI" until "def solver_with_doctest"
+     file: src-softeng/decay.py,lines 197-218 (format: pycod)
+copying from regex "def compute4web" until "def main_GUI"
+     file: src-softeng/decay.py,lines 171-197 (format: pycod)
+copy complete file src-softeng/decay_GUI_generate.py (format: pypro)
+copy complete file src-softeng/tests/test_decay_doctest.py (format: pypro)
+copying from regex "def u_discrete_exact" until "def test_u_discrete_exact"
+     file: src-softeng/decay.py,lines 253-259 (format: pycod)
+copying from regex "def test_u_discrete_exact" until "def test_potential_integer_division"
+     file: src-softeng/decay.py,lines 259-275 (format: pycod)
+copying from regex "def test_potential_integer_division" until "def test_read_command_line_p"
+     file: src-softeng/decay.py,lines 275-285 (format: pycod)
+copying from regex "test_read_command_line_positional" until "def test_read_command_line_argparse"
+     file: src-softeng/decay.py,lines 285-298 (format: pycod)
+copying from regex "test_read_command_line_argparse" until "# Classes"
+     file: src-softeng/decay.py,lines 298-312 (format: pycod)
+copying from regex "class Problem" until "class Solver"
+     file: src-softeng/decay.py,lines 314-347 (format: pycod)
+copying from regex "class Solver" until "def experiment_classes\("
+     file: src-softeng/decay.py,lines 347-379 (format: pycod)
+copying from regex "def experiment_classes\(" until "if __name"
+     file: src-softeng/decay.py,lines 379-406 (format: pycod)
+found info about 46 exercises
+figure file fig-analysis/BE4c:
+    can use fig-analysis/BE4c.pdf for format pdflatex
+figure file fig-alg/fd_backward:
+    can use fig-alg/fd_backward.pdf for format pdflatex
+figure file fig-models/osc_cooling:
+    can use fig-models/osc_cooling.pdf for format pdflatex
+figure file fig-models/KelvinVoigt:
+    can use fig-models/KelvinVoigt.pdf for format pdflatex
+figure file fig-analysis/model_errors_u:
+    can use fig-analysis/model_errors_u.pdf for format pdflatex
+figure file fig-models/cooling_piecewise_bug1:
+    can use fig-models/cooling_piecewise_bug1.pdf for format pdflatex
+figure file fig-softeng/compare:
+    can use fig-softeng/compare.pdf for format pdflatex
+figure file fig-analysis/FE4c:
+    can use fig-analysis/FE4c.pdf for format pdflatex
+figure file fig-alg/BE1:
+    can use fig-alg/BE1.png for format pdflatex
+figure file fig-alg/fd_forward:
+    can use fig-alg/fd_forward.pdf for format pdflatex
+figure file fig-alg/FE1:
+    can use fig-alg/FE1.png for format pdflatex
+figure file fig-alg/decay_plot_error:
+    can use fig-alg/decay_plot_error.pdf for format pdflatex
+figure file fig-analysis/A_growth:
+    can use fig-analysis/A_growth.pdf for format pdflatex
+figure file fig-alg/FE_idea:
+    can use fig-alg/FE_idea.pdf for format pdflatex
+figure file fig-models/cooling_asymptotic:
+    can use fig-models/cooling_asymptotic.pdf for format pdflatex
+figure file fig-alg/decay_v2:
+    can use fig-alg/decay_v2.pdf for format pdflatex
+figure file fig-models/predator_prey2:
+    can use fig-models/predator_prey2.pdf for format pdflatex
+figure file fig-analysis/numerical_errors:
+    can use fig-analysis/numerical_errors.pdf for format pdflatex
+figure file fig-softeng/ipynb_flat:
+    can use fig-softeng/ipynb_flat.png for format pdflatex
+figure file fig-analysis/CN4c:
+    can use fig-analysis/CN4c.pdf for format pdflatex
+figure file fig-analysis/data_errors:
+    can use fig-analysis/data_errors.pdf for format pdflatex
+figure file fig-alg/CN1:
+    can use fig-alg/CN1.png for format pdflatex
+figure file fig-softeng/web_GUI:
+    can use fig-softeng/web_GUI.png for format pdflatex
+figure file fig-models/cooling_piecewise_bug5:
+    can use fig-models/cooling_piecewise_bug5.pdf for format pdflatex
+figure file fig-models/SIR1:
+    can use fig-models/SIR1.pdf for format pdflatex
+figure file fig-analysis/decay_plot_fd_error:
+    can use fig-analysis/decay_plot_fd_error.pdf for format pdflatex
+figure file fig-models/cooling_piecewise:
+    can use fig-models/cooling_piecewise.pdf for format pdflatex
+figure file fig-analysis/A_factors:
+    can use fig-analysis/A_factors.pdf for format pdflatex
+figure file fig-softeng/selfdoc_numpy:
+    can use fig-softeng/selfdoc_numpy.png for format pdflatex
+figure file fig-analysis/exponential_growth_demo:
+    can use fig-analysis/exponential_growth_demo.pdf for format pdflatex
+figure file fig-models/cooling_piecewise_bug3:
+    can use fig-models/cooling_piecewise_bug3.pdf for format pdflatex
+figure file fig-alg/fd_centered_CN:
+    can use fig-alg/fd_centered_CN.pdf for format pdflatex
+figure file fig-models/cooling_piecewise_bug2:
+    can use fig-models/cooling_piecewise_bug2.pdf for format pdflatex
+figure file fig-analysis/model_errors_e:
+    can use fig-analysis/model_errors_e.pdf for format pdflatex
+figure file fig-models/cooling_piecewise_compare:
+    can use fig-models/cooling_piecewise_compare.pdf for format pdflatex
+figure file fig-models/biochem:
+    can use fig-models/biochem.pdf for format pdflatex
+figure file fig-alg/fdm_u_ue:
+    can use fig-alg/fdm_u_ue.pdf for format pdflatex
+figure file fig-models/predator_prey:
+    can use fig-models/predator_prey.pdf for format pdflatex
+figure file fig-softeng/BE:
+    can use fig-softeng/BE.pdf for format pdflatex
+figure file fig-models/Compaction_of_Sediment:
+    can use fig-models/Compaction_of_Sediment.png for format pdflatex
+figure file fig-alg/fdm_u_uei:
+    can use fig-alg/fdm_u_uei.pdf for format pdflatex
+
+exporting publish database ../chapters/papers.pub to ../chapters/papers.bib:
+*** warning: !bc ipy used for IPython sessions, but
+    ipython is not supported for syntax highlighting!
+    install:
+    pip install pygments-ipython-console
+no lexer for alias 'ipy' found
+output in book.tex

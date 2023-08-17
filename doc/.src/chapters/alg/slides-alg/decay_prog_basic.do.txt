@@ -31,27 +31,21 @@ for $\theta\in [0,1]$. Note
   * Bring evidence to a correct implementation (*verification*)
   * Compare the numerical and the exact solution in a plot
   * Compute the error $\uex (t_n) - u^n$
-# #ifdef ADVANCED  
+# #ifdef ADVANCED
   * If wanted, compute the convergence rate of the numerical scheme
-# #endif  
-  * Read its input data from the command line
+# #endif
 
 !split
 ===== Tools to learn =====
 
   * Basic "Python": "http://python.org" programming
   * Array computing with "`numpy`": "http://numpy.org/"
-  * Plotting with "`matplotlib.pyplot`": "http://matplotlib.sourceforge.net/" and "`scitools`": "https://github.com/hplgit/scitools/"
+  * Plotting with "`matplotlib.pyplot`": "https://matplotlib.org"
   * File writing and reading
 # #ifdef NOTHERE
   * Making command-line user interface via `argparse.ArgumentParser`
   * Making graphical user interfaces via "Parampool": "https://github.com/hplgit/parampool"
 # #endif
-
-!bnotice
-All programs are in the directory
-"`src/alg`": "${src_alg}".
-!enotice
 
 !split
 ===== Why implement in Python? =====
@@ -146,12 +140,17 @@ def solver(I, a, T, dt, theta):
 Can control formatting of reals and integers through the *printf* format:
 
 !bc pycod
-print 't=%6.3f u=%g' % (t[i], u[i])
+print('t=%6.3f u=%g' % (t[i], u[i]))
 !ec
 
 Or the alternative *format string syntax*:
 !bc pycod
-print 't={t:6.3f} u={u:g}'.format(t=t[i], u=u[i])
+print('t={t:6.3f} u={u:g}'.format(t=t[i], u=u[i]))
+!ec
+
+Or even better through the alternative *f-string syntax*:
+!bc pycod
+print(f't={t[i]:6.3f} u={u[i]:g}')
 !ec
 
 !split
@@ -220,14 +219,15 @@ plot(t_e, u_e, 'b-',            # blue line for u_e
 !split
 ===== Add legends, axes labels, title, and wrap in a function =====
 
-@@@CODE src-alg/decay_v2.py fromto: from matplotlib.pyplot import@^plot_numerical
+@@@CODE src-alg/decay_v2.py fromto: def plot_numerical_and_exact@^plot_numerical
 
+# #ifdef ADVANCED
 Complete code in
 "`decay_v2.py`": "${src_alg}/decay_v2.py"
+# #endif
+FIGURE: [fig-alg/decay_v2, width=400 frac=0.6]
 
-FIGURE: [fig-alg/decay_v2, width=500 frac=0.8]
-
-
+# #ifdef NOTHERE
 !split
 ===== Plotting with SciTools =====
 
@@ -257,7 +257,7 @@ Change backend (plotting engine, Matplotlib by default):
 Terminal> python decay_plot_st.py --SCITOOLS_easyviz_backend gnuplot
 Terminal> python decay_plot_st.py --SCITOOLS_easyviz_backend grace
 !ec
-
+# #endif
 
 !split
 ======= Verifying the implementation =======
@@ -286,7 +286,7 @@ u^3 &=Au^2= 0.00265290804728
 \end{align*}
 !et
 
-See the function `test_solver_three_steps` in "`decay_v3.py`": "${src_alg}/decay_v3.py".
+See the function `test_solver_three_steps` in "`decay_v3.py`": "https://github.com/hplgit/decay-book/blob/master/src/alg/decay_v3.py".
 
 !split
 ===== Comparison with an exact discrete solution =====
@@ -333,6 +333,7 @@ Test if
 
 Implementation in "`decay_verf2.py`": "${src_alg}/decay_verf2.py".
 
+# #ifdef NOTHERE
 !split
 ===== Test the understanding! =====
 
@@ -343,7 +344,7 @@ Make a program for solving Newton's law of cooling
 !et
 with the Forward Euler, Backward Euler, and Crank-Nicolson schemes
 (or a $\theta$ scheme). Verify the implementation.
-
+# #endif
 
 !split
 ===== Computing the numerical error as a mesh function =====
@@ -413,6 +414,12 @@ Common simplification yields the $L^2$ norm of a mesh function:
 \[ ||f^n||_{\ell^2} = \left(\Delta t\sum_{n=0}^{N_t} (f^n)^2\right)^{1/2}\]
 !et
 
+!split
+===== Norms - notice! =====
+!bnotice
+ * The *continuous* norms use capital $L^2, L^1, L^\infty{}$
+ * The *discrete* norm uses lowercase $\ell^2$
+!enotice
 
 !split
 ===== Implementation of the norm of the error =====
@@ -448,17 +455,17 @@ for i in range(m):
     s = s + e[i]**2
 error = sqrt(dt*s)
 !ec
-Obviously, scalar computing
 
- * takes more code
- * is less readable
- * runs much slower
+!bnotice Scalar computing
+takes more code, is less readable and runs much slower
+!enotice
 
 !bnotice Rule
-Compute on entire arrays (when possible)!
+Compute on entire arrays (when possible)! Vectorization!
 !enotice
 
 
+# #ifdef NOTHERE
 !split
 ===== Memory-saving implementation =====
 
@@ -507,3 +514,4 @@ def explore(I, a, T, dt, theta=0.5, makeplot=True):
 !ec
 
 Complete program: "`decay_memsave.py`": "${src_alg}/decay_memsave.py".
+# #endif

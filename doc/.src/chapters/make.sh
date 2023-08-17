@@ -37,12 +37,12 @@ fi
 
 rm -f tmp_*
 
-doconce spellcheck -d .dict4spell.txt *.do.txt
-if [ $? -ne 0 ]; then
-  echo "make.sh aborts due to misspellings"
-  exit 1
-fi
-rm -rf tmp_stripped*
+#doconce spellcheck -d .dict4spell.txt *.do.txt
+#if [ $? -ne 0 ]; then
+#  echo "make.sh aborts due to misspellings"
+#  exit 1
+#fi
+#rm -rf tmp_stripped*
 
 egrep "[^\\]thinspace" *.do.txt
 if [ $? -eq 0 ]; then echo "wrong thinspace commands - abort"; exit; fi

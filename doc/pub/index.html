@@ -1,60 +1,63 @@
 <!--
-Automatically generated HTML file from DocOnce source
-(https://github.com/hplgit/doconce/)
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format html index.do.txt --html_style=bootstrap --html_links_in_new_window --html_bootstrap_navbar=off
 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Finite Difference Computing with Exponential Decay Models">
-
 <title>Finite Difference Computing with Exponential Decay Models</title>
-
 <!-- Bootstrap style: bootstrap -->
-<link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- doconce format html index.do.txt --html_style=bootstrap --html_links_in_new_window --html_bootstrap_navbar=off -->
+<link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 <!-- not necessary
-<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 -->
-
 <style type="text/css">
-
 /* Add scrollbar to dropdown menus in bootstrap navigation bar */
 .dropdown-menu {
    height: auto;
    max-height: 400px;
    overflow-x: hidden;
 }
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:50px;      /* fixed header height for style bootstrap */
+  margin:-50px 0 0; /* negative fixed header height */
+}
 </style>
-
-
 </head>
 
 <!-- tocinfo
 {'highest level': 1,
- 'sections': [('Study guides (slides for lectures)', 1, None, '___sec0'),
-              ('Algorithms and implementations', 2, None, '___sec1'),
-              ('Analysis', 2, None, '___sec2'),
-              ('Generalizations', 2, None, '___sec3'),
-              ('Models', 2, None, '___sec4'),
-              ('Software engineering', 2, None, '___sec5')]}
+ 'sections': [('Study guides (slides for lectures)',
+               1,
+               None,
+               'study-guides-slides-for-lectures'),
+              ('Algorithms and implementations',
+               2,
+               None,
+               'algorithms-and-implementations'),
+              ('Analysis', 2, None, 'analysis'),
+              ('Generalizations', 2, None, 'generalizations'),
+              ('Models', 2, None, 'models'),
+              ('Software engineering', 2, None, 'software-engineering')]}
 end of tocinfo -->
 
 <body>
-
-    
 <div class="container">
-
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
-
 <!-- ------------------- main content ---------------------- -->
-
-<p>
-
-
 <div class="jumbotron">
-<center><h1>Finite Difference Computing with Exponential Decay Models</h1></center>  <!-- document title -->
+<center>
+<h1>Finite Difference Computing with Exponential Decay Models</h1>
+</center>  <!-- document title -->
 
-<p>
 <!-- potential-jumbotron-button -->
 </div> <!-- end jumbotron -->
 
@@ -66,81 +69,44 @@ end of tocinfo -->
  <li> <a href="book/sphinx/index.html" target="_blank">Sphinx ebook</a></li>
  <li> <a href="book/html/decay-book.html" target="_blank">HTML Bootstrap ebook</a></li>
 </ul>
+<h1 id="study-guides-slides-for-lectures" class="anchor">Study guides (slides for lectures) </h1>
 
-<h1 id="___sec0">Study guides (slides for lectures) </h1>
-
-<p>
-The study guides are summaries of the main points in the course
+<p>The study guides are summaries of the main points in the course
 material. The guides are made such that they can be used as
 slides in lectures.
-
-<h2 id="___sec1">Algorithms and implementations </h2>
-
-<ul>
- <li> HTML5:
-   <a href="./alg/html/slides_alg-reveal.html" target="_blank">reveal.js dark</a>,
-   <a href="./alg/html/slides_alg-reveal-beige.html" target="_blank">reveal.js beige</a>,
-   <a href="./alg/html/slides_alg-1.html" target="_blank">plain HTML one big file</a>,
-   <a href="./alg/html/slides_alg-solarized.html" target="_blank">solarized HTML one big file</a></li>
- <li> LaTeX Beamer:
-   <a href="./alg/pdf/slides_alg-beamer.pdf" target="_blank">slides for electronic viewing</a>,
-   <a href="./alg/pdf/slides_alg-beamer-handouts2x3.pdf" target="_blank">handouts</a></li>
-</ul>
-
-<h2 id="___sec2">Analysis </h2>
+</p>
+<h2 id="algorithms-and-implementations" class="anchor">Algorithms and implementations </h2>
 
 <ul>
- <li> HTML5:
-   <a href="./analysis/html/slides_analysis-reveal.html" target="_blank">reveal.js dark</a>,
-   <a href="./analysis/html/slides_analysis-reveal-beige.html" target="_blank">reveal.js beige</a>,
-   <a href="./analysis/html/slides_analysis-1.html" target="_blank">plain HTML one big file</a>,
-   <a href="./analysis/html/slides_analysis-solarized.html" target="_blank">solarized HTML one big file</a></li>
- <li> LaTeX Beamer:
-   <a href="./analysis/pdf/slides_analysis-beamer.pdf" target="_blank">slides for electronic viewing</a>,
-   <a href="./analysis/pdf/slides_analysis-beamer-handouts2x3.pdf" target="_blank">handouts</a></li>
+ <li> HTML5: <a href="./alg/html/slides_alg-reveal.html" target="_blank">reveal.js dark</a>, <a href="./alg/html/slides_alg-reveal-beige.html" target="_blank">reveal.js beige</a>, <a href="./alg/html/slides_alg-1.html" target="_blank">plain HTML one big file</a>, <a href="./alg/html/slides_alg-solarized.html" target="_blank">solarized HTML one big file</a></li>
+ <li> LaTeX Beamer: <a href="./alg/pdf/slides_alg-beamer.pdf" target="_blank">slides for electronic viewing</a>, <a href="./alg/pdf/slides_alg-beamer-handouts2x3.pdf" target="_blank">handouts</a></li>
 </ul>
-
-<h2 id="___sec3">Generalizations </h2>
+<h2 id="analysis" class="anchor">Analysis </h2>
 
 <ul>
- <li> HTML5:
-   <a href="./genz/html/slides_genz-reveal.html" target="_blank">reveal.js dark</a>,
-   <a href="./genz/html/slides_genz-reveal-beige.html" target="_blank">reveal.js beige</a>,
-   <a href="./genz/html/slides_genz-1.html" target="_blank">plain HTML one big file</a>,
-   <a href="./genz/html/slides_genz-solarized.html" target="_blank">solarized HTML one big file</a></li>
- <li> LaTeX Beamer:
-   <a href="./genz/pdf/slides_genz-beamer.pdf" target="_blank">slides for electronic viewing</a>,
-   <a href="./genz/pdf/slides_genz-beamer-handouts2x3.pdf" target="_blank">handouts</a></li>
+ <li> HTML5: <a href="./analysis/html/slides_analysis-reveal.html" target="_blank">reveal.js dark</a>, <a href="./analysis/html/slides_analysis-reveal-beige.html" target="_blank">reveal.js beige</a>, <a href="./analysis/html/slides_analysis-1.html" target="_blank">plain HTML one big file</a>, <a href="./analysis/html/slides_analysis-solarized.html" target="_blank">solarized HTML one big file</a></li>
+ <li> LaTeX Beamer: <a href="./analysis/pdf/slides_analysis-beamer.pdf" target="_blank">slides for electronic viewing</a>, <a href="./analysis/pdf/slides_analysis-beamer-handouts2x3.pdf" target="_blank">handouts</a></li>
 </ul>
-
-<h2 id="___sec4">Models </h2>
+<h2 id="generalizations" class="anchor">Generalizations </h2>
 
 <ul>
- <li> HTML5:
-   <a href="./models/html/slides_models-reveal.html" target="_blank">reveal.js dark</a>,
-   <a href="./models/html/slides_models-reveal-beige.html" target="_blank">reveal.js beige</a>,
-   <a href="./models/html/slides_models-1.html" target="_blank">plain HTML one big file</a>,
-   <a href="./models/html/slides_models-solarized.html" target="_blank">solarized HTML one big file</a></li>
- <li> LaTeX Beamer:
-   <a href="./models/pdf/slides_models-beamer.pdf" target="_blank">slides for electronic viewing</a>,
-   <a href="./models/pdf/slides_models-beamer-handouts2x3.pdf" target="_blank">handouts</a></li>
+ <li> HTML5: <a href="./genz/html/slides_genz-reveal.html" target="_blank">reveal.js dark</a>, <a href="./genz/html/slides_genz-reveal-beige.html" target="_blank">reveal.js beige</a>, <a href="./genz/html/slides_genz-1.html" target="_blank">plain HTML one big file</a>, <a href="./genz/html/slides_genz-solarized.html" target="_blank">solarized HTML one big file</a></li>
+ <li> LaTeX Beamer: <a href="./genz/pdf/slides_genz-beamer.pdf" target="_blank">slides for electronic viewing</a>, <a href="./genz/pdf/slides_genz-beamer-handouts2x3.pdf" target="_blank">handouts</a></li>
 </ul>
-
-<h2 id="___sec5">Software engineering </h2>
+<h2 id="models" class="anchor">Models </h2>
 
 <ul>
- <li> HTML5:
-   <a href="./softeng/html/slides_softeng-reveal.html" target="_blank">reveal.js dark</a>,
-   <a href="./softeng/html/slides_softeng-reveal-beige.html" target="_blank">reveal.js beige</a>,
-   <a href="./softeng/html/slides_softeng-1.html" target="_blank">plain HTML one big file</a>,
-   <a href="./softeng/html/slides_softeng-solarized.html" target="_blank">solarized HTML one big file</a></li>
- <li> LaTeX Beamer:
-   <a href="./softeng/pdf/slides_softeng-beamer.pdf" target="_blank">slides for electronic viewing</a>,
-   <a href="./softeng/pdf/slides_softeng-beamer-handouts2x3.pdf" target="_blank">handouts</a></li>
+ <li> HTML5: <a href="./models/html/slides_models-reveal.html" target="_blank">reveal.js dark</a>, <a href="./models/html/slides_models-reveal-beige.html" target="_blank">reveal.js beige</a>, <a href="./models/html/slides_models-1.html" target="_blank">plain HTML one big file</a>, <a href="./models/html/slides_models-solarized.html" target="_blank">solarized HTML one big file</a></li>
+ <li> LaTeX Beamer: <a href="./models/pdf/slides_models-beamer.pdf" target="_blank">slides for electronic viewing</a>, <a href="./models/pdf/slides_models-beamer-handouts2x3.pdf" target="_blank">handouts</a></li>
 </ul>
+<h2 id="software-engineering" class="anchor">Software engineering </h2>
 
-<div class="alert alert-block alert-danger alert-text-normal"><b>Warning.</b>
-The PDF files are based on LaTeX and have seldom technical
+<ul>
+ <li> HTML5: <a href="./softeng/html/slides_softeng-reveal.html" target="_blank">reveal.js dark</a>, <a href="./softeng/html/slides_softeng-reveal-beige.html" target="_blank">reveal.js beige</a>, <a href="./softeng/html/slides_softeng-1.html" target="_blank">plain HTML one big file</a>, <a href="./softeng/html/slides_softeng-solarized.html" target="_blank">solarized HTML one big file</a></li>
+ <li> LaTeX Beamer: <a href="./softeng/pdf/slides_softeng-beamer.pdf" target="_blank">slides for electronic viewing</a>, <a href="./softeng/pdf/slides_softeng-beamer-handouts2x3.pdf" target="_blank">handouts</a></li>
+</ul>
+<div class="alert alert-block alert-danger alert-text-normal"><b>Warning</b>
+<p>The PDF files are based on LaTeX and have seldom technical
 failures that cannot be easily corrected.
 The HTML-based files, however, apply MathJax
 for rendering LaTeX formulas, and sometimes this technology gives rise
@@ -149,24 +115,19 @@ incorrect rendering in a web page despite correct LaTeX syntax in the
 formula). Consult the corresponding PDF
 file if you find missing or incorrectly rendered
 formulas in HTML or Sphinx files.
+</p>
 </div>
 
-
 <!-- ------------------- end of main content --------------- -->
-
 </div>  <!-- end container -->
 <!-- include javascript, jQuery *first* -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <!-- Bootstrap footer
 <footer>
-<a href="http://..."><img width="250" align=right src="http://..."></a>
+<a href="https://..."><img width="250" align=right src="https://..."></a>
 </footer>
 -->
-
-
 </body>
 </html>
-    
 

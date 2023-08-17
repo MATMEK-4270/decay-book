@@ -1,68 +1,82 @@
 <!--
-Automatically generated HTML file from DocOnce source
-(https://github.com/hplgit/doconce/)
+File automatically generated using DocOnce (https://github.com/doconce/doconce/):
+doconce format html main_alg.do.txt DOCUMENT=document APPENDIX=document BOOK=standalone --html_style=bootswatch_journal --html_code_style=inherit --html_output=alg-sol --allow_refs_to_external_docs
 -->
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="generator" content="DocOnce: https://github.com/hplgit/doconce/" />
+<meta name="generator" content="DocOnce: https://github.com/doconce/doconce/" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="Algorithms and implementations for exponential decay models">
 <meta name="keywords" content="decay ODE,exponential decay,mesh,grid,mesh function,finite differences,forward difference,finite differences forward,difference equation,discrete equation,algebraic equation,finite difference scheme,Forward Euler scheme,backward difference,finite differences backward,backward scheme, 1-step,Backward Euler scheme,Crank-Nicolson scheme,centered difference,finite differences centered,averaging arithmetic,weighted average,theta-rule,$\theta$-rule,time step,finite difference operator notation,operator notation, finite differences,directory,folder,doc strings,printf format,format string syntax (Python),plotting curves,visualizing curves,test function,unit testing,representative (mesh function),array arithmetics,array computing,vectorization,continuous function norms,norm continuous,discrete function norms,mesh function norms,norm discrete (mesh function),error norms,scalar computing,PNG plot,PDF plot,EPS plot,viewing graphics files,cropping images,array arithmetics,array computing,vectorization">
-
 <title>Algorithms and implementations for exponential decay models</title>
-
 <!-- Bootstrap style: bootswatch_journal -->
-<link href="http://netdna.bootstrapcdn.com/bootswatch/3.1.1/journal/bootstrap.min.css" rel="stylesheet">
+<!-- doconce format html main_alg.do.txt DOCUMENT=document APPENDIX=document BOOK=standalone --html_style=bootswatch_journal --html_code_style=inherit --html_output=alg-sol --allow_refs_to_external_docs -->
+<link href="https://netdna.bootstrapcdn.com/bootswatch/3.1.1/journal/bootstrap.min.css" rel="stylesheet">
 <!-- not necessary
-<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
 -->
-
 <style type="text/css">
 /* Let inline verbatim have the same color as the surroundings */
 code { color: inherit; background-color: transparent; }
-
 /* Add scrollbar to dropdown menus in bootstrap navigation bar */
 .dropdown-menu {
    height: auto;
    max-height: 400px;
    overflow-x: hidden;
 }
+/* Adds an invisible element before each target to offset for the navigation
+   bar */
+.anchor::before {
+  content:"";
+  display:block;
+  height:60px;      /* fixed header height for style bootswatch_journal */
+  margin:-60px 0 0; /* negative fixed header height */
+}
 </style>
-
-
 </head>
 
 <!-- tocinfo
 {'highest level': 1,
- 'sections': [('Finite difference methods',
+ 'sections': [('Table of contents',
                1,
-               'decay:basics',
-               'decay:basics'),
+               'table_of_contents',
+               'table_of_contents'),
+              ('Finite difference methods', 1, 'decay:basics', 'decay:basics'),
               ('A basic model for exponential decay',
                2,
                'decay:model',
                'decay:model'),
-              ('The exact solution', 3, None, '___sec2'),
-              ('A complete problem formulation', 3, None, '___sec3'),
+              ('The exact solution', 3, None, 'the-exact-solution'),
+              ('A complete problem formulation',
+               3,
+               None,
+               'a-complete-problem-formulation'),
               ('The Forward Euler scheme',
                2,
                'decay:schemes:FE',
                'decay:schemes:FE'),
-              ('Step 1: Discretizing the domain', 3, None, '___sec5'),
+              ('Step 1: Discretizing the domain',
+               3,
+               None,
+               'step-1-discretizing-the-domain'),
               ('Step 2: Fulfilling the equation at discrete time points',
                3,
                None,
-               '___sec6'),
+               'step-2-fulfilling-the-equation-at-discrete-time-points'),
               ('Step 3: Replacing derivatives by finite differences',
                3,
                None,
-               '___sec7'),
+               'step-3-replacing-derivatives-by-finite-differences'),
               ('Step 4: Formulating a recursive algorithm',
                3,
                None,
-               '___sec8'),
-              ('Interpretation', 3, None, '___sec9'),
-              ('Computing with the recursive formula', 3, None, '___sec10'),
+               'step-4-formulating-a-recursive-algorithm'),
+              ('Interpretation', 3, None, 'interpretation'),
+              ('Computing with the recursive formula',
+               3,
+               None,
+               'computing-with-the-recursive-formula'),
               ('The Backward Euler scheme',
                2,
                'decay:schemes:BE',
@@ -75,31 +89,37 @@ code { color: inherit; background-color: transparent; }
                2,
                'decay:schemes:theta',
                'decay:schemes:theta'),
-              ('Constant time step', 2, None, '___sec14'),
+              ('Constant time step', 2, None, 'constant-time-step'),
               ('Mathematical derivation of finite difference formulas',
                2,
                'decay:fd:taylor',
                'decay:fd:taylor'),
-              ('The forward difference', 3, None, '___sec16'),
-              ('The backward difference', 3, None, '___sec17'),
-              ('The centered difference', 3, None, '___sec18'),
+              ('The forward difference', 3, None, 'the-forward-difference'),
+              ('The backward difference', 3, None, 'the-backward-difference'),
+              ('The centered difference', 3, None, 'the-centered-difference'),
               ('Compact operator notation for finite differences',
                2,
                'decay:fd:op',
                'decay:fd:op'),
-              ('Implementation', 1, 'decay:impl1', 'decay:impl1'),
-              ('Computer language: Python', 2, None, '___sec21'),
+              ('Implementations', 1, 'decay:impl1', 'decay:impl1'),
+              ('Computer language: Python',
+               2,
+               None,
+               'computer-language-python'),
               ('Making a solver function', 2, 'decay:py1', 'decay:py1'),
               ('Integer division', 2, 'decay:py2', 'decay:py2'),
-              ('Doc strings', 2, None, '___sec24'),
-              ('Formatting numbers', 2, None, '___sec25'),
-              ('Running the program', 2, None, '___sec26'),
-              ('Plotting the solution', 2, None, '___sec27'),
-              ('Verifying the implementation', 2, None, '___sec28'),
+              ('Doc strings', 2, None, 'doc-strings'),
+              ('Formatting numbers', 2, None, 'formatting-numbers'),
+              ('Running the program', 2, None, 'running-the-program'),
+              ('Plotting the solution', 2, None, 'plotting-the-solution'),
+              ('Verifying the implementation',
+               2,
+               None,
+               'verifying-the-implementation'),
               ('Running a few algorithmic steps by hand',
                3,
                None,
-               '___sec29'),
+               'running-a-few-algorithmic-steps-by-hand'),
               ('Computing the numerical error as a mesh function',
                2,
                'decay:computing:error',
@@ -108,20 +128,23 @@ code { color: inherit; background-color: transparent; }
                2,
                'decay:computing:error:norm',
                'decay:computing:error:norm'),
-              ('Scalar computing', 3, None, '___sec32'),
+              ('Scalar computing', 3, None, 'scalar-computing'),
               ('Experiments with computing and plotting',
                2,
                None,
-               '___sec33'),
-              ('Combining plot files', 3, None, '___sec34'),
-              ('Plotting with SciTools', 3, None, '___sec35'),
-              ('Memory-saving implementation', 2, None, '___sec36'),
-              ('Exercises', 1, None, '___sec37'),
+               'experiments-with-computing-and-plotting'),
+              ('Combining plot files', 3, None, 'combining-plot-files'),
+              ('Plotting with SciTools', 3, None, 'plotting-with-scitools'),
+              ('Memory-saving implementation',
+               2,
+               None,
+               'memory-saving-implementation'),
+              ('Exercises', 1, None, 'exercises'),
               ('Exercise 1: Define a mesh function and visualize it',
                2,
                'decay:exer:meshfunc',
                'decay:exer:meshfunc'),
-              ('Remarks', 3, None, '___sec39'),
+              ('Remarks', 3, None, 'remarks'),
               ('Problem 2: Differentiate a function',
                2,
                'decay:exer:dudt',
@@ -142,7 +165,7 @@ code { color: inherit; background-color: transparent; }
                2,
                'decay:exer:inexact:output',
                'decay:exer:inexact:output'),
-              ('Bibliography', 1, None, '___sec45')]}
+              ('Bibliography', 1, None, 'bibliography')]}
 end of tocinfo -->
 
 <body>
@@ -157,8 +180,8 @@ MathJax.Hub.Config({
   }
 });
 </script>
-<script type="text/javascript"
- src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+<script type="text/javascript" async
+ src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 <!-- newcommands_keep.tex -->
@@ -170,8 +193,6 @@ $$
 
 
 
-
-    
 <!-- Bootstrap navigation bar -->
 <div class="navbar navbar-default navbar-fixed-top">
   <div class="navbar-header">
@@ -180,60 +201,60 @@ $$
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="alg-sol.html">Algorithms and implementations for exponential decay models</a>
+    <a class="navbar-brand" href="alg-so.html">Algorithms and implementations for exponential decay models</a>
   </div>
-
   <div class="navbar-collapse collapse navbar-responsive-collapse">
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Contents <b class="caret"></b></a>
         <ul class="dropdown-menu">
+     <!-- navigation toc: --> <li><a href="._alg-sol000.html#table_of_contents" style="font-size: 80%;"><b>Table of contents</b></a></li>
      <!-- navigation toc: --> <li><a href="._alg-sol001.html#decay:basics" style="font-size: 80%;"><b>Finite difference methods</b></a></li>
      <!-- navigation toc: --> <li><a href="._alg-sol001.html#decay:model" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;A basic model for exponential decay</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol001.html#___sec2" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The exact solution</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol001.html#___sec3" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A complete problem formulation</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol001.html#the-exact-solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The exact solution</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol001.html#a-complete-problem-formulation" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;A complete problem formulation</a></li>
      <!-- navigation toc: --> <li><a href="._alg-sol001.html#decay:schemes:FE" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;The Forward Euler scheme</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol001.html#___sec5" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 1: Discretizing the domain</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol001.html#___sec6" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 2: Fulfilling the equation at discrete time points</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol001.html#___sec7" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 3: Replacing derivatives by finite differences</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol001.html#___sec8" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 4: Formulating a recursive algorithm</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol001.html#___sec9" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interpretation</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol001.html#___sec10" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Computing with the recursive formula</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol001.html#step-1-discretizing-the-domain" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 1: Discretizing the domain</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol001.html#step-2-fulfilling-the-equation-at-discrete-time-points" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 2: Fulfilling the equation at discrete time points</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol001.html#step-3-replacing-derivatives-by-finite-differences" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 3: Replacing derivatives by finite differences</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol001.html#step-4-formulating-a-recursive-algorithm" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Step 4: Formulating a recursive algorithm</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol001.html#interpretation" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Interpretation</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol001.html#computing-with-the-recursive-formula" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Computing with the recursive formula</a></li>
      <!-- navigation toc: --> <li><a href="._alg-sol001.html#decay:schemes:BE" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;The Backward Euler scheme</a></li>
      <!-- navigation toc: --> <li><a href="._alg-sol001.html#decay:schemes:CN" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;The Crank-Nicolson scheme</a></li>
      <!-- navigation toc: --> <li><a href="._alg-sol001.html#decay:schemes:theta" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;The unifying \( \theta \)-rule</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol001.html#___sec14" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Constant time step</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol001.html#constant-time-step" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Constant time step</a></li>
      <!-- navigation toc: --> <li><a href="._alg-sol001.html#decay:fd:taylor" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Mathematical derivation of finite difference formulas</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol001.html#___sec16" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The forward difference</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol001.html#___sec17" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The backward difference</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol001.html#___sec18" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centered difference</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol001.html#the-forward-difference" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The forward difference</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol001.html#the-backward-difference" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The backward difference</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol001.html#the-centered-difference" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The centered difference</a></li>
      <!-- navigation toc: --> <li><a href="._alg-sol001.html#decay:fd:op" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Compact operator notation for finite differences</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#decay:impl1" style="font-size: 80%;"><b>Implementation</b></a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#___sec21" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Computer language: Python</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#decay:impl1" style="font-size: 80%;"><b>Implementations</b></a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#computer-language-python" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Computer language: Python</a></li>
      <!-- navigation toc: --> <li><a href="._alg-sol002.html#decay:py1" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Making a solver function</a></li>
      <!-- navigation toc: --> <li><a href="._alg-sol002.html#decay:py2" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Integer division</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#___sec24" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Doc strings</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#___sec25" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Formatting numbers</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#___sec26" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Running the program</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#___sec27" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Plotting the solution</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#___sec28" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Verifying the implementation</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#___sec29" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Running a few algorithmic steps by hand</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#doc-strings" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Doc strings</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#formatting-numbers" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Formatting numbers</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#running-the-program" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Running the program</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#plotting-the-solution" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Plotting the solution</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#verifying-the-implementation" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Verifying the implementation</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#running-a-few-algorithmic-steps-by-hand" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Running a few algorithmic steps by hand</a></li>
      <!-- navigation toc: --> <li><a href="._alg-sol002.html#decay:computing:error" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Computing the numerical error as a mesh function</a></li>
      <!-- navigation toc: --> <li><a href="._alg-sol002.html#decay:computing:error:norm" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Computing the norm of the error mesh function</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#___sec32" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scalar computing</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#___sec33" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Experiments with computing and plotting</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#___sec34" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Combining plot files</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#___sec35" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting with SciTools</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol002.html#___sec36" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Memory-saving implementation</a></li>
-     <!-- navigation toc: --> <li><a href="#___sec37" style="font-size: 80%;"><b>Exercises</b></a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#scalar-computing" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Scalar computing</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#experiments-with-computing-and-plotting" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Experiments with computing and plotting</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#combining-plot-files" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Combining plot files</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#plotting-with-scitools" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Plotting with SciTools</a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol002.html#memory-saving-implementation" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Memory-saving implementation</a></li>
+     <!-- navigation toc: --> <li><a href="#exercises" style="font-size: 80%;"><b>Exercises</b></a></li>
      <!-- navigation toc: --> <li><a href="#decay:exer:meshfunc" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Exercise 1: Define a mesh function and visualize it</a></li>
-     <!-- navigation toc: --> <li><a href="#___sec39" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remarks</a></li>
+     <!-- navigation toc: --> <li><a href="#remarks" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Remarks</a></li>
      <!-- navigation toc: --> <li><a href="#decay:exer:dudt" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Problem 2: Differentiate a function</a></li>
      <!-- navigation toc: --> <li><a href="#decay:exer:intdiv" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Problem 3: Experiment with divisions</a></li>
      <!-- navigation toc: --> <li><a href="#decay:exer:decay1err" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Problem 4: Experiment with wrong computations</a></li>
      <!-- navigation toc: --> <li><a href="#decay:exer:plot:error" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Problem 5: Plot the error function</a></li>
      <!-- navigation toc: --> <li><a href="#decay:exer:inexact:output" style="font-size: 80%;">&nbsp;&nbsp;&nbsp;Problem 6: Change formatting of numbers and debug</a></li>
-     <!-- navigation toc: --> <li><a href="._alg-sol004.html#___sec45" style="font-size: 80%;"><b>Bibliography</b></a></li>
+     <!-- navigation toc: --> <li><a href="._alg-sol004.html#bibliography" style="font-size: 80%;"><b>Bibliography</b></a></li>
 
         </ul>
       </li>
@@ -241,21 +262,16 @@ $$
   </div>
 </div>
 </div> <!-- end of navigation bar -->
-
 <div class="container">
-
 <p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p> <!-- add vertical space -->
-
 <a name="part0003"></a>
 <!-- !split -->
+<h1 id="exercises" class="anchor">Exercises </h1>
 
-<h1 id="___sec37">Exercises </h1>
-
-<p>
 <!-- --- begin exercise --- -->
+<h2 id="decay:exer:meshfunc" class="anchor">Exercise 1: Define a mesh function and visualize it</h2>
 
-<h2 id="decay:exer:meshfunc">Exercise 1: Define a mesh function and visualize it</h2>
-
+<!-- --- begin subexercise --- -->
 <p>
 <b>a)</b>
 Write a function <code>mesh_function(f, t)</code> that returns an array with
@@ -263,40 +279,64 @@ mesh point values \( f(t_0),\ldots,f(t_{N_t}) \), where <code>f</code> is a Pyth
 function implementing a mathematical function <code>f(t)</code> and \( t_0,\ldots,t_{N_t} \)
 are mesh points stored in the array <code>t</code>. Use a loop over the mesh
 points and compute one mesh function value at the time.
+</p>
 
-<p>
 <!-- --- begin solution of exercise --- -->
 
 <p>
-<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+<p><a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
  data-target="#exer_1_1" style="font-size: 80%;"></a>
+</p>
+<a href="#exer_1_1" data-toggle="collapse">
+<p>
 <b>Solution.</b>
+</p>
+</a>
 <div class="collapse-group">
 <p><div class="collapse" id="exer_1_1">
 
-<p>
-The function may look like
+<p>The function may look like</p>
 
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">mesh_function</span>(f, t):
-    u <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(<span style="color: #008000">len</span>(t))  <span style="color: #408080; font-style: italic"># or t.size</span>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">mesh_function</span>(f, t):
+    u <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(<span style="color: #008000">len</span>(t))  <span style="color: #3D7B7B; font-style: italic"># or t.size</span>
     <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(t)):
         u[i] <span style="color: #666666">=</span> f(t[i])
     <span style="color: #008000; font-weight: bold">return</span> u
-</pre></div>
-<p>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div></p>
 </div>
 </p>
 
-<p>
 <!-- --- end solution of exercise --- -->
 
+<!-- --- end subexercise --- -->
+
+<!-- --- begin subexercise --- -->
 <p>
 <b>b)</b>
 Use <code>mesh_function</code> to compute the mesh function corresponding to
+</p>
 
 $$
 f(t) = \left\lbrace
@@ -306,62 +346,80 @@ e^{-3t}, & 3 < t\leq 4
 \end{array}\right.
 $$
 
-Choose a mesh \( t_n=n\Delta t \) with \( \Delta t=0.1 \).
+<p>Choose a mesh \( t_n=n\Delta t \) with \( \Delta t=0.1 \).
 Plot the mesh function.
+</p>
 
-<p>
 <!-- --- begin solution of exercise --- -->
 
 <p>
-<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+<p><a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
  data-target="#exer_1_2" style="font-size: 80%;"></a>
+</p>
+<a href="#exer_1_2" data-toggle="collapse">
+<p>
 <b>Solution.</b>
+</p>
+</a>
 <div class="collapse-group">
 <p><div class="collapse" id="exer_1_2">
 
-<p>
-An appropriate function is
+<p>An appropriate function is</p>
 
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">demo</span>():
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">demo</span>():
     <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">f</span>(t):
         <span style="color: #008000; font-weight: bold">if</span> t <span style="color: #666666">&lt;=</span> <span style="color: #666666">3</span>:
             <span style="color: #008000; font-weight: bold">return</span> np<span style="color: #666666">.</span>exp(<span style="color: #666666">-</span>t)
         <span style="color: #008000; font-weight: bold">else</span>:
             <span style="color: #008000; font-weight: bold">return</span> np<span style="color: #666666">.</span>exp(<span style="color: #666666">-3*</span>t)
 
-    <span style="color: #408080; font-style: italic"># Compute mesh and mesh function</span>
+    <span style="color: #3D7B7B; font-style: italic"># Compute mesh and mesh function</span>
     t <span style="color: #666666">=</span> np<span style="color: #666666">.</span>linspace(<span style="color: #666666">0</span>, <span style="color: #666666">4</span>, <span style="color: #666666">41</span>)
     u <span style="color: #666666">=</span> mesh_function(f, t)
 
-    <span style="color: #408080; font-style: italic"># Plot</span>
+    <span style="color: #3D7B7B; font-style: italic"># Plot</span>
     <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">matplotlib.pyplot</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">plt</span>
     plt<span style="color: #666666">.</span>plot(t, u)
     plt<span style="color: #666666">.</span>xlabel(<span style="color: #BA2121">&#39;t&#39;</span>)
     plt<span style="color: #666666">.</span>ylabel(<span style="color: #BA2121">&#39;mesh function&#39;</span>)
     plt<span style="color: #666666">.</span>savefig(<span style="color: #BA2121">&#39;tmp.png&#39;</span>); plt<span style="color: #666666">.</span>savefig(<span style="color: #BA2121">&#39;tmp.pdf&#39;</span>)
     plt<span style="color: #666666">.</span>show()
-</pre></div>
-<p>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div></p>
 </div>
 </p>
 
-<p>
 <!-- --- end solution of exercise --- -->
 
-<p>
-Filename: <code>mesh_function</code>.
+<!-- --- end subexercise --- -->
 
-<p>
+<p>Filename: <code>mesh_function</code>.</p>
+
 <!-- Closing remarks for this Exercise -->
+<h3 id="remarks" class="anchor">Remarks </h3>
 
-<h3 id="___sec39">Remarks </h3>
-
-<p>
-In the section <a href="._alg-sol002.html#decay:computing:error">Computing the numerical error as a mesh function</a> we show how easy it is to
+<p>In the section <a href="._alg-sol002.html#decay:computing:error">Computing the numerical error as a mesh function</a> we show how easy it is to
 compute a mesh function by array arithmetics (or array computing).
 Using this technique, one could simply implement <code>mesh_function(f,t)</code>
 as <code>return f(t)</code>. However, <code>f(t)</code> will not work if there are
@@ -371,24 +429,22 @@ array, <code>t &lt; 3</code>, is an <em>array of boolean values</em>, which is n
 as a boolean expression in an if test.
 Computing one element
 at a time as suggested in a) is a way of out of this problem.
+</p>
 
-<p>
-We also remark that the function in b) is the solution of \( u^{\prime}=-au \),
+<p>We also remark that the function in b) is the solution of \( u^{\prime}=-au \),
 \( u(0)=1 \), for \( t\in [0,4] \), where \( a=1 \) for \( t\in [0,3] \) and \( a=3 \) for
 \( t\in [3,4] \).
+</p>
 
-<p>
 <!-- --- end exercise --- -->
 
-<p>
 <!-- --- begin exercise --- -->
+<h2 id="decay:exer:dudt" class="anchor">Problem 2: Differentiate a function</h2>
 
-<h2 id="decay:exer:dudt">Problem 2: Differentiate a function</h2>
-
-<p>
-Given a mesh function \( u^n \) as an array <code>u</code> with \( u^n \) values at mesh
+<p>Given a mesh function \( u^n \) as an array <code>u</code> with \( u^n \) values at mesh
 points \( t_n=n\Delta t \), the discrete derivative can be based on
 centered differences:
+</p>
 
 $$
 \begin{equation}
@@ -398,19 +454,21 @@ d^n = [D_{2t}u]^n =
 \end{equation}
 $$
 
-At the end points we may use forward and backward differences:
+<p>At the end points we may use forward and backward differences:</p>
 
 $$ d^0 = [D_t^+u]^n = \frac{u^{1}-u^{0}}{\Delta t},$$
 
-and
+<p>and</p>
 
 $$ d^{N_t} = [D_t^-u]^n = \frac{u^{N_t}-u^{N_t-1}}{\Delta t}\tp$$
 
-(Note that the formulas for the derivative at the end points are
+<p>(Note that the formulas for the derivative at the end points are
 less accurate than the formula used for the internal mesh points.
 We can easily employ equally accurate finite differences at the end
 points, but these involve three instead of two points.)
+</p>
 
+<!-- --- begin subexercise --- -->
 <p>
 <b>a)</b>
 Write a function
@@ -418,46 +476,56 @@ Write a function
 mesh function \( u^n \). The parameter <code>dt</code> reflects the
 mesh spacing \( \Delta t \). Write a corresponding test function
 <code>test_differentiate()</code> for verifying the implementation.
+</p>
 
-<p>
 <!-- --- begin hint in exercise --- -->
 
 <p>
-<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+<p><a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
  data-target="#exer_2_1" style="font-size: 80%;"></a>
+</p>
+<a href="#exer_2_1" data-toggle="collapse">
+<p>
 <b>Hint.</b>
+</p>
+</a>
 <div class="collapse-group">
 <p><div class="collapse" id="exer_2_1">
 
-<p>
-The three differentiation formulas are
+<p>The three differentiation formulas are
 exact for quadratic polynomials. Use this property to verify the program.
+</p>
 
-<p>
 </div></p>
 </div>
 </p>
 
-<p>
 <!-- --- end hint in exercise --- -->
 
-<p>
 <!-- --- begin solution of exercise --- -->
 
 <p>
-<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+<p><a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
  data-target="#exer_2_2" style="font-size: 80%;"></a>
+</p>
+<a href="#exer_2_2" data-toggle="collapse">
+<p>
 <b>Solution.</b>
+</p>
+</a>
 <div class="collapse-group">
 <p><div class="collapse" id="exer_2_2">
 
-<p>
-The functions can be written as
+<p>The functions can be written as</p>
 
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">np</span>
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">differentiate</span>(u, dt):
     dudt <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(<span style="color: #008000">len</span>(u))
@@ -471,22 +539,37 @@ The functions can be written as
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_differentiate</span>():
     <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Test differentiate with a linear u.&quot;&quot;&quot;</span>
-    <span style="color: #408080; font-style: italic"># Expect exact results</span>
+    <span style="color: #3D7B7B; font-style: italic"># Expect exact results</span>
     t <span style="color: #666666">=</span> np<span style="color: #666666">.</span>linspace(<span style="color: #666666">0</span>, <span style="color: #666666">4</span>, <span style="color: #666666">9</span>)
     u <span style="color: #666666">=</span> <span style="color: #666666">2*</span>t <span style="color: #666666">+</span> <span style="color: #666666">7</span>
     dudt <span style="color: #666666">=</span> differentiate(u, dt<span style="color: #666666">=</span>t[<span style="color: #666666">1</span>]<span style="color: #666666">-</span>t[<span style="color: #666666">0</span>])
     diff <span style="color: #666666">=</span> <span style="color: #008000">abs</span>(dudt <span style="color: #666666">-</span> <span style="color: #666666">2</span>)<span style="color: #666666">.</span>max()
     tol <span style="color: #666666">=</span> <span style="color: #666666">1E-15</span>
     <span style="color: #008000; font-weight: bold">assert</span> diff <span style="color: #666666">&lt;</span> tol
-</pre></div>
-<p>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div></p>
 </div>
 </p>
 
-<p>
 <!-- --- end solution of exercise --- -->
 
+<!-- --- end subexercise --- -->
+
+<!-- --- begin subexercise --- -->
 <p>
 <b>b)</b>
 A standard implementation of the formula <a href="#mjx-eqn-58">(58)</a> is to
@@ -496,6 +579,7 @@ or array computing,
 replaces the loop by array operations. To see how this can be done in
 the present mathematical problem, we
 define two arrays
+</p>
 
 $$
 \begin{align*}
@@ -504,53 +588,78 @@ u^- &= (u^0,u^1,\ldots,u^{N_t-2})\tp
 \end{align*}
 $$
 
-The formula <a href="#mjx-eqn-58">(58)</a> can now be expressed as
+<p>The formula <a href="#mjx-eqn-58">(58)</a> can now be expressed as</p>
 
 $$ (d^1,d^2,\ldots,d^{N_t-1}) = \frac{1}{2\Delta t}(u^+ - u^-)\tp$$
 
-The corresponding Python code reads
+<p>The corresponding Python code reads</p>
 
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">d[<span style="color: #666666">1</span>:<span style="color: #666666">-1</span>] <span style="color: #666666">=</span> (u[<span style="color: #666666">2</span>:] <span style="color: #666666">-</span> u[<span style="color: #666666">0</span>:<span style="color: #666666">-2</span>])<span style="color: #666666">/</span>(<span style="color: #666666">2*</span>dt)
-<span style="color: #408080; font-style: italic"># or</span>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">d[<span style="color: #666666">1</span>:<span style="color: #666666">-1</span>] <span style="color: #666666">=</span> (u[<span style="color: #666666">2</span>:] <span style="color: #666666">-</span> u[<span style="color: #666666">0</span>:<span style="color: #666666">-2</span>])<span style="color: #666666">/</span>(<span style="color: #666666">2*</span>dt)
+<span style="color: #3D7B7B; font-style: italic"># or</span>
 d[<span style="color: #666666">1</span>:N_t] <span style="color: #666666">=</span> (u[<span style="color: #666666">2</span>:N_t<span style="color: #666666">+1</span>] <span style="color: #666666">-</span> u[<span style="color: #666666">0</span>:N_t<span style="color: #666666">-1</span>])<span style="color: #666666">/</span>(<span style="color: #666666">2*</span>dt)
-</pre></div>
-<p>
-Recall that an array slice <code>u[1:-1]</code> contains the elements in <code>u</code> starting
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Recall that an array slice <code>u[1:-1]</code> contains the elements in <code>u</code> starting
 with index 1 and going all indices up to, but not including, the last one
 (<code>-1</code>).
+</p>
 
-<p>
-Use the ideas above to implement a vectorized version of the
+<p>Use the ideas above to implement a vectorized version of the
 <code>differentiate</code> function without loops. Make a corresponding
 test function that compares the result with that of
 <code>differentiate</code>.
+</p>
 
-<p>
 <!-- --- begin solution of exercise --- -->
 
 <p>
-<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+<p><a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
  data-target="#exer_2_3" style="font-size: 80%;"></a>
+</p>
+<a href="#exer_2_3" data-toggle="collapse">
+<p>
 <b>Solution.</b>
+</p>
+</a>
 <div class="collapse-group">
 <p><div class="collapse" id="exer_2_3">
 
-<p>
-Appropriate functions are
+<p>Appropriate functions are</p>
 
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">differentiate_vec</span>(u, dt):
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">differentiate_vec</span>(u, dt):
     dudt <span style="color: #666666">=</span> np<span style="color: #666666">.</span>zeros(<span style="color: #008000">len</span>(u))
     dudt[<span style="color: #666666">1</span>:<span style="color: #666666">-1</span>] <span style="color: #666666">=</span> (u[<span style="color: #666666">2</span>:] <span style="color: #666666">-</span> u[<span style="color: #666666">0</span>:<span style="color: #666666">-2</span>])<span style="color: #666666">/</span>(<span style="color: #666666">2*</span>dt)
     dudt[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> (u[<span style="color: #666666">1</span>] <span style="color: #666666">-</span> u[<span style="color: #666666">0</span>])<span style="color: #666666">/</span>dt
     dudt[<span style="color: #666666">-1</span>] <span style="color: #666666">=</span> (u[<span style="color: #666666">-1</span>] <span style="color: #666666">-</span> u[<span style="color: #666666">-2</span>])<span style="color: #666666">/</span>dt
-    <span style="color: #408080; font-style: italic">#dudt[0] = (-3*u[0] + 4*u[1] - u[2])/(2*dt)</span>
-    <span style="color: #408080; font-style: italic">#dudt[-1] = (3*u[-1] - 4*u[-2] + u[-3])/(2*dt)</span>
+    <span style="color: #3D7B7B; font-style: italic">#dudt[0] = (-3*u[0] + 4*u[1] - u[2])/(2*dt)</span>
+    <span style="color: #3D7B7B; font-style: italic">#dudt[-1] = (3*u[-1] - 4*u[-2] + u[-3])/(2*dt)</span>
     <span style="color: #008000; font-weight: bold">return</span> dudt
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">test_differentiate_vec</span>():
@@ -565,10 +674,10 @@ Appropriate functions are
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">convergence</span>(test_case):
     <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Expect 2nd order, but what about the end points?&quot;&quot;&quot;</span>
-    <span style="color: #408080; font-style: italic"># Use sympy to define and differentiate test examples</span>
+    <span style="color: #3D7B7B; font-style: italic"># Use sympy to define and differentiate test examples</span>
     <span style="color: #008000; font-weight: bold">import</span> <span style="color: #0000FF; font-weight: bold">sympy</span> <span style="color: #008000; font-weight: bold">as</span> <span style="color: #0000FF; font-weight: bold">sym</span>
     t <span style="color: #666666">=</span> sym<span style="color: #666666">.</span>symbols(<span style="color: #BA2121">&#39;t&#39;</span>)
-    <span style="color: #408080; font-style: italic"># Symbolic expression and numerical interval</span>
+    <span style="color: #3D7B7B; font-style: italic"># Symbolic expression and numerical interval</span>
     <span style="color: #008000; font-weight: bold">if</span> test_case <span style="color: #666666">==</span> <span style="color: #666666">1</span>:
         u <span style="color: #666666">=</span> sym<span style="color: #666666">.</span>exp(<span style="color: #666666">-0.1*</span>t)
         a <span style="color: #666666">=</span> <span style="color: #666666">0</span>;  b <span style="color: #666666">=</span> <span style="color: #666666">10</span>
@@ -580,63 +689,77 @@ Appropriate functions are
         a <span style="color: #666666">=</span> <span style="color: #666666">0</span>;  b <span style="color: #666666">=</span> <span style="color: #666666">4*</span>np<span style="color: #666666">.</span>pi
 
     dudt <span style="color: #666666">=</span> sym<span style="color: #666666">.</span>diff(u, t)
-    <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39;u:&#39;</span>, u
-    <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39;dt/dt:&#39;</span>, dudt, <span style="color: #BA2121">&#39;</span><span style="color: #BB6622; font-weight: bold">\n</span><span style="color: #BA2121">&#39;</span>
-    <span style="color: #408080; font-style: italic"># Turn sympy expressions to numerical Python function</span>
+    <span style="color: #008000">print</span> <span style="color: #BA2121">&#39;u:&#39;</span>, u
+    <span style="color: #008000">print</span> <span style="color: #BA2121">&#39;dt/dt:&#39;</span>, dudt, <span style="color: #BA2121">&#39;</span><span style="color: #AA5D1F; font-weight: bold">\n</span><span style="color: #BA2121">&#39;</span>
+    <span style="color: #3D7B7B; font-style: italic"># Turn sympy expressions to numerical Python function</span>
     u_func <span style="color: #666666">=</span> sym<span style="color: #666666">.</span>lambdify([t], u, modules<span style="color: #666666">=</span><span style="color: #BA2121">&#39;numpy&#39;</span>)
     dudt_e <span style="color: #666666">=</span> sym<span style="color: #666666">.</span>lambdify([t], dudt, modules<span style="color: #666666">=</span><span style="color: #BA2121">&#39;numpy&#39;</span>)
 
-    <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39; k      Nt   E/dt**2      E      Ei/dt**2    Ei&#39;</span>
-    <span style="color: #408080; font-style: italic"># Converge rate test, expect rate r=2, so chekc that errr/dt**r</span>
-    <span style="color: #408080; font-style: italic"># is approx constant</span>
+    <span style="color: #008000">print</span> <span style="color: #BA2121">&#39; k      Nt   E/dt**2      E      Ei/dt**2    Ei&#39;</span>
+    <span style="color: #3D7B7B; font-style: italic"># Converge rate test, expect rate r=2, so chekc that errr/dt**r</span>
+    <span style="color: #3D7B7B; font-style: italic"># is approx constant</span>
     k_values <span style="color: #666666">=</span> <span style="color: #008000">range</span>(<span style="color: #666666">1</span>, <span style="color: #666666">20</span>)
     <span style="color: #008000; font-weight: bold">for</span> k <span style="color: #AA22FF; font-weight: bold">in</span> k_values:
-        <span style="color: #408080; font-style: italic"># Compute mesh</span>
+        <span style="color: #3D7B7B; font-style: italic"># Compute mesh</span>
         Nt <span style="color: #666666">=</span> <span style="color: #666666">2**</span>k;  dt <span style="color: #666666">=</span> <span style="color: #008000">float</span>(b<span style="color: #666666">-</span>a)<span style="color: #666666">/</span>Nt;  T <span style="color: #666666">=</span> Nt<span style="color: #666666">*</span>dt
         t <span style="color: #666666">=</span> np<span style="color: #666666">.</span>linspace(a, T, Nt<span style="color: #666666">+1</span>)
         dudt <span style="color: #666666">=</span> differentiate_vec(u_func(t), dt)
-        <span style="color: #408080; font-style: italic"># Approximate L2 integral of the error</span>
+        <span style="color: #3D7B7B; font-style: italic"># Approximate L2 integral of the error</span>
         E  <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sqrt(dt<span style="color: #666666">*</span>np<span style="color: #666666">.</span>sum((dudt_e(t) <span style="color: #666666">-</span> dudt)<span style="color: #666666">**2</span>))
-        <span style="color: #408080; font-style: italic">#E = np.abs(dudt_e(t).max() - dudt.max())</span>
+        <span style="color: #3D7B7B; font-style: italic">#E = np.abs(dudt_e(t).max() - dudt.max())</span>
         Ei <span style="color: #666666">=</span> np<span style="color: #666666">.</span>sqrt(dt<span style="color: #666666">*</span>np<span style="color: #666666">.</span>sum((dudt_e(t)[<span style="color: #666666">1</span>:<span style="color: #666666">-1</span>] <span style="color: #666666">-</span> dudt[<span style="color: #666666">1</span>:<span style="color: #666666">-1</span>])<span style="color: #666666">**2</span>))
-        <span style="color: #408080; font-style: italic">#Ei = np.abs(dudt_e(t)[1:-1].max() - dudt[1:-1].max())</span>
-        <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39;</span><span style="color: #BB6688; font-weight: bold">%2d</span><span style="color: #BA2121">  </span><span style="color: #BB6688; font-weight: bold">%6d</span><span style="color: #BA2121">  </span><span style="color: #BB6688; font-weight: bold">%.2E</span><span style="color: #BA2121">  </span><span style="color: #BB6688; font-weight: bold">%.3E</span><span style="color: #BA2121">  </span><span style="color: #BB6688; font-weight: bold">%.2E</span><span style="color: #BA2121">  </span><span style="color: #BB6688; font-weight: bold">%.3E</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> (k, Nt, E<span style="color: #666666">/</span>dt<span style="color: #666666">**2</span>, E, Ei<span style="color: #666666">/</span>dt<span style="color: #666666">**2</span>, Ei)
-        <span style="color: #408080; font-style: italic">#if k == 1:</span>
+        <span style="color: #3D7B7B; font-style: italic">#Ei = np.abs(dudt_e(t)[1:-1].max() - dudt[1:-1].max())</span>
+        <span style="color: #008000">print</span> <span style="color: #BA2121">&#39;</span><span style="color: #A45A77; font-weight: bold">%2d</span><span style="color: #BA2121">  </span><span style="color: #A45A77; font-weight: bold">%6d</span><span style="color: #BA2121">  </span><span style="color: #A45A77; font-weight: bold">%.2E</span><span style="color: #BA2121">  </span><span style="color: #A45A77; font-weight: bold">%.3E</span><span style="color: #BA2121">  </span><span style="color: #A45A77; font-weight: bold">%.2E</span><span style="color: #BA2121">  </span><span style="color: #A45A77; font-weight: bold">%.3E</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> (k, Nt, E<span style="color: #666666">/</span>dt<span style="color: #666666">**2</span>, E, Ei<span style="color: #666666">/</span>dt<span style="color: #666666">**2</span>, Ei)
+        <span style="color: #3D7B7B; font-style: italic">#if k == 1:</span>
 
 
-<span style="color: #408080; font-style: italic">#test_differentiate()</span>
-<span style="color: #408080; font-style: italic">#test_differentiate_vec()</span>
+<span style="color: #3D7B7B; font-style: italic">#test_differentiate()</span>
+<span style="color: #3D7B7B; font-style: italic">#test_differentiate_vec()</span>
 convergence(<span style="color: #666666">1</span>)
 convergence(<span style="color: #666666">2</span>)
 convergence(<span style="color: #666666">3</span>)
-</pre></div>
-<p>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div></p>
 </div>
 </p>
 
-<p>
 <!-- --- end solution of exercise --- -->
 
-<p>
-Filename: <code>differentiate</code>.
+<!-- --- end subexercise --- -->
 
-<p>
+<p>Filename: <code>differentiate</code>.</p>
+
 <!-- --- end exercise --- -->
 
-<p>
 <!-- --- begin exercise --- -->
+<h2 id="decay:exer:intdiv" class="anchor">Problem 3: Experiment with divisions</h2>
 
-<h2 id="decay:exer:intdiv">Problem 3: Experiment with divisions</h2>
-
-<p>
-Explain what happens in the following computations, where
+<p>Explain what happens in the following computations, where
 some are mathematically unexpected:
+</p>
 
-<p>
 
-<!-- code=ipy (!bc ipy) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #666666">&gt;&gt;&gt;</span> dt <span style="color: #666666">=</span> <span style="color: #666666">3</span>
+<!-- code=python (!bc ipy) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #666666">&gt;&gt;&gt;</span> dt <span style="color: #666666">=</span> <span style="color: #666666">3</span>
 <span style="color: #666666">&gt;&gt;&gt;</span> T <span style="color: #666666">=</span> <span style="color: #666666">8</span>
 <span style="color: #666666">&gt;&gt;&gt;</span> Nt <span style="color: #666666">=</span> T<span style="color: #666666">/</span>dt
 <span style="color: #666666">&gt;&gt;&gt;</span> Nt
@@ -644,25 +767,48 @@ some are mathematically unexpected:
 <span style="color: #666666">&gt;&gt;&gt;</span> theta <span style="color: #666666">=</span> <span style="color: #666666">1</span>; a <span style="color: #666666">=</span> <span style="color: #666666">1</span>
 <span style="color: #666666">&gt;&gt;&gt;</span> (<span style="color: #666666">1</span> <span style="color: #666666">-</span> (<span style="color: #666666">1-</span>theta)<span style="color: #666666">*</span>a<span style="color: #666666">*</span>dt)<span style="color: #666666">/</span>(<span style="color: #666666">1</span> <span style="color: #666666">+</span> theta<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>a)
 <span style="color: #666666">0</span>
-</pre></div>
-<p>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 <!-- --- begin solution of exercise --- -->
 
 <p>
-<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+<p><a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
  data-target="#exer_3_1" style="font-size: 80%;"></a>
+</p>
+<a href="#exer_3_1" data-toggle="collapse">
+<p>
 <b>Solution.</b>
+</p>
+</a>
 <div class="collapse-group">
 <p><div class="collapse" id="exer_3_1">
 
-<p>
-We add some more investigations of the types and values involved
+<p>We add some more investigations of the types and values involved
 in the computations:
+</p>
 
-<p>
 
 <!-- code=python (!bc pyshell) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #666666">&gt;&gt;&gt;</span> dt <span style="color: #666666">=</span> <span style="color: #666666">3</span>
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #666666">&gt;&gt;&gt;</span> dt <span style="color: #666666">=</span> <span style="color: #666666">3</span>
 <span style="color: #666666">&gt;&gt;&gt;</span> T <span style="color: #666666">=</span> <span style="color: #666666">8</span>
 <span style="color: #666666">&gt;&gt;&gt;</span> Nt <span style="color: #666666">=</span> T<span style="color: #666666">/</span>dt
 <span style="color: #666666">&gt;&gt;&gt;</span> Nt
@@ -677,106 +823,174 @@ in the computations:
 <span style="color: #666666">1</span>
 <span style="color: #666666">&gt;&gt;&gt;</span> (<span style="color: #666666">1</span> <span style="color: #666666">+</span> theta<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>a)
 <span style="color: #666666">2</span>
-</pre></div>
-<p>
-From this we realize that the unexpected results are caused by
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>From this we realize that the unexpected results are caused by
 integer division: <code>int</code> object divided by <code>int</code> object.
 For example,
 <code>Nt</code> is an integer, not a real as we want, because 8/3 according integer
 division is 2, not the 2.66666 approximation to \( \frac{8}{3} \).
+</p>
 
-<p>
 </div></p>
 </div>
 </p>
 
-<p>
 <!-- --- end solution of exercise --- -->
-Filename: <code>pyproblems</code>.
+<p>Filename: <code>pyproblems</code>.</p>
 
-<p>
 <!-- --- end exercise --- -->
 
-<p>
 <!-- --- begin exercise --- -->
+<h2 id="decay:exer:decay1err" class="anchor">Problem 4: Experiment with wrong computations</h2>
 
-<h2 id="decay:exer:decay1err">Problem 4: Experiment with wrong computations</h2>
-
-<p>
-Consider the <code>solver</code> function in the <a href="http://tinyurl.com/ofkw6kc/alg/decay_v1.py" target="_self"><tt>decay_v1.py</tt></a> file
+<p>Consider the <code>solver</code> function in the <a href="http://tinyurl.com/ofkw6kc/alg/decay_v1.py" target="_self"><tt>decay_v1.py</tt></a> file
 and the following call:
+</p>
 
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">u, t <span style="color: #666666">=</span> solver(I<span style="color: #666666">=1</span>, a<span style="color: #666666">=1</span>, T<span style="color: #666666">=7</span>, dt<span style="color: #666666">=2</span>, theta<span style="color: #666666">=1</span>)
-</pre></div>
-<p>
-The output becomes
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">u, t <span style="color: #666666">=</span> solver(I<span style="color: #666666">=1</span>, a<span style="color: #666666">=1</span>, T<span style="color: #666666">=7</span>, dt<span style="color: #666666">=2</span>, theta<span style="color: #666666">=1</span>)
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
+<p>The output becomes</p>
+
 
 <!-- code=text (!bc dat) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">t= 0.000 u=1
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">t= 0.000 u=1
 t= 2.000 u=0
 t= 4.000 u=0
 t= 6.000 u=0
-</pre></div>
-<p>
-Print out the result of all intermediate computations and use
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Print out the result of all intermediate computations and use
 <code>type(v)</code> to see the object type of the result stored in some variable <code>v</code>.
 Examine the intermediate calculations and explain
 why <code>u</code> is wrong and why we compute up to \( t=6 \) only even though we
 specified \( T=7 \).
+</p>
 
-<p>
 <!-- --- begin solution of exercise --- -->
 
 <p>
-<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+<p><a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
  data-target="#exer_4_1" style="font-size: 80%;"></a>
+</p>
+<a href="#exer_4_1" data-toggle="collapse">
+<p>
 <b>Solution.</b>
+</p>
+</a>
 <div class="collapse-group">
 <p><div class="collapse" id="exer_4_1">
 
-<p>
-A code for investigating this problem may look as follows.
+<p>A code for investigating this problem may look as follows.</p>
 
-<p>
 
 <!-- code=python (!bc pypro) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">solver</span>(I, a, T, dt, theta):
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">solver</span>(I, a, T, dt, theta):
     <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;Solve u&#39;=-a*u, u(0)=I, for t in (0,T] with steps of dt.&quot;&quot;&quot;</span>
-    Nt <span style="color: #666666">=</span> <span style="color: #008000">int</span>(T<span style="color: #666666">/</span>dt)            <span style="color: #408080; font-style: italic"># no of time intervals</span>
-    T <span style="color: #666666">=</span> Nt<span style="color: #666666">*</span>dt                 <span style="color: #408080; font-style: italic"># adjust T to fit time step dt</span>
-    u <span style="color: #666666">=</span> zeros(Nt<span style="color: #666666">+1</span>)           <span style="color: #408080; font-style: italic"># array of u[n] values</span>
-    t <span style="color: #666666">=</span> linspace(<span style="color: #666666">0</span>, T, Nt<span style="color: #666666">+1</span>)  <span style="color: #408080; font-style: italic"># time mesh</span>
+    Nt <span style="color: #666666">=</span> <span style="color: #008000">int</span>(T<span style="color: #666666">/</span>dt)            <span style="color: #3D7B7B; font-style: italic"># no of time intervals</span>
+    T <span style="color: #666666">=</span> Nt<span style="color: #666666">*</span>dt                 <span style="color: #3D7B7B; font-style: italic"># adjust T to fit time step dt</span>
+    u <span style="color: #666666">=</span> zeros(Nt<span style="color: #666666">+1</span>)           <span style="color: #3D7B7B; font-style: italic"># array of u[n] values</span>
+    t <span style="color: #666666">=</span> linspace(<span style="color: #666666">0</span>, T, Nt<span style="color: #666666">+1</span>)  <span style="color: #3D7B7B; font-style: italic"># time mesh</span>
 
-    u[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> I                  <span style="color: #408080; font-style: italic"># assign initial condition</span>
-    <span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, Nt):    <span style="color: #408080; font-style: italic"># n=0,1,...,Nt-1</span>
+    u[<span style="color: #666666">0</span>] <span style="color: #666666">=</span> I                  <span style="color: #3D7B7B; font-style: italic"># assign initial condition</span>
+    <span style="color: #008000; font-weight: bold">for</span> n <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #666666">0</span>, Nt):    <span style="color: #3D7B7B; font-style: italic"># n=0,1,...,Nt-1</span>
         factor1 <span style="color: #666666">=</span> (<span style="color: #666666">1</span> <span style="color: #666666">-</span> (<span style="color: #666666">1-</span>theta)<span style="color: #666666">*</span>a<span style="color: #666666">*</span>dt)
         factor2 <span style="color: #666666">=</span> (<span style="color: #666666">1</span> <span style="color: #666666">+</span> theta<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>a)
         factor3 <span style="color: #666666">=</span> factor1<span style="color: #666666">/</span>factor2
-        <span style="color: #008000; font-weight: bold">print</span> factor1, <span style="color: #008000">type</span>(factor1), factor2, <span style="color: #008000">type</span>(factor2),
-        <span style="color: #008000; font-weight: bold">print</span> factor3, <span style="color: #008000">type</span>(factor3)
+        <span style="color: #008000">print</span> factor1, <span style="color: #008000">type</span>(factor1), factor2, <span style="color: #008000">type</span>(factor2),
+        <span style="color: #008000">print</span> factor3, <span style="color: #008000">type</span>(factor3)
         u[n<span style="color: #666666">+1</span>] <span style="color: #666666">=</span> (<span style="color: #666666">1</span> <span style="color: #666666">-</span> (<span style="color: #666666">1-</span>theta)<span style="color: #666666">*</span>a<span style="color: #666666">*</span>dt)<span style="color: #666666">/</span>(<span style="color: #666666">1</span> <span style="color: #666666">+</span> theta<span style="color: #666666">*</span>dt<span style="color: #666666">*</span>a)<span style="color: #666666">*</span>u[n]
     <span style="color: #008000; font-weight: bold">return</span> u, t
 
 <span style="color: #008000; font-weight: bold">from</span> <span style="color: #0000FF; font-weight: bold">numpy</span> <span style="color: #008000; font-weight: bold">import</span> <span style="color: #666666">*</span>
 u, t <span style="color: #666666">=</span> solver(I<span style="color: #666666">=1</span>, a<span style="color: #666666">=1</span>, T<span style="color: #666666">=7</span>, dt<span style="color: #666666">=2</span>, theta<span style="color: #666666">=1</span>)
 
-<span style="color: #408080; font-style: italic"># Write out a table of t and u values:</span>
+<span style="color: #3D7B7B; font-style: italic"># Write out a table of t and u values:</span>
 <span style="color: #008000; font-weight: bold">for</span> i <span style="color: #AA22FF; font-weight: bold">in</span> <span style="color: #008000">range</span>(<span style="color: #008000">len</span>(t)):
-    <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39;t=</span><span style="color: #BB6688; font-weight: bold">%6.3f</span><span style="color: #BA2121"> u=</span><span style="color: #BB6688; font-weight: bold">%g</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> (t[i], u[i])
-    <span style="color: #408080; font-style: italic"># or print &#39;t={t:6.3f} u={u:g}&#39;.format(t=t[i], u=u[i])</span>
-</pre></div>
-<p>
-Running this code shows
+    <span style="color: #008000">print</span> <span style="color: #BA2121">&#39;t=</span><span style="color: #A45A77; font-weight: bold">%6.3f</span><span style="color: #BA2121"> u=</span><span style="color: #A45A77; font-weight: bold">%g</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> (t[i], u[i])
+    <span style="color: #3D7B7B; font-style: italic"># or print &#39;t={t:6.3f} u={u:g}&#39;.format(t=t[i], u=u[i])</span>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
+<p>Running this code shows</p>
+
 
 <!-- code=text (!bc sys) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Terminal&gt; python decay_v1_err.py
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">Terminal&gt; python decay_v1_err.py
 1 &lt;type &#39;int&#39;&gt; 3 &lt;type &#39;int&#39;&gt; 0 &lt;type &#39;int&#39;&gt;
 1 &lt;type &#39;int&#39;&gt; 3 &lt;type &#39;int&#39;&gt; 0 &lt;type &#39;int&#39;&gt;
 1 &lt;type &#39;int&#39;&gt; 3 &lt;type &#39;int&#39;&gt; 0 &lt;type &#39;int&#39;&gt;
@@ -784,104 +998,122 @@ t= 0.000 u=1
 t= 2.000 u=0
 t= 4.000 u=0
 t= 6.000 u=0
-</pre></div>
-<p>
-We realize that we have integer divided by integer in the numerical
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>We realize that we have integer divided by integer in the numerical
 formula, i.e., the result of 1/3 is 0 because of integer division.
 This fraction is multiplied by <code>u[n]</code>, but the result remains zero.
+</p>
 
-<p>
 </div></p>
 </div>
 </p>
 
-<p>
 <!-- --- end solution of exercise --- -->
-Filename: <code>decay_v1_err</code>.
+<p>Filename: <code>decay_v1_err</code>.</p>
 
-<p>
 <!-- --- end exercise --- -->
 
-<p>
 <!-- --- begin exercise --- -->
+<h2 id="decay:exer:plot:error" class="anchor">Problem 5: Plot the error function</h2>
 
-<h2 id="decay:exer:plot:error">Problem 5: Plot the error function</h2>
-
-<p>
-Solve the problem \( u'=-au \), \( u(0)=I \), using the Forward Euler, Backward
+<p>Solve the problem \( u'=-au \), \( u(0)=I \), using the Forward Euler, Backward
 Euler, and Crank-Nicolson schemes. For each scheme, plot the error mesh
 function \( e^n = \uex(t_n)-u^n \) for \( \Delta t=0.1, 0.05, 0.025 \),
 where \( \uex \) is the exact solution of the ODE and
 \( u^n \) is the numerical solution at mesh point \( t_n \).
+</p>
 
-<p>
 <!-- --- begin hint in exercise --- -->
 
 <p>
-<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+<p><a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
  data-target="#exer_5_1" style="font-size: 80%;"></a>
+</p>
+<a href="#exer_5_1" data-toggle="collapse">
+<p>
 <b>Hint.</b>
+</p>
+</a>
 <div class="collapse-group">
 <p><div class="collapse" id="exer_5_1">
 
-<p>
-Modify the <a href="http://tinyurl.com/ofkw6kc/alg/decay_plot_mpl.py" target="_self"><tt>decay_plot_mpl.py</tt></a> code.
+<p>Modify the <a href="http://tinyurl.com/ofkw6kc/alg/decay_plot_mpl.py" target="_self"><tt>decay_plot_mpl.py</tt></a> code.</p>
 
-<p>
 </div></p>
 </div>
 </p>
 
-<p>
 <!-- --- end hint in exercise --- -->
 
-<p>
 <!-- --- begin solution of exercise --- -->
 
 <p>
-<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+<p><a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
  data-target="#exer_5_2" style="font-size: 80%;"></a>
+</p>
+<a href="#exer_5_2" data-toggle="collapse">
+<p>
 <b>Solution.</b>
+</p>
+</a>
 <div class="collapse-group">
 <p><div class="collapse" id="exer_5_2">
 
-<p>
-Looking at the <code>decay_plot_mpl.py</code> file, we realize that we only
+<p>Looking at the <code>decay_plot_mpl.py</code> file, we realize that we only
 need to change the <code>explore</code> method such that the error and not
 the solutions are plotted. We also need to run a loop over
 \( \Delta t \) values and get all the corresponding curves in the same
 plot. Quite some editing is necessary. Also the <code>main</code> function needs
 some edits.
+</p>
 
-<p>
-The <code>solver</code> and <code>exact_solution</code> functions are not altered.
+<p>The <code>solver</code> and <code>exact_solution</code> functions are not altered.
 The <code>explore</code> and <code>main</code> functions as well as the call to <code>main</code> are
 edited to:
+</p>
 
-<p>
 
 <!-- code=python (!bc pycod) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">explore</span>(I, a, T, dt_values, theta<span style="color: #666666">=0.5</span>):
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;"><span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">explore</span>(I, a, T, dt_values, theta<span style="color: #666666">=0.5</span>):
     <span style="color: #BA2121; font-style: italic">&quot;&quot;&quot;</span>
 <span style="color: #BA2121; font-style: italic">    Run cases with the solver, compute error measure,</span>
 <span style="color: #BA2121; font-style: italic">    and plot the error.</span>
 <span style="color: #BA2121; font-style: italic">    &quot;&quot;&quot;</span>
-    figure() <span style="color: #408080; font-style: italic"># create new plot</span>
+    figure() <span style="color: #3D7B7B; font-style: italic"># create new plot</span>
     <span style="color: #008000; font-weight: bold">for</span> dt <span style="color: #AA22FF; font-weight: bold">in</span> dt_values:
-        <span style="color: #008000; font-weight: bold">print</span> <span style="color: #BA2121">&#39;dt&#39;</span>, dt
+        <span style="color: #008000">print</span> <span style="color: #BA2121">&#39;dt&#39;</span>, dt
         u, t <span style="color: #666666">=</span> solver(I, a, T, dt, theta)
-        <span style="color: #408080; font-style: italic"># Numerical solution</span>
+        <span style="color: #3D7B7B; font-style: italic"># Numerical solution</span>
         u_e <span style="color: #666666">=</span> u_exact(t, I, a)
         e <span style="color: #666666">=</span> u_e <span style="color: #666666">-</span> u
         plot(t, e)
         hold(<span style="color: #BA2121">&#39;on&#39;</span>)
-    legend([<span style="color: #BA2121">&#39;dt=</span><span style="color: #BB6688; font-weight: bold">%g</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> dt <span style="color: #008000; font-weight: bold">for</span> dt <span style="color: #AA22FF; font-weight: bold">in</span> dt_values])
+    legend([<span style="color: #BA2121">&#39;dt=</span><span style="color: #A45A77; font-weight: bold">%g</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> dt <span style="color: #008000; font-weight: bold">for</span> dt <span style="color: #AA22FF; font-weight: bold">in</span> dt_values])
     xlabel(<span style="color: #BA2121">&#39;t&#39;</span>)
     ylabel(<span style="color: #BA2121">&#39;u&#39;</span>)
-    title(<span style="color: #BA2121">&#39;theta=</span><span style="color: #BB6688; font-weight: bold">%g</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> theta)
+    title(<span style="color: #BA2121">&#39;theta=</span><span style="color: #A45A77; font-weight: bold">%g</span><span style="color: #BA2121">&#39;</span> <span style="color: #666666">%</span> theta)
     theta2name <span style="color: #666666">=</span> {<span style="color: #666666">0</span>: <span style="color: #BA2121">&#39;FE&#39;</span>, <span style="color: #666666">1</span>: <span style="color: #BA2121">&#39;BE&#39;</span>, <span style="color: #666666">0.5</span>: <span style="color: #BA2121">&#39;CN&#39;</span>}
-    savefig(<span style="color: #BA2121">&#39;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">_</span><span style="color: #BB6688; font-weight: bold">%g</span><span style="color: #BA2121">.png&#39;</span> <span style="color: #666666">%</span> (theta2name[theta], dt))
-    savefig(<span style="color: #BA2121">&#39;</span><span style="color: #BB6688; font-weight: bold">%s</span><span style="color: #BA2121">_</span><span style="color: #BB6688; font-weight: bold">%g</span><span style="color: #BA2121">.pdf&#39;</span> <span style="color: #666666">%</span> (theta2name[theta], dt))
+    savefig(<span style="color: #BA2121">&#39;</span><span style="color: #A45A77; font-weight: bold">%s</span><span style="color: #BA2121">_</span><span style="color: #A45A77; font-weight: bold">%g</span><span style="color: #BA2121">.png&#39;</span> <span style="color: #666666">%</span> (theta2name[theta], dt))
+    savefig(<span style="color: #BA2121">&#39;</span><span style="color: #A45A77; font-weight: bold">%s</span><span style="color: #BA2121">_</span><span style="color: #A45A77; font-weight: bold">%g</span><span style="color: #BA2121">.pdf&#39;</span> <span style="color: #666666">%</span> (theta2name[theta], dt))
 
 <span style="color: #008000; font-weight: bold">def</span> <span style="color: #0000FF">main</span>(I, a, T, dt_values, theta_values<span style="color: #666666">=</span>(<span style="color: #666666">0</span>, <span style="color: #666666">0.5</span>, <span style="color: #666666">1</span>)):
     <span style="color: #008000; font-weight: bold">for</span> theta <span style="color: #AA22FF; font-weight: bold">in</span> theta_values:
@@ -891,35 +1123,54 @@ dt <span style="color: #666666">=</span> <span style="color: #666666">0.1</span>
 dt_values <span style="color: #666666">=</span> [dt, dt<span style="color: #666666">/4</span>, dt<span style="color: #666666">/8</span>]
 main(I<span style="color: #666666">=1</span>, a<span style="color: #666666">=2</span>, T<span style="color: #666666">=5</span>, dt_values<span style="color: #666666">=</span>dt_values)
 show()
-</pre></div>
-<p>
-<center><p><img src="fig-alg/decay_plot_error.png" align="bottom" width=800></p></center>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
+
+<center>  <!-- FIGURE -->
+<hr class="figure">
+<center>
+<p class="caption">Figure 11</p>
+</center>
+<p><img src="fig-alg/decay_plot_error.png" width="800" align="bottom"></p>
+</center>
+
 </div></p>
 </div>
 </p>
 
-<p>
 <!-- --- end solution of exercise --- -->
-Filename: <code>decay_plot_error</code>.
+<p>Filename: <code>decay_plot_error</code>.</p>
 
-<p>
 <!-- --- end exercise --- -->
 
-<p>
 <!-- --- begin exercise --- -->
+<h2 id="decay:exer:inexact:output" class="anchor">Problem 6: Change formatting of numbers and debug</h2>
 
-<h2 id="decay:exer:inexact:output">Problem 6: Change formatting of numbers and debug</h2>
-
-<p>
-The <a href="http://tinyurl.com/ofkw6kc/alg/decay_memsave.py" target="_self"><tt>decay_memsave.py</tt></a> program
+<p>The <a href="http://tinyurl.com/ofkw6kc/alg/decay_memsave.py" target="_self"><tt>decay_memsave.py</tt></a> program
 writes the time values and solution values to a file which looks
 like
-<p>
+</p>
 
-<!-- code=text typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">0.0000000000000000E+00  1.0000000000000000E+00
+<!-- code=text (!bc dat) typeset with pygments style "default" -->
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">0.0000000000000000E+00  1.0000000000000000E+00
 2.0000000000000001E-01  8.3333333333333337E-01
 4.0000000000000002E-01  6.9444444444444453E-01
 6.0000000000000009E-01  5.7870370370370383E-01
@@ -927,13 +1178,30 @@ like
 1.0000000000000000E+00  4.0187757201646102E-01
 1.2000000000000000E+00  3.3489797668038418E-01
 1.3999999999999999E+00  2.7908164723365347E-01
-</pre></div>
-<p>
-Modify the file output such that it looks like
-<p>
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>Modify the file output such that it looks like</p>
 
 <!-- code=text (!bc dat) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">0.000  1.00000
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">0.000  1.00000
 0.200  0.83333
 0.400  0.69444
 0.600  0.57870
@@ -941,53 +1209,85 @@ Modify the file output such that it looks like
 1.000  0.40188
 1.200  0.33490
 1.400  0.27908
-</pre></div>
-<p>
-If you have just modified the formatting of numbers in the file,
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>If you have just modified the formatting of numbers in the file,
 running the modified program
-<p>
+</p>
 
 <!-- code=text (!bc sys) typeset with pygments style "default" -->
-<div class="highlight" style="background: #f8f8f8"><pre style="line-height: 125%">Terminal&gt; python decay_memsave_v2.py --T 10 --theta 1 \ 
+<div class="cell border-box-sizing code_cell rendered">
+  <div class="input">
+    <div class="inner_cell">
+      <div class="input_area">
+        <div class="highlight" style="background: #f8f8f8">
+  <pre style="line-height: 125%;">Terminal&gt; python decay_memsave_v2.py --T 10 --theta 1 \ 
           --dt 0.2 --makeplot
-</pre></div>
-<p>
-leads to printing of the message <code>Bug in the implementation!</code> in the
-terminal window. Why?
+</pre>
+</div>
+      </div>
+    </div>
+  </div>
+  <div class="output_wrapper">
+    <div class="output">
+      <div class="output_area">
+        <div class="output_subarea output_stream output_stdout output_text">          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
+<p>leads to printing of the message <code>Bug in the implementation!</code> in the
+terminal window. Why?
+</p>
+
 <!-- --- begin solution of exercise --- -->
 
 <p>
-<a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
+<p><a class="glyphicon glyphicon-hand-right showdetails" data-toggle="collapse"
  data-target="#exer_6_1" style="font-size: 80%;"></a>
+</p>
+<a href="#exer_6_1" data-toggle="collapse">
+<p>
 <b>Solution.</b>
+</p>
+</a>
 <div class="collapse-group">
 <p><div class="collapse" id="exer_6_1">
 
-<p>
-The new formatting is obtained by replacing the format <code>%.16E</code> for
+<p>The new formatting is obtained by replacing the format <code>%.16E</code> for
 <code>t</code> by <code>%.3f</code> and the format for <code>u</code> must be <code>%.5f</code>.
+</p>
 
-<p>
-With only 5 decimals in the file, the <code>test_solver_minmem</code> function compares
+<p>With only 5 decimals in the file, the <code>test_solver_minmem</code> function compares
 truncated elements <code>u</code>, accurate only to \( 10^{-5} \) with the
 exact discrete solution and applies a far too small <code>tol</code> value.
 <code>tol</code> must be <code>1E-4</code>.
+</p>
 
-<p>
 </div></p>
 </div>
 </p>
 
-<p>
 <!-- --- end solution of exercise --- -->
-Filename: <code>decay_memsave_v2</code>.
+<p>Filename: <code>decay_memsave_v2</code>.</p>
 
-<p>
 <!-- --- end exercise --- -->
 
-<p>
 <p>
 <!-- navigation buttons at the bottom of the page -->
 <ul class="pager">
@@ -999,20 +1299,15 @@ Filename: <code>decay_memsave_v2</code>.
   </li>
 </ul>
 <!-- ------------------- end of main content --------------- -->
-
 </div>  <!-- end container -->
 <!-- include javascript, jQuery *first* -->
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 <!-- Bootstrap footer
 <footer>
-<a href="http://..."><img width="250" align=right src="http://..."></a>
+<a href="https://..."><img width="250" align=right src="https://..."></a>
 </footer>
 -->
-
-
 </body>
 </html>
-    
 

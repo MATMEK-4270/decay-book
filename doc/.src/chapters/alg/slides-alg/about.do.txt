@@ -1,11 +1,23 @@
 !split
-======= INF5620 in a nutshell =======
-label{5620:about}
+===== Professor Hans Petter Langtangen (1962-2016) =====
+
+FIGURE: [SIM135194_Simula_Hans_Petter_004-1024x681.jpg, width=600 frac=0.5]
+
+ * 2011-2015 Editor-In-Chief SIAM J of Scientific Computing
+ * Author of 13 published books on scientific computing
+ * Professor of Mechanics, University of Oslo 1998
+ * Developed INF5620 (which became IN5270 and now MAT-MEK4270)
+ * "Memorial page" : "http://hpl-memorial.simula.no"
+
+!split
+======= MAT-MEK4270 in a nutshell =======
+label{42700:about}
 
  * Numerical methods for partial differential equations (PDEs)
  * How do we solve a PDE in practice and produce numbers?
  * How do we trust the answer?
  * Approach: *simplify, understand, generalize*
+ * IN5670 -> IN5270 -> MAT-MEK4270 - Lots of old material
 
 !bsummary After the course
 You see a PDE and can't wait to program a method
@@ -16,12 +28,11 @@ and you can give a convincing answer.
 !split
 ===== The new official six-point course description =====
 
-After having completed INF5620 you
+After having completed MAT-MEK4270 you
 
-!bpop
  * can derive methods and implement them to solve frequently
    arising partial differential equations (PDEs) from physics and mechanics.
- * have a good understanding of finite difference and finite element
+ * have a good understanding of finite difference, finite element and variational
    methods and how they are applied in linear and nonlinear PDE problems.
  * can identify numerical artifacts and perform mathematical analysis
    to understand and cure non-physical effects.
@@ -32,38 +43,27 @@ After having completed INF5620 you
  * have experience with project hosting sites (GitHub),
    version control systems (Git), report writing (LaTeX),
    and Python scripting for performing reproducible computational science.
-!epop
 
 !split
 ===== More specific contents: finite difference methods =====
 
 !bblock
-   * ODEs
-   * the wave equation $u_{tt}=u_{xx}$ in 1D, 2D, 3D
-   * the diffusion equation $u_t=u_{xx}$ in 1D, 2D, 3D
+   * Simple ODEs
+   * Exponential decay $u_t = -a u(t)$ in time
+   * the wave equation $u_{tt}=\nabla^2 u$ in 1D, 2D, 3D
    * write your own software from scratch
    * understand how the methods work and why they fail
 !eblock
 
 !split
-===== More specific contents: finite element methods =====
+===== More specific contents: Variational methods (Galerkin) =====
 
 !bblock
    * stationary diffusion equations $u_{xx}=f$ in 1D
    * time-dependent diffusion and wave equations in 1D
-   * PDEs in 2D and 3D by use of the FEniCS software
+   * PDEs in 2D and 3D by use of the FEniCS and Shenfun softwares
    * perform hand-calculations, write your own software (1D)
    * understand how the methods work and why they fail
-!eblock
-
-!split
-===== More specific contents: nonlinear and advanced problems =====
-
-!bblock
- * Nonlinear PDEs
-   * Newton and Picard iteration methods, finite differences and elements
- * More advanced PDEs for fluid flow and elasticity
- * Parallel computing
 !eblock
 
 !split
@@ -99,15 +99,13 @@ This is the power of applied mathematics!
  * Our software platform: Python (sometimes combined with Cython,
    Fortran, C, C++)
  * Important Python packages: `numpy`, `scipy`, `matplotlib`,
-   `sympy`, `fenics`, `scitools`, ...
- * Suggested installation: Run "Ubuntu in a virtual machine": "http://hplgit.github.io/edu/accesspy/._accesspy_uio005.html"
- * Alternative: run a "Vagrant machine": "http://hplgit.github.io/edu/accesspy/._accesspy_uio007.html"
-
+   `sympy`, `fenics`, `shenfun`, ...
+ * Anaconda Python
 
 !split
 ===== Assumed/ideal background =====
 
- * INF1100: Python programming, solution of ODEs
+ * IN1900: Python programming, solution of ODEs
  * Some experience with finite difference methods
  * Some analytical and numerical knowledge of PDEs
  * Much experience with calculus and linear algebra
@@ -141,7 +139,7 @@ where $a>0$ is a constant.
 !enotice
 
 Everything we do is motivated by what we need as building blocks for
-solving PDEs!
+solving Partial Differential Equations (PDEs)!
 
 !split
 ===== What to learn in the start-up example; standard topics =====
@@ -182,6 +180,7 @@ solving PDEs!
    mesh (grid), mesh functions,
    stability, truncation error, consistency, and convergence
 
+# #ifdef NOTHERE
 !split
 ===== What to learn in the start-up example; generalizations =====
 
@@ -191,3 +190,5 @@ solving PDEs!
  * How to access professional packages for solving ODEs
  * How our model equations like $u'=-au$ arises in a wide range
    of phenomena in physics, biology, and finance
+
+# #endif
