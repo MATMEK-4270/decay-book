@@ -1,3 +1,5 @@
+[![Python application](https://github.com/MATMEK-4270/decay-book/actions/workflows/python-app.yml/badge.svg)](https://github.com/MATMEK-4270/decay-book/actions/workflows/python-app.yml)
+
 ## decay-book
 
 Resources for the book *Finite Difference Computing with Exponential
