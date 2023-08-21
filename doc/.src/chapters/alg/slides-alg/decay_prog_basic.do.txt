@@ -87,7 +87,7 @@ label{decay:py1}
 !split
 ===== Translation to Python function =====
 
-@@@CODE src-alg/decay_v1.py  fromto: from numpy import@u, t =
+@@@CODE src-alg/decay_v1.py  fromto: import numpy as np@u, t =
 
 Note about the `for` loop: `range(0, Nt, s)` generates all integers
 from `0` to `Nt` in steps of `s` (default 1), *but not including* `Nt` (!).
@@ -105,7 +105,7 @@ Python applies integer division: `1/2` is 0, while `1./2` or `1.0/2` or
 
 A safer `solver` function (`dt = float(dt)` - guarantee float):
 
-@@@CODE src-alg/decay_v2.py  fromto: from numpy import@def u_exact
+@@@CODE src-alg/decay_v2.py  fromto: import numpy as np@def u_exact
 
 
 !split
@@ -181,10 +181,10 @@ Terminal> ./decay_v1.py
 Basic syntax:
 
 !bc pycod
-from matplotlib.pyplot import *
+import matplotlib.pyplot as plt
 
-plot(t, u)
-show()
+plt.plot(t, u)
+plt.show()
 !ec
 
 Can (and should!) add labels on axes, title, legends.
@@ -194,13 +194,13 @@ Can (and should!) add labels on axes, title, legends.
 
 Python function for the exact solution $\uex(t)=Ie^{-at}$:
 
-@@@CODE src-alg/decay_v2.py fromto: def u_exact@from matplotlib.pyplot import
+@@@CODE src-alg/decay_v2.py fromto: def u_exact@import matplotlib.pyplot as plt
 
 Quick plotting:
 
 !bc pycod
 u_e = u_exact(t, I, a)
-plot(t, u, t, u_e)
+plt.plot(t, u, t, u_e)
 !ec
 
 Problem: $\uex(t)$ applies the same mesh as $u^n$ and
@@ -209,11 +209,11 @@ looks as a piecewise linear function.
 Remedy: Introduce a very fine mesh for $\uex$.
 
 !bc pycod
-t_e = linspace(0, T, 1001)      # fine mesh
+t_e = np.linspace(0, T, 1001)      # fine mesh
 u_e = u_exact(t_e, I, a)
 
-plot(t_e, u_e, 'b-',            # blue line for u_e
-     t,   u,   'r--o')          # red dashes w/circles
+plt.plot(t_e, u_e, 'b-',            # blue line for u_e
+         t,   u,   'r--o')          # red dashes w/circles
 !ec
 
 !split
@@ -354,7 +354,7 @@ Task: compute the numerical error $e^n = \uex(t_n) - u^n$
 
 Exact solution: $\uex(t)=Ie^{-at}$, implemented as
 
-@@@CODE src-alg/decay_v2.py fromto: def u_exact@from matplotlib.pyplot import
+@@@CODE src-alg/decay_v2.py fromto: def u_exact@import matplotlib.pyplot as plt
 
 Compute $e^n$ by
 
@@ -432,28 +432,28 @@ Python w/array arithmetics:
 
 !bc pycod
 e = u_exact(t) - u
-E = sqrt(dt*sum(e**2))
+E = np.sqrt(dt*np.sum(e**2))
 !ec
 
 !split
 ===== Comment on array vs scalar computation =====
 
-Scalar computing of `E = sqrt(dt*sum(e**2))`:
+Scalar computing of `E = np.sqrt(dt*np.sum(e**2))`:
 
 !bc pycod
 m = len(u)     # length of u array (alt: u.size)
-u_e = zeros(m)
+u_e = np.zeros(m)
 t = 0
 for i in range(m):
     u_e[i] = u_exact(t, a, I)
     t = t + dt
-e = zeros(m)
+e = np.zeros(m)
 for i in range(m):
     e[i] = u_e[i] - u[i]
 s = 0  # summation variable
 for i in range(m):
     s = s + e[i]**2
-error = sqrt(dt*s)
+error = np.sqrt(dt*s)
 !ec
 
 !bnotice Scalar computing

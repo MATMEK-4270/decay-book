@@ -10,6 +10,18 @@ FIGURE: [SIM135194_Simula_Hans_Petter_004-1024x681.jpg, width=600 frac=0.5]
  * "Memorial page" : "http://hpl-memorial.simula.no"
 
 !split
+
+===== "Myself" : "https://mikaem.github.io" =====
+
+FIGURE: [portrait_large.jpg, frac=0.2]
+
+  * Professor of mechanics (2019-)
+  * PhD in mathematical modelling of turbulent combustion
+  * Norwegian Defence Research Establishment (2007-2012)
+  * Computational Fluid Dynamics
+  * High Performance Computing
+
+!split
 ======= MAT-MEK4270 in a nutshell =======
 label{42700:about}
 
@@ -25,6 +37,7 @@ and visualize a solution! Somebody asks if the solution is right
 and you can give a convincing answer.
 !esummary
 
+# #ifdef NOTHERE
 !split
 ===== The new official six-point course description =====
 
@@ -44,24 +57,34 @@ After having completed MAT-MEK4270 you
    version control systems (Git), report writing (LaTeX),
    and Python scripting for performing reproducible computational science.
 
+# #endif
+
 !split
 ===== More specific contents: finite difference methods =====
 
 !bblock
    * Simple ODEs
    * Exponential decay $u_t = -a u(t)$ in time
+   * Helmholtz' equation $u_{tt} + \omega^2 u(t)=0$ (Vibration)
    * the wave equation $u_{tt}=\nabla^2 u$ in 1D, 2D, 3D
    * write your own software from scratch
    * understand how the methods work and why they fail
 !eblock
 
+ o "Langtangen, Finite Difference Computing with exponential decay": "https://link.springer.com/book/10.1007/978-3-319-29439-1" - Chapters 1 and 2.
+ o "Langtangen and Linge, Finite Difference Computing with PDEs" : "https://link.springer.com/book/10.1007/978-3-319-55456-3"  - Parts of chapters 1 and 2.
+
 !split
 ===== More specific contents: Variational methods (Galerkin) =====
 
 !bblock
-   * stationary diffusion equations $u_{xx}=f$ in 1D
-   * time-dependent diffusion and wave equations in 1D
-   * PDEs in 2D and 3D by use of the FEniCS and Shenfun softwares
+  * Approximating functions with global variational methods
+  * Approximating functions with finite element methods
+  * Approximating equations with global variational methods
+  * Approximating equations with finite element methods
+!eblock
+
+!bblock
    * perform hand-calculations, write your own software (1D)
    * understand how the methods work and why they fail
 !eblock
@@ -160,12 +183,10 @@ solving Partial Differential Equations (PDEs)!
    through nose tests in Python
  * How to structure code in terms of functions, classes, and modules
  * How to work with Python concepts such as arrays, lists, dictionaries,
-   lambda functions, functions in functions (closures), doctests,
-   unit tests, command-line interfaces, graphical user interfaces
+   lambda functions, functions in functions (closures),
+   unit tests, command-line interfaces
  * How to perform array computing and understand the difference from
-   scalar computing
- * How to conduct and automate large-scale numerical experiments
- * How to generate scientific reports
+   scalar computing. Vectorization.
 
 !split
 ===== What to learn in the start-up example; mathematical analysis =====

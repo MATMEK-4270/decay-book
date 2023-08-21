@@ -20,25 +20,25 @@ def derive_true_solution():
     # s is sym.Eq object u(t) == expression, we want u = expression,
     # so grab the right-hand side of the equality (Eq obj.)
     u = s.rhs
-    print u
+    print(u)
     # u contains C1, replace it with a symbol we can fit to
     # the initial condition
     C1 = sym.symbols('C1', real=True)
     u = u.subs('C1', C1)
-    print u
+    print(u)
     # Initial condition equation
     eq = u.subs(t, 0) - I
     s = sym.solve(eq, C1)  # solve eq wrt C1
-    print s
+    print(s)
     # s is a list s[0] = ...
     # Replace C1 in u by the solution
     u = u.subs(C1, s[0])
-    print 'u:', u
-    print sym.latex(u)  # latex formula for reports
+    print('u:', u)
+    print(sym.latex(u))  # latex formula for reports
 
     # Consistency check: u must fulfill ODE and initial condition
-    print 'ODE is fulfilled:', sym.simplify(ode(u, t, a, p))
-    print 'u(0)-I:', sym.simplify(u.subs(t, 0) - I)
+    print('ODE is fulfilled:', sym.simplify(ode(u, t, a, p)))
+    print('u(0)-I:', sym.simplify(u.subs(t, 0) - I))
 
     # Convert u expression to Python numerical function
     # (modules='numpy' allows numpy arrays as arguments,
@@ -105,9 +105,9 @@ def data_errors():
         title('t=%g' % t_)
         savefig('tmp_%g.png' % t_); savefig('tmp_%g.pdf' % t_)
     # Table of mean and standard deviation values
-    print 'time   mean   st.dev.'
+    print('time   mean   st.dev.')
     for t_ in t:
-        print '%3g    %.2f    %.3f' % (t_, u_mean[t_], u_std[t_])
+        print('%3g    %.2f    %.3f' % (t_, u_mean[t_], u_std[t_]))
 
 def solver(I, a, T, dt, theta):
     """Solve u'=-a*u, u(0)=I, for t in (0,T] with steps of dt."""
@@ -139,8 +139,8 @@ def discretization_errors():
             u, t = solver(I, a, T, dt, theta)
             u_e = model(t, I, a)
             error = u_e - u
-            print '%s: dt=%.2f, %d steps, max error: %.2E' % \
-                  (scheme, dt, len(u)-1, abs(error).max())
+            print('%s: dt=%.2f, %d steps, max error: %.2E' % \
+                  (scheme, dt, len(u)-1, abs(error).max()))
             # Plot log(error), but exclude error[0] since it is 0
             plot(t[1:], log(abs(error[1:])))
             legends.append(scheme)
@@ -178,8 +178,8 @@ def rounding_errors(I=1, a=1, T=4, dt=0.1):
         u, t = solver_decimal(I=I, a=a, T=T, dt=dt, theta=0.5)
         error = u_e - u
         error = array(error[1:], dtype=float)
-        print '%d digits, %d steps, max abs(error): %.2E' % \
-              (digits, len(u)-1, abs(error).max())
+        print('%d digits, %d steps, max abs(error): %.2E' % \
+              (digits, len(u)-1, abs(error).max()))
 
 if __name__ == '__main__':
     #model_errors()

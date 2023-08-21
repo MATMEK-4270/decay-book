@@ -4,11 +4,12 @@ label{decay:fdm}
 
  * The finite difference method is the simplest method
    for solving differential equations
+ * Satisfy the equations in discrete points, not continuously
  * Fast to learn, derive, and implement
  * A very useful tool to know, even if you aim at using the finite element
    or the finite volume method
 
-FIGURE: [fig-alg/fdm_u_uei.png, width=400 frac=0.7]
+FIGURE: [fig-alg/fdm_u_uei.png, width=400 frac=0.6]
 
 !split
 ===== Topics in the first intro to the finite difference method =====
@@ -24,6 +25,8 @@ FIGURE: [fig-alg/fdm_u_uei.png, width=400 frac=0.7]
  * How to derive an algorithm and implement it in Python
  * How to test the implementation
 !enotice
+
+# #ifdef NOTHERE
 
 !split
 ===== A basic model for exponential decay =====
@@ -47,6 +50,7 @@ simple as possible while learning computer tools.
 !enotice
 
 FIGURE: [fig-alg/FE1, width=600 frac=0.7]
+
 
 !split
 ===== The ODE model has a range of applications in many fields =====
@@ -85,7 +89,7 @@ u^{n+1} = \mbox{const} \cdot u^n, \quad n=0,1,\ldots N_t-1, \quad u^n=I
 !et
 (varies with discrete mesh points $t_n$)
 
-
+# #endif
 
 !split
 ===== The steps in the finite difference method =====
@@ -173,7 +177,7 @@ label{decay:FEdiff}
 \end{equation}
 !et
 
-FIGURE: [fig-alg/fd_forward, width=400 frac=0.8]
+FIGURE: [fig-alg/fd_forward, width=400 frac=0.7]
 
 !split
 ===== Step 3: Replacing derivatives by finite differences =====
@@ -219,7 +223,6 @@ Solve wrt $u^{n+1}$ to get the computational formula:
 !bt
 \begin{equation}
 u^{n+1} = u^n - a(t_{n+1} -t_n)u^n
-label{decay:FE}
 \end{equation}
 !et
 !enotice
@@ -227,14 +230,14 @@ label{decay:FE}
 !split
 ===== Let us apply the scheme by hand =====
 
-Assume constant time spacing: $\Delta t = t_{n+1}-t_n=\mbox{const}$
+Assume constant time spacing: $\Delta t = t_{n+1}-t_n=\mbox{const}$ such
+that $ u^{n+1} = u^n (1- a \Delta t)$
 
 !bt
 \begin{align*}
-u_0 &= I,\\
-u_1 & = u^0 - a\Delta t u^0 = I(1-a\Delta t),\\
-u_2 & = I(1-a\Delta t)^2,\\
-u^3 &= I(1-a\Delta t)^3,\\
+u^0 &= I,\\
+u^1 & = I(1-a\Delta t),\\
+u^2 & = I(1-a\Delta t)^2,\\
 &\vdots\\
 u^{N_t} &= I(1-a\Delta t)^{N_t}
 \end{align*}
@@ -256,7 +259,7 @@ label{decay:BEdiff}
 \end{equation}
 !et
 
-FIGURE: [fig-alg/fd_backward, width=400 frac=0.8]
+FIGURE: [fig-alg/fd_backward, width=400 frac=0.7]
 
 !split
 ===== The Backward Euler scheme =====
@@ -296,7 +299,8 @@ label{decay:schemes:CN}
 
 idx{Crank-Nicolson scheme}
 
-Idea 1: let the ODE hold at $t_{n+\half}$
+Idea 1: let the ODE hold at $t_{n+\half}$. With $N_t+1$ points, that is $N_t$ equations
+for $n=0, 1, \ldots N_t-1$
 
 !bt
 \[ u'(t_{n+\half}) = -au(t_{n+\half})\]
@@ -410,6 +414,7 @@ label{decay:th:u}
 # #endif
 !esummary
 
+# #ifdef NOTHERE
 !split
 ===== Test the understanding! =====
 
@@ -427,7 +432,7 @@ Physical quantities:
  * $T_s$: temperature of the surroundings
  * $T_0$: initial temperature
 
-
+# #endif
 
 !split
 ===== Compact operator notation for finite differences =====
